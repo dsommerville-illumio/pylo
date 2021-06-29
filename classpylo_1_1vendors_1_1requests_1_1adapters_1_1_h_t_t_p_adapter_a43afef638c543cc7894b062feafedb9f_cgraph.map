@@ -1,0 +1,12 @@
+<map id="pylo.vendors.requests.adapters.HTTPAdapter.get_connection" name="pylo.vendors.requests.adapters.HTTPAdapter.get_connection">
+<area shape="rect" id="node1" title=" " alt="" coords="5,123,208,164"/>
+<area shape="rect" id="node2" href="$namespacepylo_1_1vendors_1_1urllib3_1_1connectionpool.html#af4d52d0b023c02b61f560e321bd5e4ec" title=" " alt="" coords="256,5,543,47"/>
+<area shape="rect" id="node4" href="$namespacepylo_1_1vendors_1_1urllib3_1_1util_1_1url.html#aff38a6f36348325cbc05af94a3d3e938" title=" " alt="" coords="880,42,1104,69"/>
+<area shape="rect" id="node5" href="$namespacepylo_1_1vendors_1_1requests_1_1utils.html#a528d7f321264333a6b97310e06a8103f" title=" " alt="" coords="288,123,511,164"/>
+<area shape="rect" id="node6" href="$classpylo_1_1vendors_1_1requests_1_1adapters_1_1_h_t_t_p_adapter.html#ab26a8ad9a657ac567e00eb1e7b3fa053" title=" " alt="" coords="292,188,507,229"/>
+<area shape="rect" id="node10" href="$namespacepylo_1_1vendors_1_1requests_1_1utils.html#ab1afbd647c95d02068efa7558981db38" title=" " alt="" coords="293,253,505,295"/>
+<area shape="rect" id="node3" href="$namespacepylo_1_1vendors_1_1urllib3_1_1util_1_1url.html#ad162a1071c0c01d2e6604ca9ab631187" title=" " alt="" coords="601,17,822,43"/>
+<area shape="rect" id="node7" href="$namespacepylo_1_1vendors_1_1requests_1_1utils.html#a1cb6bbc832c9dfc6abd7f16c8cd11d81" title=" " alt="" coords="614,123,809,164"/>
+<area shape="rect" id="node8" href="$namespacepylo_1_1vendors_1_1urllib3_1_1poolmanager.html#ab9a7b44234e264814041464dfabdf70e" title=" " alt="" coords="591,188,832,229"/>
+<area shape="rect" id="node9" href="$classpylo_1_1vendors_1_1requests_1_1adapters_1_1_h_t_t_p_adapter.html#a7238c85cdc421e38d2ce5de9aeb00ebb" title=" " alt="" coords="610,253,813,295"/>
+</map>

@@ -135,14 +135,25 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">if</span> FilterCollections.workload_filters.get(name) <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            FilterCollections.workload_filters[name.lower()] = {}</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">if</span> FilterCollections.workload_filters[name.lower()].get(operator) <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">if</span> FilterCollections.workload_filters[name.lower()].<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(operator) <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Filter named &#39;{}&#39; with operator &#39;{}&#39; is already defined&quot;</span>.format(name, operator))</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        FilterCollections.workload_filters[name.lower()][operator.lower()] = new_filter</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
-</div><!-- fragment -->
+<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_1_1api_html_a39e3a758dc31451c235d7ecc0a065b05"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">pylo.vendors.requests.api.get</a></div><div class="ttdeci">def get(url, params=None, **kwargs)</div><div class="ttdef"><b>Definition:</b> api.py:64</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_query_1_1_filter_collections_a044def9877547bdb6dc48655188ce7f0_cgraph.png" border="0" usemap="#aclasspylo_1_1_query_1_1_filter_collections_a044def9877547bdb6dc48655188ce7f0_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_query_1_1_filter_collections_a044def9877547bdb6dc48655188ce7f0_cgraph" id="aclasspylo_1_1_query_1_1_filter_collections_a044def9877547bdb6dc48655188ce7f0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,208,47"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="256,13,444,39"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="492,13,705,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -174,7 +185,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 28 2021 13:28:24 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

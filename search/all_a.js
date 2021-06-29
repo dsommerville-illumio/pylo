@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['keys_5fold_261',['keys_old',['../classpylo_1_1tmp_1_1_i_d_translation_table.html#a28aa0e683515f6ae0c003ae46e33a8d9',1,'pylo::tmp::IDTranslationTable']]]
+  ['japanese_2791',['JAPANESE',['../classpylo_1_1vendors_1_1chardet_1_1enums_1_1_language_filter.html#ad991f75c856735ba3f04bc8b8411eba5',1,'pylo::vendors::chardet::enums::LanguageFilter']]],
+  ['japanesecontextanalysis_2792',['JapaneseContextAnalysis',['../classpylo_1_1vendors_1_1chardet_1_1jpcntx_1_1_japanese_context_analysis.html',1,'pylo::vendors::chardet::jpcntx']]],
+  ['jcal2jd_2793',['jcal2jd',['../namespacepylo_1_1vendors_1_1jdcal.html#ae926910ed9df9d99c675e59736f63bc9',1,'pylo::vendors::jdcal']]],
+  ['jd2gcal_2794',['jd2gcal',['../namespacepylo_1_1vendors_1_1jdcal.html#a6fa0f482da6bff5c3aeffc24600c8db4',1,'pylo::vendors::jdcal']]],
+  ['jd2jcal_2795',['jd2jcal',['../namespacepylo_1_1vendors_1_1jdcal.html#a279ab273da7c406a7e880d9349ac0f8b',1,'pylo::vendors::jdcal']]],
+  ['jdcal_2epy_2796',['jdcal.py',['../jdcal_8py.html',1,'']]],
+  ['jis_5fchar_5fto_5ffreq_5forder_2797',['JIS_CHAR_TO_FREQ_ORDER',['../namespacepylo_1_1vendors_1_1chardet_1_1jisfreq.html#af41ae5c551c196f5aff3d9e28b15345d',1,'pylo::vendors::chardet::jisfreq']]],
+  ['jis_5ftable_5fsize_2798',['JIS_TABLE_SIZE',['../namespacepylo_1_1vendors_1_1chardet_1_1jisfreq.html#ab7836194555a2f515edb21c818b7b767',1,'pylo::vendors::chardet::jisfreq']]],
+  ['jis_5ftypical_5fdistribution_5fratio_2799',['JIS_TYPICAL_DISTRIBUTION_RATIO',['../namespacepylo_1_1vendors_1_1chardet_1_1jisfreq.html#ad5aee05280aed8b7c46d8e5cd68d60c1',1,'pylo::vendors::chardet::jisfreq']]],
+  ['jisfreq_2epy_2800',['jisfreq.py',['../jisfreq_8py.html',1,'']]],
+  ['join_5flines_2801',['join_lines',['../classpylo_1_1vendors_1_1openpyxl_1_1chart_1_1pie__chart_1_1_projected_pie_chart.html#ab42881164182cbc6ca6512b280e12e9f',1,'pylo::vendors::openpyxl::chart::pie_chart::ProjectedPieChart']]],
+  ['joining_5ftypes_2802',['joining_types',['../namespacepylo_1_1vendors_1_1idna_1_1idnadata.html#aaf6af17f744c7630d8b2a7a317289258',1,'pylo::vendors::idna::idnadata']]],
+  ['jp2charcontext_2803',['jp2CharContext',['../namespacepylo_1_1vendors_1_1chardet_1_1jpcntx.html#ae67e2afc94b104e13c8350d42c257ad5',1,'pylo::vendors::chardet::jpcntx']]],
+  ['jpcntx_2epy_2804',['jpcntx.py',['../jpcntx_8py.html',1,'']]],
+  ['json_2805',['json',['../classpylo_1_1vendors_1_1requests_1_1models_1_1_response.html#a07fedcdf899f34a9624058ac00e6d5d4',1,'pylo.vendors.requests.models.Response.json()'],['../classpylo_1_1vendors_1_1requests_1_1models_1_1_request.html#ab802c0be605c57345389b1b7f5cf808b',1,'pylo.vendors.requests.models.Request.json()']]],
+  ['just_5fdistrib_2806',['just_distrib',['../classpylo_1_1vendors_1_1xlsxwriter_1_1format_1_1_format.html#a15c67d9178346e01b253ebcbaecfc53c',1,'pylo::vendors::xlsxwriter::format::Format']]],
+  ['justifylastline_2807',['justifyLastLine',['../classpylo_1_1vendors_1_1openpyxl_1_1styles_1_1alignment_1_1_alignment.html#ae6c176689bafcd4ce9dc7655c8dbd657',1,'pylo::vendors::openpyxl::styles::alignment::Alignment']]],
+  ['justlastx_2808',['justLastX',['../classpylo_1_1vendors_1_1openpyxl_1_1comments_1_1comment__sheet_1_1_properties.html#a7eb97ec3c87491dfa1138057e690390c',1,'pylo::vendors::openpyxl::comments::comment_sheet::Properties']]]
 ];

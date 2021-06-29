@@ -134,7 +134,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l01743"></a><span class="lineno"> 1743</span>&#160;                        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find rule with HREF &#39;{}&#39; in Organization&quot;</span>.format(rule_href), rule_data)</div>
 <div class="line"><a name="l01744"></a><span class="lineno"> 1744</span>&#160; </div>
 <div class="line"><a name="l01745"></a><span class="lineno"> 1745</span>&#160;                    self.rules[rule_found.href] = rule_found</div>
-<div class="line"><a name="l01746"></a><span class="lineno"> 1746</span>&#160;                    ruleset_found = self.rules_per_ruleset.get(rule_found.owner)</div>
+<div class="line"><a name="l01746"></a><span class="lineno"> 1746</span>&#160;                    ruleset_found = self.rules_per_ruleset.<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(rule_found.owner)</div>
 <div class="line"><a name="l01747"></a><span class="lineno"> 1747</span>&#160;                    <span class="keywordflow">if</span> ruleset_found <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l01748"></a><span class="lineno"> 1748</span>&#160;                        <span class="comment">#print(&quot;new ruleset&quot;)</span></div>
 <div class="line"><a name="l01749"></a><span class="lineno"> 1749</span>&#160;                        self.rules_per_ruleset[rule_found.owner] = {rule_found.href: rule_found}</div>
@@ -145,6 +145,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l01754"></a><span class="lineno"> 1754</span>&#160; </div>
 <div class="line"><a name="l01755"></a><span class="lineno"> 1755</span>&#160;    <span class="keyword">def </span>new_RuleSearchQuery(self):</div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
+<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_1_1api_html_a39e3a758dc31451c235d7ecc0a065b05"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">pylo.vendors.requests.api.get</a></div><div class="ttdeci">def get(url, params=None, **kwargs)</div><div class="ttdef"><b>Definition:</b> api.py:64</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -205,7 +206,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 28 2021 13:28:24 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

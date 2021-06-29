@@ -177,8 +177,19 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">def </span>find_by_href(self, href: str) -&gt; <span class="stringliteral">&#39;pylo.IPList&#39;</span>:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> self.itemsByHRef.get(href)</div>
-</div><!-- fragment -->
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> self.itemsByHRef.<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(href)</div>
+<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_1_1api_html_a39e3a758dc31451c235d7ecc0a065b05"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">pylo.vendors.requests.api.get</a></div><div class="ttdeci">def get(url, params=None, **kwargs)</div><div class="ttdef"><b>Definition:</b> api.py:64</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_i_p_list_1_1_i_p_list_store_aa00f0d0b0b94b66e66e073ec037d6ac5_cgraph.png" border="0" usemap="#aclasspylo_1_1_i_p_list_1_1_i_p_list_store_aa00f0d0b0b94b66e66e073ec037d6ac5_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_i_p_list_1_1_i_p_list_store_aa00f0d0b0b94b66e66e073ec037d6ac5_cgraph" id="aclasspylo_1_1_i_p_list_1_1_i_p_list_store_aa00f0d0b0b94b66e66e073ec037d6ac5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,180,47"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="228,13,416,39"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="464,13,677,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a7fe65150b2682cc0679d98f4c4db9a88"></a>
@@ -209,7 +220,7 @@ Public Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">def </span>load_iplists_from_json(self, json_list):</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">for</span> json_item <span class="keywordflow">in</span> json_list:</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;name&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> json_item <span class="keywordflow">or</span> <span class="stringliteral">&#39;href&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> json_item:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Cannot find &#39;value&#39;/name or href for iplist in JSON:\n&quot;</span> + nice_json(json_item))</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Cannot find &#39;value&#39;/name or href for iplist in JSON:\n&quot;</span> + <a class="code" href="namespacepylo_1_1_helpers_1_1functions.html#a9c2f28527c4cf97809e2fce65ca2f594">nice_json</a>(json_item))</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            new_iplist_name = json_item[<span class="stringliteral">&#39;name&#39;</span>]</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            new_iplist_href = json_item[<span class="stringliteral">&#39;href&#39;</span>]</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            new_iplist_desc = json_item.get(<span class="stringliteral">&#39;description&#39;</span>)</div>
@@ -227,7 +238,17 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_i_p_list_1_1_i_p_list_html"><div class="ttname"><a href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList.IPList</a></div><div class="ttdef"><b>Definition:</b> IPList.py:8</div></div>
-</div><!-- fragment -->
+<div class="ttc" id="anamespacepylo_1_1_helpers_1_1functions_html_a9c2f28527c4cf97809e2fce65ca2f594"><div class="ttname"><a href="namespacepylo_1_1_helpers_1_1functions.html#a9c2f28527c4cf97809e2fce65ca2f594">pylo.Helpers.functions.nice_json</a></div><div class="ttdeci">def nice_json(json_obj)</div><div class="ttdef"><b>Definition:</b> functions.py:7</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_i_p_list_1_1_i_p_list_store_a7fe65150b2682cc0679d98f4c4db9a88_cgraph.png" border="0" usemap="#aclasspylo_1_1_i_p_list_1_1_i_p_list_store_a7fe65150b2682cc0679d98f4c4db9a88_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_i_p_list_1_1_i_p_list_store_a7fe65150b2682cc0679d98f4c4db9a88_cgraph" id="aclasspylo_1_1_i_p_list_1_1_i_p_list_store_a7fe65150b2682cc0679d98f4c4db9a88_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,184,47"/>
+<area shape="rect" href="namespacepylo_1_1_helpers_1_1functions.html#a9c2f28527c4cf97809e2fce65ca2f594" title=" " alt="" coords="232,13,439,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -279,7 +300,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 28 2021 13:28:24 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

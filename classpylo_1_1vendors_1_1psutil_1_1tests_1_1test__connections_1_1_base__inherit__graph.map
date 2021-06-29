@@ -1,0 +1,9 @@
+<map id="pylo.vendors.psutil.tests.test_connections.Base" name="pylo.vendors.psutil.tests.test_connections.Base">
+<area shape="rect" id="node1" title=" " alt="" coords="111,136,296,177"/>
+<area shape="rect" id="node3" href="$classpylo_1_1vendors_1_1psutil_1_1tests_1_1test__connections_1_1_test_base.html" title=" " alt="" coords="388,5,573,47"/>
+<area shape="rect" id="node4" href="$classpylo_1_1vendors_1_1psutil_1_1tests_1_1test__connections_1_1_test_connected_socket.html" title=" " alt="" coords="365,71,596,112"/>
+<area shape="rect" id="node5" href="$classpylo_1_1vendors_1_1psutil_1_1tests_1_1test__connections_1_1_test_filters.html" title=" " alt="" coords="388,136,573,177"/>
+<area shape="rect" id="node6" href="$classpylo_1_1vendors_1_1psutil_1_1tests_1_1test__connections_1_1_test_system_wide_connections.html" title=" " alt="" coords="344,201,617,243"/>
+<area shape="rect" id="node7" href="$classpylo_1_1vendors_1_1psutil_1_1tests_1_1test__connections_1_1_test_unconnected_sockets.html" title=" " alt="" coords="354,267,607,308"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,143,63,170"/>
+</map>

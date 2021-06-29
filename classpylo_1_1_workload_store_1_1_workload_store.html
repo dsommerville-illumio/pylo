@@ -312,7 +312,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keyword">def </span>find_by_href_or_create_tmp(self, href: str, tmp_wkl_name: str):</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        find_object = self.itemsByHRef.get(href)</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        find_object = self.itemsByHRef.<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(href)</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            <span class="keywordflow">return</span> find_object</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
@@ -327,7 +327,18 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_workload_store_1_1_workload_html"><div class="ttname"><a href="classpylo_1_1_workload_store_1_1_workload.html">pylo.WorkloadStore.Workload</a></div><div class="ttdef"><b>Definition:</b> WorkloadStore.py:17</div></div>
-</div><!-- fragment -->
+<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_1_1api_html_a39e3a758dc31451c235d7ecc0a065b05"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">pylo.vendors.requests.api.get</a></div><div class="ttdeci">def get(url, params=None, **kwargs)</div><div class="ttdef"><b>Definition:</b> api.py:64</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_workload_store_1_1_workload_store_a139ce5d77df3a7475332d82fe8a7c5d7_cgraph.png" border="0" usemap="#aclasspylo_1_1_workload_store_1_1_workload_store_a139ce5d77df3a7475332d82fe8a7c5d7_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_workload_store_1_1_workload_store_a139ce5d77df3a7475332d82fe8a7c5d7_cgraph" id="aclasspylo_1_1_workload_store_1_1_workload_store_a139ce5d77df3a7475332d82fe8a7c5d7_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,220,47"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="268,13,456,39"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="504,13,717,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a1f85673f4444303f4aaa642c50df0cf7"></a>
@@ -357,14 +368,24 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keyword">def </span>find_by_href_or_die(self, href: str):</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        find_object = self.itemsByHRef.get(href)</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        find_object = self.itemsByHRef.<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(href)</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Workload with HREF &#39;%s&#39; was not found&quot;</span> % href)</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">return</span> find_object</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
-</div><!-- fragment -->
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_workload_store_1_1_workload_store_a1f85673f4444303f4aaa642c50df0cf7_cgraph.png" border="0" usemap="#aclasspylo_1_1_workload_store_1_1_workload_store_a1f85673f4444303f4aaa642c50df0cf7_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_workload_store_1_1_workload_store_a1f85673f4444303f4aaa642c50df0cf7_cgraph" id="aclasspylo_1_1_workload_store_1_1_workload_store_a1f85673f4444303f4aaa642c50df0cf7_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,196,47"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="244,13,432,39"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="480,13,693,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a9478ec98efdd70d5b6b99a89be961ed9"></a>
@@ -393,11 +414,21 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keyword">def </span>find_workload_matching_name(self, name: str):</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        found = self.itemsByName.get(name)</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        found = self.itemsByName.<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(name)</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keywordflow">return</span> found</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
-</div><!-- fragment -->
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_workload_store_1_1_workload_store_a9478ec98efdd70d5b6b99a89be961ed9_cgraph.png" border="0" usemap="#aclasspylo_1_1_workload_store_1_1_workload_store_a9478ec98efdd70d5b6b99a89be961ed9_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_workload_store_1_1_workload_store_a9478ec98efdd70d5b6b99a89be961ed9_cgraph" id="aclasspylo_1_1_workload_store_1_1_workload_store_a9478ec98efdd70d5b6b99a89be961ed9_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,240,47"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="288,13,476,39"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="524,13,737,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a87de63c9163cd3254d2a8e11d7dcf1a5"></a>
@@ -563,7 +594,7 @@ Public Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keyword">def </span>load_workloads_from_json(self, json_list):</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        <span class="keywordflow">for</span> json_item <span class="keywordflow">in</span> json_list:</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;name&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> json_item <span class="keywordflow">or</span> <span class="stringliteral">&#39;href&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> json_item:</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find &#39;value&#39;/name or href for Workload in JSON:\n&quot;</span> + nice_json(json_item))</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find &#39;value&#39;/name or href for Workload in JSON:\n&quot;</span> + <a class="code" href="namespacepylo_1_1_helpers_1_1functions.html#a9c2f28527c4cf97809e2fce65ca2f594">nice_json</a>(json_item))</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            new_item_name = json_item[<span class="stringliteral">&#39;name&#39;</span>]</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            new_item_href = json_item[<span class="stringliteral">&#39;href&#39;</span>]</div>
@@ -572,7 +603,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="comment"># (eventually) by someone. In such a case, you need to use hostname instead</span></div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="keywordflow">if</span> new_item_name <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                <span class="keywordflow">if</span> <span class="stringliteral">&#39;hostname&#39;</span> <span class="keywordflow">not</span> <span class="keywordflow">in</span> json_item:</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find &#39;value&#39;/hostname in JSON:\n&quot;</span> + nice_json(json_item))</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find &#39;value&#39;/hostname in JSON:\n&quot;</span> + <a class="code" href="namespacepylo_1_1_helpers_1_1functions.html#a9c2f28527c4cf97809e2fce65ca2f594">nice_json</a>(json_item))</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                new_item_name = json_item[<span class="stringliteral">&#39;hostname&#39;</span>]</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            new_item = <a class="code" href="classpylo_1_1_workload_store_1_1_workload.html">pylo.Workload</a>(new_item_name, new_item_href, self)</div>
@@ -594,7 +625,17 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            log.debug(<span class="stringliteral">&quot;Found Workload &#39;%s&#39; with href &#39;%s&#39;&quot;</span>, new_item_name, new_item_href)</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
-</div><!-- fragment -->
+<div class="ttc" id="anamespacepylo_1_1_helpers_1_1functions_html_a9c2f28527c4cf97809e2fce65ca2f594"><div class="ttname"><a href="namespacepylo_1_1_helpers_1_1functions.html#a9c2f28527c4cf97809e2fce65ca2f594">pylo.Helpers.functions.nice_json</a></div><div class="ttdeci">def nice_json(json_obj)</div><div class="ttdef"><b>Definition:</b> functions.py:7</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_workload_store_1_1_workload_store_a24b8e7b01c2d7b0be4caa4eec752a0bc_cgraph.png" border="0" usemap="#aclasspylo_1_1_workload_store_1_1_workload_store_a24b8e7b01c2d7b0be4caa4eec752a0bc_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_workload_store_1_1_workload_store_a24b8e7b01c2d7b0be4caa4eec752a0bc_cgraph" id="aclasspylo_1_1_workload_store_1_1_workload_store_a24b8e7b01c2d7b0be4caa4eec752a0bc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,216,47"/>
+<area shape="rect" href="namespacepylo_1_1_helpers_1_1functions.html#a9c2f28527c4cf97809e2fce65ca2f594" title=" " alt="" coords="264,13,471,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -646,7 +687,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 28 2021 13:28:24 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:09:59 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

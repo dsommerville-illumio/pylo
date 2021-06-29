@@ -1,0 +1,30 @@
+<map id="pylo.vendors.xlsxwriter.worksheet.Worksheet.add_table" name="pylo.vendors.xlsxwriter.worksheet.Worksheet.add_table">
+<area shape="rect" id="node1" title=" " alt="" coords="5,528,223,569"/>
+<area shape="rect" id="node2" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1worksheet_1_1_worksheet.html#afda677710ba1d344b6412ff90390979e" title=" " alt="" coords="300,5,517,47"/>
+<area shape="rect" id="node3" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1worksheet_1_1_worksheet.html#adb175907647cad35e3e6657822ee6001" title=" " alt="" coords="287,71,530,112"/>
+<area shape="rect" id="node4" href="$classpylo_1_1vendors_1_1openpyxl_1_1chart_1_1__chart_1_1_chart_base.html#a7853765ce750d7eeedf3cb57174ed116" title=" " alt="" coords="317,136,500,177"/>
+<area shape="rect" id="node5" href="$classpylo_1_1vendors_1_1openpyxl_1_1drawing_1_1spreadsheet__drawing_1_1_spreadsheet_drawing.html#ab494e58195369b428f3356e1f1df4f98" title=" " alt="" coords="274,201,543,243"/>
+<area shape="rect" id="node6" href="$classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1table_1_1_table.html#ab62593f0a03b09b2715336eb453a65e5" title=" " alt="" coords="287,267,531,308"/>
+<area shape="rect" id="node7" href="$classpylo_1_1vendors_1_1openpyxl_1_1pivot_1_1cache_1_1_cache_definition.html#aa06bd0702b549981835fcda4e5578ea3" title=" " alt="" coords="299,332,518,373"/>
+<area shape="rect" id="node8" href="$classpylo_1_1vendors_1_1openpyxl_1_1pivot_1_1record_1_1_record_list.html#a2ee35c4ae830fe3f85caea8725772b12" title=" " alt="" coords="299,397,519,439"/>
+<area shape="rect" id="node9" href="$classpylo_1_1vendors_1_1openpyxl_1_1pivot_1_1table_1_1_table_definition.html#a654b09b708cf3453a3f256831d74d248" title=" " alt="" coords="303,463,515,504"/>
+<area shape="rect" id="node10" href="$classpylo_1_1vendors_1_1openpyxl_1_1packaging_1_1manifest_1_1_manifest.html#adbb6ec6c29c951d04275297dfe5a014a" title=" " alt="" coords="276,528,541,569"/>
+<area shape="rect" id="node11" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1worksheet_1_1_worksheet.html#ac1f41d11c012f5552548fda48f5f5020" title=" " alt="" coords="300,593,517,635"/>
+<area shape="rect" id="node12" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1vml_1_1_vml.html#abc07aee318c149a6ac79fec0386b17b9" title=" " alt="" coords="319,659,498,700"/>
+<area shape="rect" id="node13" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1worksheet_1_1_worksheet.html#a2c992d57392404170ac95c06d606e06a" title=" " alt="" coords="300,724,517,765"/>
+<area shape="rect" id="node14" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1worksheet_1_1_worksheet.html#a91415f7a7e0f81546b9f7feefca85841" title=" " alt="" coords="300,789,517,831"/>
+<area shape="rect" id="node15" href="$namespacepylo_1_1vendors_1_1xlsxwriter_1_1compatibility.html#a869d06b90594d18c71f4a01cd29b174f" title=" " alt="" coords="279,855,538,896"/>
+<area shape="rect" id="node16" href="$classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1worksheet_1_1_worksheet.html#a00621ecac6937b775a688967299d8f62" title=" " alt="" coords="271,920,547,961"/>
+<area shape="rect" id="node17" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a9c1cc7f204037c0c6185a713f0be2876" title=" " alt="" coords="1083,1062,1273,1089"/>
+<area shape="rect" id="node26" href="$namespacepylo_1_1vendors_1_1xlsxwriter_1_1utility.html#abd16fd9f2602f5b0d2c5dc9a0e2970b0" title=" " alt="" coords="311,1037,507,1079"/>
+<area shape="rect" id="node18" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a6ab7870734591d40bc515f576ff9add2" title=" " alt="" coords="1321,1025,1495,1067"/>
+<area shape="rect" id="node19" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a540755638c6101ecfe7b330c72d2d48b" title=" " alt="" coords="1543,1025,1757,1067"/>
+<area shape="rect" id="node20" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a1b6701a4c3d08e5d5ff725eb66b771fb" title=" " alt="" coords="1805,1055,1993,1096"/>
+<area shape="rect" id="node21" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a2872511fa2c332122f3d918324641bab" title=" " alt="" coords="2041,1025,2229,1067"/>
+<area shape="rect" id="node22" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a4fd68be4c24e3f24d20ccd3649f3afd2" title=" " alt="" coords="2277,1037,2468,1063"/>
+<area shape="rect" id="node23" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a7d1bd5fb25bc712b3b6007b6712abc53" title=" " alt="" coords="2516,1066,2743,1093"/>
+<area shape="rect" id="node24" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a8c796221ac22c8982342c7919fe2d374" title=" " alt="" coords="2791,1025,2992,1067"/>
+<area shape="rect" id="node25" href="$namespacepylo_1_1vendors_1_1psutil_1_1__compat.html#af083ba700b371ec18dbf021096f7f488" title=" " alt="" coords="2826,1091,2957,1132"/>
+<area shape="rect" id="node27" href="$namespacepylo_1_1vendors_1_1xlsxwriter_1_1utility.html#a8950460a8f7135cae448f621cd748552" title=" " alt="" coords="595,1088,791,1129"/>
+<area shape="rect" id="node28" href="$namespacepylo_1_1vendors_1_1xlsxwriter_1_1utility.html#a7ad6a3b465b603f976d99eda9bda9826" title=" " alt="" coords="839,1139,1035,1180"/>
+</map>

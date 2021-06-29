@@ -262,12 +262,23 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">def </span>remove_reference(self, ref: <span class="stringliteral">&#39;pylo.Referencer&#39;</span>):</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        index = self._references.get(ref)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        index = self._references.<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(ref)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">if</span> index <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;Tried to unreference an object which is not actually referenced&#39;</span>)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        self._references.pop(ref)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-</div><!-- fragment -->
+<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_1_1api_html_a39e3a758dc31451c235d7ecc0a065b05"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">pylo.vendors.requests.api.get</a></div><div class="ttdeci">def get(url, params=None, **kwargs)</div><div class="ttdef"><b>Definition:</b> api.py:64</div></div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_reference_tracker_1_1_reference_tracker_ae3f3a71b10cd8e448d14ca7b6cbf37a3_cgraph.png" border="0" usemap="#aclasspylo_1_1_reference_tracker_1_1_reference_tracker_ae3f3a71b10cd8e448d14ca7b6cbf37a3_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_reference_tracker_1_1_reference_tracker_ae3f3a71b10cd8e448d14ca7b6cbf37a3_cgraph" id="aclasspylo_1_1_reference_tracker_1_1_reference_tracker_ae3f3a71b10cd8e448d14ca7b6cbf37a3_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,219,47"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="267,13,455,39"/>
+<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="503,13,716,39"/>
+</map>
+</div>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -276,7 +287,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 28 2021 13:28:24 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
