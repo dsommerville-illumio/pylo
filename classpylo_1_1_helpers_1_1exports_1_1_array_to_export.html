@@ -128,10 +128,9 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        index = 0</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">for</span> header_name <span class="keywordflow">in</span> headers:</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            self._headers_name_to_index[header_name] = index</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            self._headers_index_to_name.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(header_name)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            self._headers_index_to_name.append(header_name)</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            index += 1</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_html_a4cf24c158d1a17bc273aa6edfd133d7f"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">pylo.vendors.requests.append</a></div><div class="ttdeci">append</div><div class="ttdef"><b>Definition:</b> __init__.py:137</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -164,7 +163,7 @@ Public Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">def </span>add_line_from_list(self, line: list):</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> len(line) != self._columns_count:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;line length ({}) does not match the number of columns ({})&quot;</span>.format(len(line), self._columns_count))</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        self._lines.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(line)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        self._lines.append(line)</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 </div><!-- fragment -->
@@ -243,7 +242,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">for</span> header <span class="keywordflow">in</span> self._headers:</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            new_line.append(record.get(header))</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        self._lines.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(new_line)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        self._lines.append(new_line)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 </div><!-- fragment -->
@@ -421,7 +420,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:23:50 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

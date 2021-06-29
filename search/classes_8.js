@@ -1,27 +1,4 @@
 var searchData=
 [
-  ['headerfooter_6973',['HeaderFooter',['../classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1header__footer_1_1_header_footer.html',1,'pylo::vendors::openpyxl::worksheet::header_footer']]],
-  ['headerfooteritem_6974',['HeaderFooterItem',['../classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1header__footer_1_1_header_footer_item.html',1,'pylo::vendors::openpyxl::worksheet::header_footer']]],
-  ['headerparsingerror_6975',['HeaderParsingError',['../classpylo_1_1vendors_1_1urllib3_1_1exceptions_1_1_header_parsing_error.html',1,'pylo::vendors::urllib3::exceptions']]],
-  ['hebrewprober_6976',['HebrewProber',['../classpylo_1_1vendors_1_1chardet_1_1hebrewprober_1_1_hebrew_prober.html',1,'pylo::vendors::chardet::hebrewprober']]],
-  ['helpertestcase_6977',['HelperTestCase',['../classpylo_1_1vendors_1_1et__xmlfile_1_1tests_1_1common__imports_1_1_helper_test_case.html',1,'pylo::vendors::et_xmlfile::tests::common_imports']]],
-  ['hexbinary_6978',['HexBinary',['../classpylo_1_1vendors_1_1openpyxl_1_1descriptors_1_1excel_1_1_hex_binary.html',1,'pylo::vendors::openpyxl::descriptors::excel']]],
-  ['hierarchyusage_6979',['HierarchyUsage',['../classpylo_1_1vendors_1_1openpyxl_1_1pivot_1_1table_1_1_hierarchy_usage.html',1,'pylo::vendors::openpyxl::pivot::table']]],
-  ['hostchangederror_6980',['HostChangedError',['../classpylo_1_1vendors_1_1urllib3_1_1exceptions_1_1_host_changed_error.html',1,'pylo::vendors::urllib3::exceptions']]],
-  ['hslcolor_6981',['HSLColor',['../classpylo_1_1vendors_1_1openpyxl_1_1drawing_1_1colors_1_1_h_s_l_color.html',1,'pylo::vendors::openpyxl::drawing::colors']]],
-  ['hsleffect_6982',['HSLEffect',['../classpylo_1_1vendors_1_1openpyxl_1_1drawing_1_1effect_1_1_h_s_l_effect.html',1,'pylo::vendors::openpyxl::drawing::effect']]],
-  ['httpadapter_6983',['HTTPAdapter',['../classpylo_1_1vendors_1_1requests_1_1adapters_1_1_h_t_t_p_adapter.html',1,'pylo::vendors::requests::adapters']]],
-  ['httpbasicauth_6984',['HTTPBasicAuth',['../classpylo_1_1vendors_1_1requests_1_1auth_1_1_h_t_t_p_basic_auth.html',1,'pylo::vendors::requests::auth']]],
-  ['httpconnection_6985',['HTTPConnection',['../classpylo_1_1vendors_1_1urllib3_1_1connection_1_1_h_t_t_p_connection.html',1,'pylo::vendors::urllib3::connection']]],
-  ['httpconnectionpool_6986',['HTTPConnectionPool',['../classpylo_1_1vendors_1_1urllib3_1_1connectionpool_1_1_h_t_t_p_connection_pool.html',1,'pylo::vendors::urllib3::connectionpool']]],
-  ['httpdigestauth_6987',['HTTPDigestAuth',['../classpylo_1_1vendors_1_1requests_1_1auth_1_1_h_t_t_p_digest_auth.html',1,'pylo::vendors::requests::auth']]],
-  ['httperror_6988',['HTTPError',['../classpylo_1_1vendors_1_1requests_1_1exceptions_1_1_h_t_t_p_error.html',1,'pylo.vendors.requests.exceptions.HTTPError'],['../classpylo_1_1vendors_1_1urllib3_1_1exceptions_1_1_h_t_t_p_error.html',1,'pylo.vendors.urllib3.exceptions.HTTPError']]],
-  ['httpheaderdict_6989',['HTTPHeaderDict',['../classpylo_1_1vendors_1_1urllib3_1_1__collections_1_1_h_t_t_p_header_dict.html',1,'pylo::vendors::urllib3::_collections']]],
-  ['httpproxyauth_6990',['HTTPProxyAuth',['../classpylo_1_1vendors_1_1requests_1_1auth_1_1_h_t_t_p_proxy_auth.html',1,'pylo::vendors::requests::auth']]],
-  ['httpresponse_6991',['HTTPResponse',['../classpylo_1_1vendors_1_1urllib3_1_1response_1_1_h_t_t_p_response.html',1,'pylo::vendors::urllib3::response']]],
-  ['httpsconnection_6992',['HTTPSConnection',['../classpylo_1_1vendors_1_1urllib3_1_1connection_1_1_h_t_t_p_s_connection.html',1,'pylo::vendors::urllib3::connection']]],
-  ['httpsconnectionpool_6993',['HTTPSConnectionPool',['../classpylo_1_1vendors_1_1urllib3_1_1connectionpool_1_1_h_t_t_p_s_connection_pool.html',1,'pylo::vendors::urllib3::connectionpool']]],
-  ['httpwarning_6994',['HTTPWarning',['../classpylo_1_1vendors_1_1urllib3_1_1exceptions_1_1_h_t_t_p_warning.html',1,'pylo::vendors::urllib3::exceptions']]],
-  ['hyperlink_6995',['Hyperlink',['../classpylo_1_1vendors_1_1openpyxl_1_1drawing_1_1text_1_1_hyperlink.html',1,'pylo.vendors.openpyxl.drawing.text.Hyperlink'],['../classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1hyperlink_1_1_hyperlink.html',1,'pylo.vendors.openpyxl.worksheet.hyperlink.Hyperlink']]],
-  ['hyperlinklist_6996',['HyperlinkList',['../classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1hyperlink_1_1_hyperlink_list.html',1,'pylo::vendors::openpyxl::worksheet::hyperlink']]]
+  ['organization_575',['Organization',['../classpylo_1_1_organization_1_1_organization.html',1,'pylo::Organization']]]
 ];

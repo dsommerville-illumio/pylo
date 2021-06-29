@@ -380,21 +380,10 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        <span class="keyword">def </span>get_error_by_href(self, href: str) -&gt; Union[str, <span class="keywordtype">None</span>]:</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;            <span class="keywordflow">return</span> self._errors.<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(href)</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;            <span class="keywordflow">return</span> self._errors.get(href)</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; </div>
-<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_1_1api_html_a39e3a758dc31451c235d7ecc0a065b05"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">pylo.vendors.requests.api.get</a></div><div class="ttdeci">def get(url, params=None, **kwargs)</div><div class="ttdef"><b>Definition:</b> api.py:64</div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker_af8c6089c88049768e06dbd1fddd9cfa8_cgraph.png" border="0" usemap="#aclasspylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker_af8c6089c88049768e06dbd1fddd9cfa8_cgraph" alt=""/></div>
-<map name="aclasspylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker_af8c6089c88049768e06dbd1fddd9cfa8_cgraph" id="aclasspylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker_af8c6089c88049768e06dbd1fddd9cfa8_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,221,61"/>
-<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="269,20,457,47"/>
-<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="505,20,719,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8169d2d085a1b712dcf4cd322840f5c3"></a>
@@ -423,22 +412,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keyword">def </span>get_error_by_wlk(self, wkl: <span class="stringliteral">&#39;pylo.Workload&#39;</span>) -&gt; Union[str, <span class="keywordtype">None</span>]:</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            found = self._errors.<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(wkl.href, pylo.objectNotFound)</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            found = self._errors.get(wkl.href, pylo.objectNotFound)</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            <span class="keywordflow">if</span> found <span class="keywordflow">is</span> pylo.objectNotFound:</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;            <span class="keywordflow">return</span> found</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker_a8169d2d085a1b712dcf4cd322840f5c3_cgraph.png" border="0" usemap="#aclasspylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker_a8169d2d085a1b712dcf4cd322840f5c3_cgraph" alt=""/></div>
-<map name="aclasspylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker_a8169d2d085a1b712dcf4cd322840f5c3_cgraph" id="aclasspylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker_a8169d2d085a1b712dcf4cd322840f5c3_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,221,61"/>
-<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="269,20,457,47"/>
-<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="505,20,719,47"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -462,7 +441,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:23:50 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

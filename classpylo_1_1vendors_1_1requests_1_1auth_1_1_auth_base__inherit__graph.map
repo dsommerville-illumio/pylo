@@ -1,7 +1,0 @@
-<map id="pylo.vendors.requests.auth.AuthBase" name="pylo.vendors.requests.auth.AuthBase">
-<area shape="rect" id="node1" title=" " alt="" coords="111,39,289,80"/>
-<area shape="rect" id="node3" href="$classpylo_1_1vendors_1_1requests_1_1auth_1_1_h_t_t_p_basic_auth.html" title=" " alt="" coords="337,5,516,47"/>
-<area shape="rect" id="node5" href="$classpylo_1_1vendors_1_1requests_1_1auth_1_1_h_t_t_p_digest_auth.html" title=" " alt="" coords="337,71,516,112"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,46,63,73"/>
-<area shape="rect" id="node4" href="$classpylo_1_1vendors_1_1requests_1_1auth_1_1_h_t_t_p_proxy_auth.html" title=" " alt="" coords="564,5,743,47"/>
-</map>

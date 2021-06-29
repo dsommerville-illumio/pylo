@@ -1,46 +1,8 @@
 <map id="pylo.APIConnector.APIConnector.objects_service_delete" name="pylo.APIConnector.APIConnector.objects_service_delete">
-<area shape="rect" id="node1" title=" " alt="" coords="5,592,264,633"/>
-<area shape="rect" id="node2" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a513ec0f0af3a232279115696aa55427d" title=" " alt="" coords="312,592,543,633"/>
-<area shape="rect" id="node3" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a87834417907352b87e7e8de52cb60405" title=" " alt="" coords="1237,144,1453,185"/>
-<area shape="rect" id="node4" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#ab5143fe9eade23eddeadef1baf05cf19" title=" " alt="" coords="610,789,826,831"/>
-<area shape="rect" id="node5" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#aa137581568bfab9f8b8ea5e7b1a3f85f" title=" " alt="" coords="591,621,845,663"/>
-<area shape="rect" id="node6" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a8d7a9d4dec9700e29b0e726259e4bd3a" title=" " alt="" coords="913,512,1143,553"/>
-<area shape="rect" id="node7" href="$classpylo_1_1vendors_1_1urllib3_1_1contrib_1_1pyopenssl_1_1_wrapped_socket.html#a7a0ebd6e635ca9c0e6d4f1715e3f91f1" title=" " alt="" coords="909,680,1147,721"/>
-<area shape="rect" id="node10" href="$namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="1825,215,2039,242"/>
-<area shape="rect" id="node43" href="$classpylo_1_1vendors_1_1urllib3_1_1contrib_1_1securetransport_1_1_wrapped_socket.html#a5a5af3305c4444e4e26f7282bc66e93b" title=" " alt="" coords="893,615,1163,656"/>
-<area shape="rect" id="node44" href="$classpylo_1_1vendors_1_1urllib3_1_1util_1_1ssltransport_1_1_s_s_l_transport.html#accc8c45924e3ad3c3b4488de89efe2ba" title=" " alt="" coords="915,745,1141,787"/>
-<area shape="rect" id="node8" href="$classpylo_1_1vendors_1_1chardet_1_1universaldetector_1_1_universal_detector.html#aae86636d9c2713ca0af97d6a6f965420" title=" " alt="" coords="1223,275,1468,316"/>
-<area shape="rect" id="node11" href="$classpylo_1_1vendors_1_1et__xmlfile_1_1tests_1_1test__incremental__xmlfile_1_1_simple_file_like_c8237a87076dc2ba9cc008d7b9b6a17d.html#a6fd359fffe23be2b51e156c1eefeab54" title=" " alt="" coords="1220,339,1471,395"/>
-<area shape="rect" id="node18" href="$classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1__write__only_1_1_write_only_worksheet.html#a13940d539728274a0ad8dc3dac4aca79" title=" " alt="" coords="1224,941,1467,983"/>
-<area shape="rect" id="node20" href="$classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1__writer_1_1_worksheet_writer.html#a1c34a14e3e20804ff1bb8060f907417a" title=" " alt="" coords="1239,419,1452,460"/>
-<area shape="rect" id="node21" href="$classpylo_1_1vendors_1_1requests_1_1adapters_1_1_base_adapter.html#a54f546b5e3366d56851c6bd5450913a6" title=" " alt="" coords="1244,484,1447,525"/>
-<area shape="rect" id="node22" href="$classpylo_1_1vendors_1_1requests_1_1adapters_1_1_h_t_t_p_adapter.html#acdfea91e04f5aca24e501efbdd187f0e" title=" " alt="" coords="1244,615,1447,656"/>
-<area shape="rect" id="node23" href="$classpylo_1_1vendors_1_1requests_1_1models_1_1_response.html#a37ea3795780b95ff43d7b1c671415f8b" title=" " alt="" coords="1248,680,1443,721"/>
-<area shape="rect" id="node24" href="$classpylo_1_1vendors_1_1requests_1_1sessions_1_1_session.html#a970a95b465ccc3ac4cb39ba5c679336d" title=" " alt="" coords="1243,745,1448,787"/>
-<area shape="rect" id="node25" href="$classpylo_1_1vendors_1_1urllib3_1_1connectionpool_1_1_connection_pool.html#ac79ea58d5fcf743fee5a5bcfc0292f5d" title=" " alt="" coords="1233,811,1457,852"/>
-<area shape="rect" id="node26" href="$classpylo_1_1vendors_1_1urllib3_1_1connectionpool_1_1_h_t_t_p_connection_pool.html#a82224aa1ab24b2f032f589bfd5c10698" title=" " alt="" coords="1233,876,1457,917"/>
-<area shape="rect" id="node27" href="$classpylo_1_1vendors_1_1urllib3_1_1contrib_1_1pyopenssl_1_1_wrapped_socket.html#aefe3ef25a22f2366c27bb481d378c596" title=" " alt="" coords="1227,1137,1464,1179"/>
-<area shape="rect" id="node28" href="$classpylo_1_1vendors_1_1urllib3_1_1response_1_1_h_t_t_p_response.html#a761cbb1161f8fe33feadafeabf3be747" title=" " alt="" coords="1557,1167,1748,1208"/>
-<area shape="rect" id="node29" href="$classpylo_1_1vendors_1_1urllib3_1_1contrib_1_1securetransport_1_1_wrapped_socket.html#a8f1875cff046d9d2d0e9936147512d3b" title=" " alt="" coords="1211,1007,1480,1048"/>
-<area shape="rect" id="node30" href="$classpylo_1_1vendors_1_1urllib3_1_1response_1_1_h_t_t_p_response.html#a860434218c3236c1440cc6ad880b0e70" title=" " alt="" coords="1250,549,1441,591"/>
-<area shape="rect" id="node31" href="$classpylo_1_1vendors_1_1urllib3_1_1util_1_1ssltransport_1_1_s_s_l_transport.html#a8c9b31dc450ca613c39e8bfcc4ab2955" title=" " alt="" coords="1233,1072,1458,1113"/>
-<area shape="rect" id="node32" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1workbook_1_1_workbook.html#a5a4e35b3972b3f47802fba45ac2bf3c5" title=" " alt="" coords="1239,209,1452,251"/>
-<area shape="rect" id="node9" href="$namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="1559,278,1747,305"/>
-<area shape="rect" id="node12" href="$classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1__write__only_1_1_write_only_worksheet.html#ac7625ea6d9677bdade91187394e11550" title=" " alt="" coords="1528,549,1777,591"/>
-<area shape="rect" id="node15" href="$classpylo_1_1vendors_1_1urllib3_1_1response_1_1_h_t_t_p_response.html#a01addf124df69db06d91e480e3267ea5" title=" " alt="" coords="1557,412,1748,453"/>
-<area shape="rect" id="node13" href="$classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1__write__only_1_1_write_only_worksheet.html#addf68b6cf572c9adff1ec63be1bc602b" title=" " alt="" coords="1825,683,2039,739"/>
-<area shape="rect" id="node14" href="$classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1__write__only_1_1_write_only_worksheet.html#a54859ee81e927da31a97b5e5aca8b872" title=" " alt="" coords="1825,542,2039,598"/>
-<area shape="rect" id="node16" href="$classpylo_1_1vendors_1_1urllib3_1_1response_1_1_h_t_t_p_response.html#a41dd2e817f84ef46974176dbbe2d4462" title=" " alt="" coords="1837,412,2027,453"/>
-<area shape="rect" id="node17" href="$namespacepylo_1_1vendors_1_1urllib3_1_1util_1_1response.html#a99481964bf8daaddd0d588a4740a7c83" title=" " alt="" coords="2087,412,2307,453"/>
-<area shape="rect" id="node19" href="$classpylo_1_1vendors_1_1openpyxl_1_1worksheet_1_1__write__only_1_1_write_only_worksheet.html#a78b43cb8f9e831a26775194eee9a1c58" title=" " alt="" coords="1546,934,1759,990"/>
-<area shape="rect" id="node33" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1workbook_1_1_workbook.html#a139ae568ef87d8323a02f58d016eae7a" title=" " alt="" coords="1546,209,1759,251"/>
-<area shape="rect" id="node34" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a9c1cc7f204037c0c6185a713f0be2876" title=" " alt="" coords="1557,42,1748,69"/>
-<area shape="rect" id="node35" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a6ab7870734591d40bc515f576ff9add2" title=" " alt="" coords="1845,5,2019,47"/>
-<area shape="rect" id="node36" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a540755638c6101ecfe7b330c72d2d48b" title=" " alt="" coords="2089,5,2304,47"/>
-<area shape="rect" id="node37" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a1b6701a4c3d08e5d5ff725eb66b771fb" title=" " alt="" coords="2355,35,2543,76"/>
-<area shape="rect" id="node38" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a2872511fa2c332122f3d918324641bab" title=" " alt="" coords="2591,5,2779,47"/>
-<area shape="rect" id="node39" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a4fd68be4c24e3f24d20ccd3649f3afd2" title=" " alt="" coords="2827,17,3017,43"/>
-<area shape="rect" id="node40" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a7d1bd5fb25bc712b3b6007b6712abc53" title=" " alt="" coords="3065,46,3292,73"/>
-<area shape="rect" id="node41" href="$namespacepylo_1_1vendors_1_1psutil_1_1tests.html#a8c796221ac22c8982342c7919fe2d374" title=" " alt="" coords="3340,5,3541,47"/>
-<area shape="rect" id="node42" href="$namespacepylo_1_1vendors_1_1psutil_1_1__compat.html#af083ba700b371ec18dbf021096f7f488" title=" " alt="" coords="3375,71,3506,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,264,112"/>
+<area shape="rect" id="node2" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a513ec0f0af3a232279115696aa55427d" title=" " alt="" coords="312,71,543,112"/>
+<area shape="rect" id="node3" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a87834417907352b87e7e8de52cb60405" title=" " alt="" coords="1172,41,1388,83"/>
+<area shape="rect" id="node4" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#ab5143fe9eade23eddeadef1baf05cf19" title=" " alt="" coords="610,37,826,79"/>
+<area shape="rect" id="node5" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#aa137581568bfab9f8b8ea5e7b1a3f85f" title=" " alt="" coords="591,103,845,144"/>
+<area shape="rect" id="node6" href="$classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a8d7a9d4dec9700e29b0e726259e4bd3a" title=" " alt="" coords="893,103,1124,144"/>
 </map>

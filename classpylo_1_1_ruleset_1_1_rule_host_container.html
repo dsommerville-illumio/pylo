@@ -463,28 +463,28 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keywordflow">for</span> host_data <span class="keywordflow">in</span> data:</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;            find_object = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;            <span class="keywordflow">if</span> <span class="stringliteral">&#39;label&#39;</span> <span class="keywordflow">in</span> host_data:</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                href = host_data[<span class="stringliteral">&#39;label&#39;</span>].<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(<span class="stringliteral">&#39;href&#39;</span>)</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                href = host_data[<span class="stringliteral">&#39;label&#39;</span>].get(<span class="stringliteral">&#39;href&#39;</span>)</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                    <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;Cannot find object HREF &#39;</span>, host_data)</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                find_object = self.owner.owner.owner.owner.LabelStore.itemsByHRef.get(href)</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                    <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;Cannot find Label with HREF {} in Rule {}&#39;</span>.format(href, self.owner.href))</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            <span class="keywordflow">elif</span> <span class="stringliteral">&#39;label_group&#39;</span> <span class="keywordflow">in</span> host_data:</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                href = host_data[<span class="stringliteral">&#39;label_group&#39;</span>].<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(<span class="stringliteral">&#39;href&#39;</span>)</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                href = host_data[<span class="stringliteral">&#39;label_group&#39;</span>].get(<span class="stringliteral">&#39;href&#39;</span>)</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;Cannot find object HREF &#39;</span>, host_data)</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                find_object = self.owner.owner.owner.owner.LabelStore.itemsByHRef.get(href)</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;                <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;                    <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;Cannot find LabelGroup with HREF {} in Rule {}&#39;</span>.format(href, self.owner.href))</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            <span class="keywordflow">elif</span> <span class="stringliteral">&#39;ip_list&#39;</span> <span class="keywordflow">in</span> host_data:</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                href = host_data[<span class="stringliteral">&#39;ip_list&#39;</span>].<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(<span class="stringliteral">&#39;href&#39;</span>)</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                href = host_data[<span class="stringliteral">&#39;ip_list&#39;</span>].get(<span class="stringliteral">&#39;href&#39;</span>)</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;Cannot find object HREF &#39;</span>, host_data)</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                find_object = self.owner.owner.owner.owner.IPListStore.itemsByHRef.get(href)</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                    <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;Cannot find IPList with HREF {} in Rule {}&#39;</span>.format(href, self.owner.href))</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <span class="keywordflow">elif</span> <span class="stringliteral">&#39;workload&#39;</span> <span class="keywordflow">in</span> host_data:</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                href = host_data[<span class="stringliteral">&#39;workload&#39;</span>].<a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">get</a>(<span class="stringliteral">&#39;href&#39;</span>)</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                href = host_data[<span class="stringliteral">&#39;workload&#39;</span>].get(<span class="stringliteral">&#39;href&#39;</span>)</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;Cannot find object HREF &#39;</span>, host_data)</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                <span class="comment"># @TODO : better handling of temporary objects</span></div>
@@ -507,18 +507,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                find_object.add_reference(self)</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
-<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_1_1api_html_a39e3a758dc31451c235d7ecc0a065b05"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05">pylo.vendors.requests.api.get</a></div><div class="ttdeci">def get(url, params=None, **kwargs)</div><div class="ttdef"><b>Definition:</b> api.py:64</div></div>
-</div><!-- fragment --><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classpylo_1_1_ruleset_1_1_rule_host_container_a24e043434724d867dac0e6023ca9b4be_cgraph.png" border="0" usemap="#aclasspylo_1_1_ruleset_1_1_rule_host_container_a24e043434724d867dac0e6023ca9b4be_cgraph" alt=""/></div>
-<map name="aclasspylo_1_1_ruleset_1_1_rule_host_container_a24e043434724d867dac0e6023ca9b4be_cgraph" id="aclasspylo_1_1_ruleset_1_1_rule_host_container_a24e043434724d867dac0e6023ca9b4be_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,236,47"/>
-<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a39e3a758dc31451c235d7ecc0a065b05" title=" " alt="" coords="284,13,472,39"/>
-<area shape="rect" href="namespacepylo_1_1vendors_1_1requests_1_1api.html#a2e9f0ae788f81962ed7ff5fdae72eaa9" title=" " alt="" coords="520,13,733,39"/>
-</map>
-</div>
-
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -556,7 +545,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:23:50 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

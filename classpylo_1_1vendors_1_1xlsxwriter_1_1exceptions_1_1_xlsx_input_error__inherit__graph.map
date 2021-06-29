@@ -1,9 +1,0 @@
-<map id="pylo.vendors.xlsxwriter.exceptions.XlsxInputError" name="pylo.vendors.xlsxwriter.exceptions.XlsxInputError">
-<area shape="rect" id="node1" title=" " alt="" coords="399,104,617,145"/>
-<area shape="rect" id="node4" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1exceptions_1_1_duplicate_table_name.html" title=" " alt="" coords="665,5,884,47"/>
-<area shape="rect" id="node5" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1exceptions_1_1_duplicate_worksheet_name.html" title=" " alt="" coords="665,71,884,112"/>
-<area shape="rect" id="node6" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1exceptions_1_1_empty_chart_series.html" title=" " alt="" coords="665,136,884,177"/>
-<area shape="rect" id="node7" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1exceptions_1_1_invalid_worksheet_name.html" title=" " alt="" coords="665,201,884,243"/>
-<area shape="rect" id="node2" href="$classpylo_1_1vendors_1_1xlsxwriter_1_1exceptions_1_1_xlsx_writer_exception.html" title="Exceptions &#45; A class for XlsxWriter exceptions." alt="" coords="132,104,351,145"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,111,84,138"/>
-</map>

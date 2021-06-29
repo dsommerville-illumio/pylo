@@ -247,7 +247,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordflow">if</span> block[<span class="stringliteral">&#39;type&#39;</span>] == <span class="stringliteral">&#39;sub&#39;</span>:</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                new_sub_query = Query(self.level+1)</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                new_sub_query.parse(block[<span class="stringliteral">&#39;text&#39;</span>])</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                self.subQueries.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(new_sub_query)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                self.subQueries.append(new_sub_query)</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                new_block = {<span class="stringliteral">&#39;type&#39;</span>: <span class="stringliteral">&#39;query&#39;</span>, <span class="stringliteral">&#39;query&#39;</span>: new_sub_query}</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                operator_blocks.append(new_block)</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <span class="keywordflow">continue</span></div>
@@ -339,7 +339,6 @@ Public Attributes</h2></td></tr>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 <div class="ttc" id="anamespacepylo_1_1_query_html_a0b1d24684dc0c22714685feaaf7fa2b1"><div class="ttname"><a href="namespacepylo_1_1_query.html#a0b1d24684dc0c22714685feaaf7fa2b1">pylo.Query.get_block_until_binary_ops_quotes_enabled</a></div><div class="ttdeci">def get_block_until_binary_ops_quotes_enabled(str data)</div><div class="ttdef"><b>Definition:</b> Query.py:36</div></div>
 <div class="ttc" id="anamespacepylo_1_1_query_html_ad9f0cd6052ab157e5d386de425479e34"><div class="ttname"><a href="namespacepylo_1_1_query.html#ad9f0cd6052ab157e5d386de425479e34">pylo.Query.find_first_punctuation</a></div><div class="ttdeci">def find_first_punctuation(str text, int start)</div><div class="ttdef"><b>Definition:</b> Query.py:12</div></div>
-<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_html_a4cf24c158d1a17bc273aa6edfd133d7f"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">pylo.vendors.requests.append</a></div><div class="ttdeci">append</div><div class="ttdef"><b>Definition:</b> __init__.py:137</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -402,7 +401,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:23:50 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

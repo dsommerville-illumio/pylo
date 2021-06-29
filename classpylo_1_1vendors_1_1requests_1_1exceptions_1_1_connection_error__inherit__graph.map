@@ -1,8 +1,0 @@
-<map id="pylo.vendors.requests.exceptions.ConnectionError" name="pylo.vendors.requests.exceptions.ConnectionError">
-<area shape="rect" id="node1" title=" " alt="" coords="379,71,593,112"/>
-<area shape="rect" id="node4" href="$classpylo_1_1vendors_1_1requests_1_1exceptions_1_1_connect_timeout.html" title=" " alt="" coords="641,5,856,47"/>
-<area shape="rect" id="node5" href="$classpylo_1_1vendors_1_1requests_1_1exceptions_1_1_proxy_error.html" title=" " alt="" coords="641,71,856,112"/>
-<area shape="rect" id="node6" href="$classpylo_1_1vendors_1_1requests_1_1exceptions_1_1_s_s_l_error.html" title=" " alt="" coords="641,136,856,177"/>
-<area shape="rect" id="node2" href="$classpylo_1_1vendors_1_1requests_1_1exceptions_1_1_request_exception.html" title=" " alt="" coords="116,71,331,112"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,78,68,105"/>
-</map>

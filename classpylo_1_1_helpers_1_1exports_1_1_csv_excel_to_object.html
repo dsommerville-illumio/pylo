@@ -184,13 +184,13 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> row:</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                            <span class="keywordflow">if</span> item <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">or</span> len(item) &lt; 1:</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;CSV headers has blank fields, this is not supported&#39;</span>)</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                            self._detected_headers.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(item.lower())</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                            self._detected_headers.append(item.lower())</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                            <span class="keywordflow">if</span> strict_headers <span class="keywordflow">and</span> item.lower() <span class="keywordflow">not</span> <span class="keywordflow">in</span> mandatory_headers_dict:</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;CSV/Excel headers have an unexpected header named &#39;{}&#39;&quot;</span>.format(item))</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                        missing_headers = mandatory_headers_dict.copy()</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                        <span class="keywordflow">for</span> header_name <span class="keywordflow">in</span> self._detected_headers:</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                            self._header_index_to_name.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(header_name)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                            self._header_index_to_name.append(header_name)</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                            <span class="keywordflow">if</span> header_name <span class="keywordflow">in</span> missing_headers:</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                                del missing_headers[header_name]</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                        <span class="keywordflow">if</span> len(missing_headers) &gt; 0:</div>
@@ -203,9 +203,9 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                                                                                                                            len(self._detected_headers),</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                                                                                                                     len(row)))</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                        self._raw_lines.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(row)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                        self._raw_lines.append(row)</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                        new_object = {<span class="stringliteral">&#39;*line*&#39;</span>: row_count+1}</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                        self._objects.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(new_object)</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                        self._objects.append(new_object)</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                        row_index = 0</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> row:</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                            new_object[self._detected_headers[row_index]] = item</div>
@@ -244,13 +244,13 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                        item = source_worksheet.cell(row_count, col_index).value</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                        <span class="keywordflow">if</span> item <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">or</span> len(item) &lt; 1:</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;Excel headers has blank fields, this is not supported&#39;</span>)</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                        self._detected_headers.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(item.lower())</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                        self._detected_headers.append(item.lower())</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                        <span class="keywordflow">if</span> strict_headers <span class="keywordflow">and</span> item.lower() <span class="keywordflow">not</span> <span class="keywordflow">in</span> mandatory_headers_dict:</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;CSV/Excel headers have an unexpected header named &#39;{}&#39;&quot;</span>.format(item))</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    missing_headers = mandatory_headers_dict.copy()</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                    <span class="keywordflow">for</span> header_name <span class="keywordflow">in</span> self._detected_headers:</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                        self._header_index_to_name.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(header_name)</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                        self._header_index_to_name.append(header_name)</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                        <span class="keywordflow">if</span> header_name <span class="keywordflow">in</span> missing_headers:</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                            del missing_headers[header_name]</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                    <span class="keywordflow">if</span> len(missing_headers) &gt; 0:</div>
@@ -271,7 +271,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                        self._empty_lines_count += 1</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                        <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                    self._objects.<a class="code" href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">append</a>(new_object)</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                    self._objects.append(new_object)</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                    <span class="comment"># handling missing optional columns</span></div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                    <span class="keywordflow">for</span> opt_header <span class="keywordflow">in</span> optional_headers:</div>
@@ -286,7 +286,6 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
-<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_html_a4cf24c158d1a17bc273aa6edfd133d7f"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests.html#a4cf24c158d1a17bc273aa6edfd133d7f">pylo.vendors.requests.append</a></div><div class="ttdeci">append</div><div class="ttdef"><b>Definition:</b> __init__.py:137</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -479,7 +478,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:23:50 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

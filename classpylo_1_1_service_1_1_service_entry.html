@@ -282,28 +282,27 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span> protocol_first:</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="keywordflow">if</span> self.protocol == 17:</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="keywordflow">if</span> self.to_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    <span class="keywordflow">return</span> <span class="stringliteral">&#39;udp/&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.port)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&#39;udp/&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.port) + <span class="stringliteral">&#39;-&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.to_port)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    <span class="keywordflow">return</span> <span class="stringliteral">&#39;udp/&#39;</span> + str(self.port)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&#39;udp/&#39;</span> + str(self.port) + <span class="stringliteral">&#39;-&#39;</span> + str(self.to_port)</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keywordflow">elif</span> self.protocol == 6:</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordflow">if</span> self.to_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    <span class="keywordflow">return</span> <span class="stringliteral">&#39;tcp/&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.port)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&#39;tcp/&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.port) + <span class="stringliteral">&#39;-&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.to_port)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    <span class="keywordflow">return</span> <span class="stringliteral">&#39;tcp/&#39;</span> + str(self.port)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&#39;tcp/&#39;</span> + str(self.port) + <span class="stringliteral">&#39;-&#39;</span> + str(self.to_port)</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;proto/&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.protocol)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;proto/&#39;</span> + str(self.protocol)</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">if</span> self.protocol == 17:</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keywordflow">if</span> self.to_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.port) + <span class="stringliteral">&#39;/udp&#39;</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.port) + <span class="stringliteral">&#39;-&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.to_port) + <span class="stringliteral">&#39;/udp&#39;</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="keywordflow">return</span> str(self.port) + <span class="stringliteral">&#39;/udp&#39;</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">return</span> str(self.port) + <span class="stringliteral">&#39;-&#39;</span> + str(self.to_port) + <span class="stringliteral">&#39;/udp&#39;</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">elif</span> self.protocol == 6:</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordflow">if</span> self.to_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.port) + <span class="stringliteral">&#39;/tcp&#39;</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.port) + <span class="stringliteral">&#39;-&#39;</span> + <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.to_port) + <span class="stringliteral">&#39;/tcp&#39;</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="keywordflow">return</span> str(self.port) + <span class="stringliteral">&#39;/tcp&#39;</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="keywordflow">return</span> str(self.port) + <span class="stringliteral">&#39;-&#39;</span> + str(self.to_port) + <span class="stringliteral">&#39;/tcp&#39;</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">str</a>(self.protocol) + <span class="stringliteral">&#39;/proto&#39;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> str(self.protocol) + <span class="stringliteral">&#39;/proto&#39;</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="ttc" id="anamespacepylo_1_1vendors_1_1requests_1_1compat_html_acddc03815af5e2a00ef4ce5debf007d4"><div class="ttname"><a href="namespacepylo_1_1vendors_1_1requests_1_1compat.html#acddc03815af5e2a00ef4ce5debf007d4">pylo.vendors.requests.compat.str</a></div><div class="ttdeci">str</div><div class="ttdef"><b>Definition:</b> compat.py:52</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -384,7 +383,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 29 2021 08:09:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jun 29 2021 08:23:50 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
