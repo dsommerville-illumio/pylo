@@ -46,5 +46,6 @@ var searchData=
   ['service_419',['Service',['../namespacepylo_1_1_service.html',1,'pylo']]],
   ['softwareversion_420',['SoftwareVersion',['../namespacepylo_1_1_software_version.html',1,'pylo']]],
   ['tmp_421',['tmp',['../namespacepylo_1_1tmp.html',1,'pylo']]],
-  ['workloadstore_422',['WorkloadStore',['../namespacepylo_1_1_workload_store.html',1,'pylo']]]
+  ['workload_422',['Workload',['../namespacepylo_1_1_workload.html',1,'pylo']]],
+  ['workloadstore_423',['WorkloadStore',['../namespacepylo_1_1_workload_store.html',1,'pylo']]]
 ];

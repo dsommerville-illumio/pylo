@@ -28,7 +28,7 @@ var searchData=
   ['find_5fworkloads_5fmatching_5fall_5flabels_164',['find_workloads_matching_all_labels',['../classpylo_1_1_workload_store_1_1_workload_store.html#a87de63c9163cd3254d2a8e11d7dcf1a5',1,'pylo::WorkloadStore::WorkloadStore']]],
   ['find_5fworkloads_5fmatching_5flabel_165',['find_workloads_matching_label',['../classpylo_1_1_workload_store_1_1_workload_store.html#aa698fd0307b0c56704b2fe40bb0ea790',1,'pylo::WorkloadStore::WorkloadStore']]],
   ['first_5fdetected_166',['first_detected',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html#a4735a243ad969ed786a7e02d6a3f91b4',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1::ExplorerResult']]],
-  ['forced_5fname_167',['forced_name',['../classpylo_1_1_workload_store_1_1_workload.html#a07f9cbcfd8b720b33906a12e4175b3d6',1,'pylo::WorkloadStore::Workload']]],
+  ['forced_5fname_167',['forced_name',['../classpylo_1_1_workload_1_1_workload.html#a41eb471e5bc14dbb9515c5c3c2937007',1,'pylo::Workload::Workload']]],
   ['fqdn_168',['fqdn',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_cluster_health.html#abc1970e147d28ccf7731ff564c095877',1,'pylo::APIConnector::APIConnector::ClusterHealth']]],
   ['function_169',['function',['../classpylo_1_1_query_1_1_filter.html#a427f5dd5c1018be39f053f02066e41bc',1,'pylo::Query::Filter']]],
   ['functions_2epy_170',['functions.py',['../functions_8py.html',1,'']]]

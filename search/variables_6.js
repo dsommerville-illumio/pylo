@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gateway_1003',['gateway',['../classpylo_1_1_workload_store_1_1_workload_interface.html#a96855f73e85dff25cd61beec2d31f9d4',1,'pylo::WorkloadStore::WorkloadInterface']]],
-  ['global_5fservice_5fstatus_1004',['global_service_status',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_cluster_health_1_1_cluster_health_node.html#ad848ae68553de0622214ac738bd8ecbe',1,'pylo::APIConnector::APIConnector::ClusterHealth::ClusterHealthNode']]],
-  ['global_5fstatus_1005',['global_status',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_api_agent_compatibility_report.html#a973dc185a43827ccf7fabe0718f159b1',1,'pylo::APIConnector::APIConnector::ApiAgentCompatibilityReport']]]
+  ['gateway_1007',['gateway',['../classpylo_1_1_workload_1_1_workload_interface.html#a8952209183b8dd71fbc173ea55ffce69',1,'pylo::Workload::WorkloadInterface']]],
+  ['global_5fservice_5fstatus_1008',['global_service_status',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_cluster_health_1_1_cluster_health_node.html#ad848ae68553de0622214ac738bd8ecbe',1,'pylo::APIConnector::APIConnector::ClusterHealth::ClusterHealthNode']]],
+  ['global_5fstatus_1009',['global_status',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_api_agent_compatibility_report.html#a973dc185a43827ccf7fabe0718f159b1',1,'pylo::APIConnector::APIConnector::ApiAgentCompatibilityReport']]]
 ];
