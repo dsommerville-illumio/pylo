@@ -153,8 +153,6 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;                new_node = APIConnector.ClusterHealth.ClusterHealthNode(node)</div>
 <div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;                self.nodes_dict[new_node.name] = new_node</div>
 <div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160; </div>
-<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160; </div>
-<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 <div class="ttc" id="anamespacepylo_1_1_a_p_i_connector_html_ae0f65daac93d1189e9c5ffbed3c42659"><div class="ttname"><a href="namespacepylo_1_1_a_p_i_connector.html#ae0f65daac93d1189e9c5ffbed3c42659">pylo.APIConnector.get_field_or_die</a></div><div class="ttdeci">def get_field_or_die(str field_name, data)</div><div class="ttdef"><b>Definition:</b> APIConnector.py:19</div></div>
 </div><!-- fragment -->
@@ -176,11 +174,11 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;        <span class="keyword">def </span>status_is_error(self):</div>
-<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160;            <span class="keywordflow">return</span> self._status == <span class="stringliteral">&#39;error&#39;</span></div>
-<div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160; </div>
-<div class="line"><a name="l01620"></a><span class="lineno"> 1620</span>&#160; </div>
-<div class="line"><a name="l01621"></a><span class="lineno"> 1621</span>&#160;    <span class="keyword">def </span>cluster_health_get(self, return_object=False):</div>
+<div class="fragment"><div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;        <span class="keyword">def </span>status_is_error(self):</div>
+<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;            <span class="keywordflow">return</span> self._status == <span class="stringliteral">&#39;error&#39;</span></div>
+<div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160; </div>
+<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160; </div>
+<div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160;    <span class="keyword">def </span>cluster_health_get(self, return_object=False):</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -199,9 +197,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;        <span class="keyword">def </span>status_is_ok(self):</div>
-<div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;            <span class="keywordflow">return</span> self._status == <span class="stringliteral">&#39;normal&#39;</span></div>
-<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;        <span class="keyword">def </span>status_is_ok(self):</div>
+<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;            <span class="keywordflow">return</span> self._status == <span class="stringliteral">&#39;normal&#39;</span></div>
+<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -220,9 +218,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;        <span class="keyword">def </span>status_is_warning(self):</div>
-<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;            <span class="keywordflow">return</span> self._status == <span class="stringliteral">&#39;warning&#39;</span></div>
-<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;        <span class="keyword">def </span>status_is_warning(self):</div>
+<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;            <span class="keywordflow">return</span> self._status == <span class="stringliteral">&#39;warning&#39;</span></div>
+<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -241,17 +239,17 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;        <span class="keyword">def </span>to_string(self):</div>
-<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;            ret = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;            ret += <span class="stringliteral">&quot;cluster fqdn: &#39;{}&#39;\n&quot;</span>.format(self.fqdn)</div>
-<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;            ret += <span class="stringliteral">&quot;type: &#39;{}&#39;\n&quot;</span>.format(self.type)</div>
-<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;            ret += <span class="stringliteral">&quot;status: &#39;{}&#39;\n&quot;</span>.format(self._status)</div>
-<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;            ret += <span class="stringliteral">&quot;nodes details:\n&quot;</span></div>
-<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;            <span class="keywordflow">for</span> node <span class="keywordflow">in</span> self.nodes_dict.values():</div>
-<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;                ret += node.to_string(indent=<span class="stringliteral">&#39;  &#39;</span>)</div>
+<div class="fragment"><div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;        <span class="keyword">def </span>to_string(self):</div>
+<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;            ret = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;            ret += <span class="stringliteral">&quot;cluster fqdn: &#39;{}&#39;\n&quot;</span>.format(self.fqdn)</div>
+<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;            ret += <span class="stringliteral">&quot;type: &#39;{}&#39;\n&quot;</span>.format(self.type)</div>
+<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;            ret += <span class="stringliteral">&quot;status: &#39;{}&#39;\n&quot;</span>.format(self._status)</div>
+<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;            ret += <span class="stringliteral">&quot;nodes details:\n&quot;</span></div>
+<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;            <span class="keywordflow">for</span> node <span class="keywordflow">in</span> self.nodes_dict.values():</div>
+<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;                ret += node.to_string(indent=<span class="stringliteral">&#39;  &#39;</span>)</div>
+<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160; </div>
+<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;            <span class="keywordflow">return</span> ret</div>
 <div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160; </div>
-<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;            <span class="keywordflow">return</span> ret</div>
-<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -349,7 +347,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 5 2021 12:02:15 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jul 5 2021 12:39:01 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
