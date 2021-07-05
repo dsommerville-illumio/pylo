@@ -87,14 +87,6 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a85b5444a9af5300cf7bb08d856166316"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule.html#a85b5444a9af5300cf7bb08d856166316">services</a></td></tr>
-<tr class="separator:a85b5444a9af5300cf7bb08d856166316"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd0cecb15ed3b5c21c4776c5121a2c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule.html#acfd0cecb15ed3b5c21c4776c5121a2c5">providers</a></td></tr>
-<tr class="separator:acfd0cecb15ed3b5c21c4776c5121a2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a012f206efc30af17d377ea4ba613f81a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule.html#a012f206efc30af17d377ea4ba613f81a">consumers</a></td></tr>
-<tr class="separator:a012f206efc30af17d377ea4ba613f81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92e3d3e52ee26085514024251193df71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule.html#a92e3d3e52ee26085514024251193df71">consuming_principals</a></td></tr>
-<tr class="separator:a92e3d3e52ee26085514024251193df71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ca2a7c019c7ab6015a3ae2cac95ba55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule.html#a0ca2a7c019c7ab6015a3ae2cac95ba55">href</a></td></tr>
 <tr class="separator:a0ca2a7c019c7ab6015a3ae2cac95ba55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b2d4d18ad68b1317f5c871cb7a0cc51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule.html#a9b2d4d18ad68b1317f5c871cb7a0cc51">enabled</a></td></tr>
@@ -132,21 +124,21 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">def </span>__init__(self, owner: <span class="stringliteral">&#39;pylo.Ruleset&#39;</span>):</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        self.owner: <span class="stringliteral">&#39;pylo.Ruleset&#39;</span> = owner</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        self.description: Optional[str] = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        self.services = <a class="code" href="classpylo_1_1_rule_1_1_rule_service_container.html">pylo.RuleServiceContainer</a>(self)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        self.providers = <a class="code" href="classpylo_1_1_rule_1_1_rule_host_container.html">pylo.RuleHostContainer</a>(self, <span class="stringliteral">&#39;providers&#39;</span>)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        self.consumers = <a class="code" href="classpylo_1_1_rule_1_1_rule_host_container.html">pylo.RuleHostContainer</a>(self, <span class="stringliteral">&#39;consumers&#39;</span>)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        self.consuming_principals = <a class="code" href="classpylo_1_1_rule_1_1_rule_security_principal_container.html">pylo.RuleSecurityPrincipalContainer</a>(self)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        self.href = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        self.enabled = <span class="keyword">True</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        self.secure_connect = <span class="keyword">False</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        self.unscoped_consumers = <span class="keyword">False</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_host_container_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule_host_container.html">pylo.Rule.RuleHostContainer</a></div><div class="ttdef"><b>Definition:</b> Rule.py:217</div></div>
-<div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_security_principal_container_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule_security_principal_container.html">pylo.Rule.RuleSecurityPrincipalContainer</a></div><div class="ttdef"><b>Definition:</b> Rule.py:59</div></div>
-<div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_service_container_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule_service_container.html">pylo.Rule.RuleServiceContainer</a></div><div class="ttdef"><b>Definition:</b> Rule.py:165</div></div>
+<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">def </span>__init__(self, owner: <span class="stringliteral">&#39;pylo.Ruleset&#39;</span>):</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        self.owner: <span class="stringliteral">&#39;pylo.Ruleset&#39;</span> = owner</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        self.description: Optional[str] = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        self.services: <span class="stringliteral">&#39;pylo.RuleServiceContainer&#39;</span> = <a class="code" href="classpylo_1_1_rule_1_1_rule_service_container.html">pylo.RuleServiceContainer</a>(self)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        self.providers: <span class="stringliteral">&#39;pylo.RuleHostContainer&#39;</span> = <a class="code" href="classpylo_1_1_rule_1_1_rule_host_container.html">pylo.RuleHostContainer</a>(self, <span class="stringliteral">&#39;providers&#39;</span>)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        self.consumers: <span class="stringliteral">&#39;pylo.RuleHostContainer&#39;</span> = <a class="code" href="classpylo_1_1_rule_1_1_rule_host_container.html">pylo.RuleHostContainer</a>(self, <span class="stringliteral">&#39;consumers&#39;</span>)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        self.consuming_principals: <span class="stringliteral">&#39;pylo.RuleSecurityPrincipalContainer&#39;</span> = <a class="code" href="classpylo_1_1_rule_1_1_rule_security_principal_container.html">pylo.RuleSecurityPrincipalContainer</a>(self)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        self.href = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        self.enabled = <span class="keyword">True</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        self.secure_connect = <span class="keyword">False</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        self.unscoped_consumers = <span class="keyword">False</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_host_container_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule_host_container.html">pylo.Rule.RuleHostContainer</a></div><div class="ttdef"><b>Definition:</b> Rule.py:212</div></div>
+<div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_security_principal_container_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule_security_principal_container.html">pylo.Rule.RuleSecurityPrincipalContainer</a></div><div class="ttdef"><b>Definition:</b> Rule.py:54</div></div>
+<div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_service_container_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule_service_container.html">pylo.Rule.RuleServiceContainer</a></div><div class="ttdef"><b>Definition:</b> Rule.py:160</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -166,9 +158,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">def </span>is_extra_scope(self):</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> self.unscoped_consumers</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">def </span>is_extra_scope(self):</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> self.unscoped_consumers</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -187,10 +179,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">def </span>is_intra_scope(self):</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> <span class="keywordflow">not</span> self.unscoped_consumers</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">def </span>is_intra_scope(self):</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> <span class="keywordflow">not</span> self.unscoped_consumers</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -219,63 +211,35 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">def </span>load_from_json(self, data):</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        self.href = data[<span class="stringliteral">&#39;href&#39;</span>]</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        self.description = data.get(<span class="stringliteral">&#39;description&#39;</span>)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        services = data.get(<span class="stringliteral">&#39;ingress_services&#39;</span>)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">if</span> services <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            self.services.load_from_json(services)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        enabled = data.get(<span class="stringliteral">&#39;enabled&#39;</span>)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">if</span> enabled <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            self.enabled = enabled</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        secure_connect = data.get(<span class="stringliteral">&#39;sec_connect&#39;</span>)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">if</span> secure_connect <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            self.secure_connect = secure_connect</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        unscoped_consumers = data.get(<span class="stringliteral">&#39;unscoped_consumers&#39;</span>)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> unscoped_consumers <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            self.unscoped_consumers = unscoped_consumers</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        self.providers.load_from_json(data[<span class="stringliteral">&#39;providers&#39;</span>])</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        self.consumers.load_from_json(data[<span class="stringliteral">&#39;consumers&#39;</span>])</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        self.consuming_principals.load_from_json(data[<span class="stringliteral">&#39;consuming_security_principals&#39;</span>])</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">def </span>load_from_json(self, data):</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        self.href = data[<span class="stringliteral">&#39;href&#39;</span>]</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        self.description = data.get(<span class="stringliteral">&#39;description&#39;</span>)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        services = data.get(<span class="stringliteral">&#39;ingress_services&#39;</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span> services <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            self.services.load_from_json(services)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        enabled = data.get(<span class="stringliteral">&#39;enabled&#39;</span>)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span> enabled <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            self.enabled = enabled</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        secure_connect = data.get(<span class="stringliteral">&#39;sec_connect&#39;</span>)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> secure_connect <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            self.secure_connect = secure_connect</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        unscoped_consumers = data.get(<span class="stringliteral">&#39;unscoped_consumers&#39;</span>)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span> unscoped_consumers <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            self.unscoped_consumers = unscoped_consumers</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        self.providers.load_from_json(data[<span class="stringliteral">&#39;providers&#39;</span>])</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        self.consumers.load_from_json(data[<span class="stringliteral">&#39;consumers&#39;</span>])</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        self.consuming_principals.load_from_json(data[<span class="stringliteral">&#39;consuming_security_principals&#39;</span>])</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a012f206efc30af17d377ea4ba613f81a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a012f206efc30af17d377ea4ba613f81a">&#9670;&nbsp;</a></span>consumers</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pylo.Rule.Rule.consumers</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a92e3d3e52ee26085514024251193df71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92e3d3e52ee26085514024251193df71">&#9670;&nbsp;</a></span>consuming_principals</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pylo.Rule.Rule.consuming_principals</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ad4d581a25993ea6d4f42e522e47d5923"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad4d581a25993ea6d4f42e522e47d5923">&#9670;&nbsp;</a></span>description</h2>
 
@@ -318,20 +282,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acfd0cecb15ed3b5c21c4776c5121a2c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfd0cecb15ed3b5c21c4776c5121a2c5">&#9670;&nbsp;</a></span>providers</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pylo.Rule.Rule.providers</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a89acacea68328802d6ee337084e0af0f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89acacea68328802d6ee337084e0af0f">&#9670;&nbsp;</a></span>secure_connect</h2>
 
@@ -340,20 +290,6 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">pylo.Rule.Rule.secure_connect</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a85b5444a9af5300cf7bb08d856166316"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85b5444a9af5300cf7bb08d856166316">&#9670;&nbsp;</a></span>services</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pylo.Rule.Rule.services</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -380,7 +316,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 5 2021 12:59:46 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jul 5 2021 13:07:08 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
