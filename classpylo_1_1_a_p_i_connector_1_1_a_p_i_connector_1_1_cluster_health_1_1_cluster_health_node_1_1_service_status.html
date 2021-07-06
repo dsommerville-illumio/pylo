@@ -130,13 +130,13 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;                <span class="keyword">def </span>__init__(self, name: str, status: str):</div>
-<div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;                    self.name = name</div>
-<div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;                    <span class="keywordflow">if</span> status <span class="keywordflow">not</span> <span class="keywordflow">in</span> APIConnector.ClusterHealth.ClusterHealthNode.ServiceStatus.allowed_status:</div>
-<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160;                        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;A services status is created with unsupported status &#39;{}&#39;&quot;</span>.format(status))</div>
-<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160; </div>
-<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;                    self.status = status  <span class="comment"># type: str</span></div>
-<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;                <span class="keyword">def </span>__init__(self, name: str, status: str):</div>
+<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;                    self.name = name</div>
+<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;                    <span class="keywordflow">if</span> status <span class="keywordflow">not</span> <span class="keywordflow">in</span> APIConnector.ClusterHealth.ClusterHealthNode.ServiceStatus.allowed_status:</div>
+<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;                        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;A services status is created with unsupported status &#39;{}&#39;&quot;</span>.format(status))</div>
+<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160; </div>
+<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;                    self.status = status  <span class="comment"># type: str</span></div>
+<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 </div><!-- fragment -->
 </div>
@@ -157,9 +157,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;                <span class="keyword">def </span>is_not_running(self):</div>
-<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;                    <span class="keywordflow">return</span> self.status == <span class="stringliteral">&#39;stopped&#39;</span></div>
-<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;                <span class="keyword">def </span>is_not_running(self):</div>
+<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;                    <span class="keywordflow">return</span> self.status == <span class="stringliteral">&#39;stopped&#39;</span></div>
+<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -178,12 +178,12 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;                <span class="keyword">def </span>is_partially_running(self):</div>
-<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;                    <span class="keywordflow">return</span> self.status == <span class="stringliteral">&#39;partial&#39;</span></div>
-<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160; </div>
-<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160; </div>
-<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160; </div>
-<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;            <span class="keyword">def </span>__init__(self, json_data):</div>
+<div class="fragment"><div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;                <span class="keyword">def </span>is_partially_running(self):</div>
+<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;                    <span class="keywordflow">return</span> self.status == <span class="stringliteral">&#39;partial&#39;</span></div>
+<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160; </div>
+<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160; </div>
+<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160; </div>
+<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;            <span class="keyword">def </span>__init__(self, json_data):</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -202,9 +202,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;                <span class="keyword">def </span>is_running(self):</div>
-<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;                    <span class="keywordflow">return</span> self.status == <span class="stringliteral">&#39;running&#39;</span></div>
-<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;                <span class="keyword">def </span>is_running(self):</div>
+<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;                    <span class="keywordflow">return</span> self.status == <span class="stringliteral">&#39;running&#39;</span></div>
+<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -265,7 +265,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 6 2021 13:17:24 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jul 6 2021 13:32:29 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

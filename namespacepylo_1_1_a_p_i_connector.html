@@ -119,19 +119,19 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">def </span><a class="code" href="namespacepylo_1_1_a_p_i_connector.html#ae0f65daac93d1189e9c5ffbed3c42659">get_field_or_die</a>(field_name: str, data):</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span> type(data) <span class="keywordflow">is</span> <span class="keywordflow">not</span> dict:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Data argument should of type DICT, &#39;{}&#39; was given&quot;</span>.format(type(data)))</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    field = data.get(field_name, pylo.objectNotFound)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span> field <span class="keywordflow">is</span> pylo.objectNotFound:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Could not find field named &#39;{}&#39; in data&quot;</span>.format(field_name), data)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> field</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">def </span><a class="code" href="namespacepylo_1_1_a_p_i_connector.html#ae0f65daac93d1189e9c5ffbed3c42659">get_field_or_die</a>(field_name: str, data):</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span> type(data) <span class="keywordflow">is</span> <span class="keywordflow">not</span> dict:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Data argument should of type DICT, &#39;{}&#39; was given&quot;</span>.format(type(data)))</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    field = data.get(field_name, pylo.objectNotFound)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> field <span class="keywordflow">is</span> pylo.objectNotFound:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Could not find field named &#39;{}&#39; in data&quot;</span>.format(field_name), data)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> field</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
-<div class="ttc" id="anamespacepylo_1_1_a_p_i_connector_html_ae0f65daac93d1189e9c5ffbed3c42659"><div class="ttname"><a href="namespacepylo_1_1_a_p_i_connector.html#ae0f65daac93d1189e9c5ffbed3c42659">pylo.APIConnector.get_field_or_die</a></div><div class="ttdeci">def get_field_or_die(str field_name, data)</div><div class="ttdef"><b>Definition:</b> APIConnector.py:21</div></div>
+<div class="ttc" id="anamespacepylo_1_1_a_p_i_connector_html_ae0f65daac93d1189e9c5ffbed3c42659"><div class="ttname"><a href="namespacepylo_1_1_a_p_i_connector.html#ae0f65daac93d1189e9c5ffbed3c42659">pylo.APIConnector.get_field_or_die</a></div><div class="ttdeci">def get_field_or_die(str field_name, data)</div><div class="ttdef"><b>Definition:</b> APIConnector.py:26</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -181,7 +181,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 6 2021 13:17:24 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jul 6 2021 13:32:29 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
