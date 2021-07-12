@@ -581,11 +581,11 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">if</span> new_item_href <span class="keywordflow">in</span> self.itemsByHRef:</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;A Workload with href &#39;%s&#39; already exists in the table&quot;</span>, new_item_href)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span> new_item_name <span class="keywordflow">in</span> self.itemsByName:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> pylo.ignoreWorkloadsWithSameName:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                        <span class="stringliteral">&quot;A Workload with name &#39;%s&#39; already exists in the table. This UID:%s vs other UID:%s&quot;</span> % (</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                        new_item_name, new_item_href, self.itemsByName[new_item_name].href))</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="comment"># if new_item_name in self.itemsByName:</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="comment">#     if not pylo.ignoreWorkloadsWithSameName:</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="comment">#          raise pylo.PyloEx(</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="comment">#             &quot;A Workload with name &#39;%s&#39; already exists in the table. This UID:%s vs other UID:%s&quot; % (</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="comment">#             new_item_name, new_item_href, self.itemsByName[new_item_name].href))</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="comment"># else:</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="comment">#    #log.warning(&quot;A Workload with name &#39;%s&#39; already exists in the table. This UID:%s vs other UID:%s&quot; % (new_item_name, new_item_href, self.itemsByName[new_item_name].href))</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
@@ -656,7 +656,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 7 2021 14:04:48 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jul 12 2021 12:43:53 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
