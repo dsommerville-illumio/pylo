@@ -78,8 +78,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adbc46cbe1570ad2e0dc8c0c0ce642c71"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#adbc46cbe1570ad2e0dc8c0c0ce642c71">__init__</a> (self)</td></tr>
 <tr class="separator:adbc46cbe1570ad2e0dc8c0c0ce642c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c5a5be1d4deb251952384da73b132d6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#a9c5a5be1d4deb251952384da73b132d6">add_from_text</a> (self, str entry, skip_recalculation=False, ignore_ipv6=False)</td></tr>
-<tr class="separator:a9c5a5be1d4deb251952384da73b132d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aeb773848c9982252856f848a19a952"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#a8aeb773848c9982252856f848a19a952">add_from_text</a> (self, str entry, skip_recalculation=False, ignore_ipv6=True)</td></tr>
+<tr class="separator:a8aeb773848c9982252856f848a19a952"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3184bf41561d38ccaf143125de62014e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#a3184bf41561d38ccaf143125de62014e">intersection</a> (self, '<a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html">IP4Map</a>' another_map)</td></tr>
 <tr class="separator:a3184bf41561d38ccaf143125de62014e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03faedc2ba4b57adeb28e5ca2046bc3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#a03faedc2ba4b57adeb28e5ca2046bc3e">contains</a> (self, '<a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html">pylo.IP4Map</a>' another_map)</td></tr>
@@ -107,8 +107,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a11f7e85494eec0fb3d9b615f7a252500"><td class="memItemLeft" align="right" valign="top">Optional[List[int]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#a11f7e85494eec0fb3d9b615f7a252500">ip_entry_from_text</a> (str entry, ignore_ipv6=False)</td></tr>
-<tr class="separator:a11f7e85494eec0fb3d9b615f7a252500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefdff5fff3785f6a21a13a67996de6de"><td class="memItemLeft" align="right" valign="top">Optional[List[int]]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#aefdff5fff3785f6a21a13a67996de6de">ip_entry_from_text</a> (str entry, ignore_ipv6=True)</td></tr>
+<tr class="separator:aefdff5fff3785f6a21a13a67996de6de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adbc46cbe1570ad2e0dc8c0c0ce642c71"></a>
@@ -133,8 +133,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9c5a5be1d4deb251952384da73b132d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c5a5be1d4deb251952384da73b132d6">&#9670;&nbsp;</a></span>add_from_text()</h2>
+<a id="a8aeb773848c9982252856f848a19a952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aeb773848c9982252856f848a19a952">&#9670;&nbsp;</a></span>add_from_text()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +161,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>ignore_ipv6</em> = <code>False</code>&#160;</td>
+          <td class="paramname"><em>ignore_ipv6</em> = <code>True</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -170,7 +170,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">def </span>add_from_text(self, entry: str, skip_recalculation=<span class="keyword">False</span>, ignore_ipv6=<span class="keyword">False</span>):</div>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">def </span>add_from_text(self, entry: str, skip_recalculation=<span class="keyword">False</span>, ignore_ipv6=<span class="keyword">True</span>):</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        new_entry = self.ip_entry_from_text(entry, ignore_ipv6=ignore_ipv6)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
@@ -184,10 +184,10 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classpylo_1_1_i_p_map_1_1_i_p4_map_a9c5a5be1d4deb251952384da73b132d6_cgraph.png" border="0" usemap="#aclasspylo_1_1_i_p_map_1_1_i_p4_map_a9c5a5be1d4deb251952384da73b132d6_cgraph" alt=""/></div>
-<map name="aclasspylo_1_1_i_p_map_1_1_i_p4_map_a9c5a5be1d4deb251952384da73b132d6_cgraph" id="aclasspylo_1_1_i_p_map_1_1_i_p4_map_a9c5a5be1d4deb251952384da73b132d6_cgraph">
+<div class="center"><img src="classpylo_1_1_i_p_map_1_1_i_p4_map_a8aeb773848c9982252856f848a19a952_cgraph.png" border="0" usemap="#aclasspylo_1_1_i_p_map_1_1_i_p4_map_a8aeb773848c9982252856f848a19a952_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_i_p_map_1_1_i_p4_map_a8aeb773848c9982252856f848a19a952_cgraph" id="aclasspylo_1_1_i_p_map_1_1_i_p4_map_a8aeb773848c9982252856f848a19a952_cgraph">
 <area shape="rect" title=" " alt="" coords="5,39,164,80"/>
-<area shape="rect" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#a11f7e85494eec0fb3d9b615f7a252500" title=" " alt="" coords="218,5,365,47"/>
+<area shape="rect" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#aefdff5fff3785f6a21a13a67996de6de" title=" " alt="" coords="218,5,365,47"/>
 <area shape="rect" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#aac7cd0713f14e6bd2927852a5bf25856" title=" " alt="" coords="212,71,371,112"/>
 </map>
 </div>
@@ -321,8 +321,8 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a11f7e85494eec0fb3d9b615f7a252500"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11f7e85494eec0fb3d9b615f7a252500">&#9670;&nbsp;</a></span>ip_entry_from_text()</h2>
+<a id="aefdff5fff3785f6a21a13a67996de6de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefdff5fff3785f6a21a13a67996de6de">&#9670;&nbsp;</a></span>ip_entry_from_text()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,7 +340,7 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>ignore_ipv6</em> = <code>False</code>&#160;</td>
+          <td class="paramname"><em>ignore_ipv6</em> = <code>True</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -354,7 +354,7 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">def </span>ip_entry_from_text(entry: str, ignore_ipv6=<span class="keyword">False</span>) -&gt; Optional[List[int]]:</div>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">def </span>ip_entry_from_text(entry: str, ignore_ipv6=<span class="keyword">True</span>) -&gt; Optional[List[int]]:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        new_entry = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        dash_find = entry.find(<span class="stringliteral">&#39;-&#39;</span>)</div>
@@ -611,7 +611,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classpylo_1_1_i_p_map_1_1_i_p4_map_a878fe6d99e609f462fd176a35995931e_cgraph.png" border="0" usemap="#aclasspylo_1_1_i_p_map_1_1_i_p4_map_a878fe6d99e609f462fd176a35995931e_cgraph" alt=""/></div>
 <map name="aclasspylo_1_1_i_p_map_1_1_i_p4_map_a878fe6d99e609f462fd176a35995931e_cgraph" id="aclasspylo_1_1_i_p_map_1_1_i_p4_map_a878fe6d99e609f462fd176a35995931e_cgraph">
 <area shape="rect" title=" " alt="" coords="5,39,196,80"/>
-<area shape="rect" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#a11f7e85494eec0fb3d9b615f7a252500" title=" " alt="" coords="266,5,413,47"/>
+<area shape="rect" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#aefdff5fff3785f6a21a13a67996de6de" title=" " alt="" coords="266,5,413,47"/>
 <area shape="rect" href="classpylo_1_1_i_p_map_1_1_i_p4_map.html#a1b43e571c1af868f4ca8e4159556a227" title=" " alt="" coords="244,71,435,112"/>
 </map>
 </div>
@@ -857,7 +857,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 15 2021 09:57:21 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jul 15 2021 11:20:31 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
