@@ -88,8 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aacbe6109182c7b40a88224048e4bf149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28d56a9a46cbc9594f691dc58380399c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_ruleset_1_1_ruleset.html#a28d56a9a46cbc9594f691dc58380399c">extract_id_from_href</a> (self)</td></tr>
 <tr class="separator:a28d56a9a46cbc9594f691dc58380399c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbebbafb3487c11640bbf1e97f994bea"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_ruleset_1_1_ruleset.html#afbebbafb3487c11640bbf1e97f994bea">get_ruleset_url</a> (self, str pce_hostname, pce_port)</td></tr>
-<tr class="separator:afbebbafb3487c11640bbf1e97f994bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a895f2b994790a0cc1b4b462f416db154"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_ruleset_1_1_ruleset.html#a895f2b994790a0cc1b4b462f416db154">get_ruleset_url</a> (self, str pce_hostname=None, int pce_port=None)</td></tr>
+<tr class="separator:a895f2b994790a0cc1b4b462f416db154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -322,8 +322,8 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="afbebbafb3487c11640bbf1e97f994bea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbebbafb3487c11640bbf1e97f994bea">&#9670;&nbsp;</a></span>get_ruleset_url()</h2>
+<a id="a895f2b994790a0cc1b4b462f416db154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a895f2b994790a0cc1b4b462f416db154">&#9670;&nbsp;</a></span>get_ruleset_url()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -337,14 +337,14 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">str&#160;</td>
-          <td class="paramname"><em>pce_hostname</em>, </td>
+          <td class="paramtype">str &#160;</td>
+          <td class="paramname"><em>pce_hostname</em> = <code>None</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>pce_port</em>&#160;</td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>pce_port</em> = <code>None</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -353,13 +353,20 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">def </span>get_ruleset_url(self, pce_hostname: str, pce_port):</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;https://{}:{}/#/rulesets/{}/draft/rules/&#39;</span>.format(pce_hostname, pce_port, self.extract_id_from_href())</div>
+<div class="fragment"><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">def </span>get_ruleset_url(self, pce_hostname: str = <span class="keywordtype">None</span>, pce_port: int = <span class="keywordtype">None</span>):</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">if</span> pce_hostname <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">or</span> pce_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            connector = pylo.find_connector_or_die(self)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">if</span> pce_hostname <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                pce_hostname = connector.hostname</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">if</span> pce_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                pce_port = connector.port</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;https://{}:{}/#/rulesets/{}/draft/rules/&#39;</span>.format(pce_hostname, pce_port, self.extract_id_from_href())</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classpylo_1_1_ruleset_1_1_ruleset_afbebbafb3487c11640bbf1e97f994bea_cgraph.png" border="0" usemap="#aclasspylo_1_1_ruleset_1_1_ruleset_afbebbafb3487c11640bbf1e97f994bea_cgraph" alt=""/></div>
-<map name="aclasspylo_1_1_ruleset_1_1_ruleset_afbebbafb3487c11640bbf1e97f994bea_cgraph" id="aclasspylo_1_1_ruleset_1_1_ruleset_afbebbafb3487c11640bbf1e97f994bea_cgraph">
+<div class="center"><img src="classpylo_1_1_ruleset_1_1_ruleset_a895f2b994790a0cc1b4b462f416db154_cgraph.png" border="0" usemap="#aclasspylo_1_1_ruleset_1_1_ruleset_a895f2b994790a0cc1b4b462f416db154_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_ruleset_1_1_ruleset_a895f2b994790a0cc1b4b462f416db154_cgraph" id="aclasspylo_1_1_ruleset_1_1_ruleset_a895f2b994790a0cc1b4b462f416db154_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,165,47"/>
 <area shape="rect" href="classpylo_1_1_ruleset_1_1_ruleset.html#a28d56a9a46cbc9594f691dc58380399c" title=" " alt="" coords="213,5,395,47"/>
 </map>
@@ -553,7 +560,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 12 2021 13:00:53 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jul 15 2021 09:48:31 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

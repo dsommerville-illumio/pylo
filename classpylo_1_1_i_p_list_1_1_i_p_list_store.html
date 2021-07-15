@@ -84,6 +84,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7fe65150b2682cc0679d98f4c4db9a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa00f0d0b0b94b66e66e073ec037d6ac5"><td class="memItemLeft" align="right" valign="top"> '<a class="el" href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList</a>'&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_list_1_1_i_p_list_store.html#aa00f0d0b0b94b66e66e073ec037d6ac5">find_by_href</a> (self, str <a class="el" href="classpylo_1_1_i_p_list_1_1_i_p_list.html#a3eaee4ad637e76cd56ef31e62320a89a">href</a>)</td></tr>
 <tr class="separator:aa00f0d0b0b94b66e66e073ec037d6ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9818e57c875297e27520f54cc2ba3e9"><td class="memItemLeft" align="right" valign="top">Optional[ '<a class="el" href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList</a>']&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_i_p_list_1_1_i_p_list_store.html#ad9818e57c875297e27520f54cc2ba3e9">find_by_name</a> (self, str <a class="el" href="classpylo_1_1_i_p_list_1_1_i_p_list.html#a10e931b0e3fb64def9bd32962fcd8525">name</a>)</td></tr>
+<tr class="separator:ad9818e57c875297e27520f54cc2ba3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -176,8 +178,40 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">def </span>find_by_href(self, href: str) -&gt; <span class="stringliteral">&#39;pylo.IPList&#39;</span>:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> self.itemsByHRef.get(href)</div>
+<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">def </span>find_by_href(self, href: str) -&gt; <span class="stringliteral">&#39;pylo.IPList&#39;</span>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> self.itemsByHRef.get(href)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad9818e57c875297e27520f54cc2ba3e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9818e57c875297e27520f54cc2ba3e9">&#9670;&nbsp;</a></span>find_by_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Optional['<a class="el" href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList</a>'] pylo.IPList.IPListStore.find_by_name </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">def </span>find_by_name(self, name: str) -&gt; Optional[<span class="stringliteral">&#39;pylo.IPList&#39;</span>]:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">return</span> self.itemsByName[name]</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -225,7 +259,6 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            log.debug(<span class="stringliteral">&quot;Found iplist &#39;%s&#39; with href &#39;%s&#39;&quot;</span>, new_iplist_name, new_iplist_href)</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_i_p_list_1_1_i_p_list_html"><div class="ttname"><a href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList.IPList</a></div><div class="ttdef"><b>Definition:</b> IPList.py:8</div></div>
 <div class="ttc" id="anamespacepylo_1_1_helpers_1_1functions_html_a9c2f28527c4cf97809e2fce65ca2f594"><div class="ttname"><a href="namespacepylo_1_1_helpers_1_1functions.html#a9c2f28527c4cf97809e2fce65ca2f594">pylo.Helpers.functions.nice_json</a></div><div class="ttdeci">def nice_json(json_obj)</div><div class="ttdef"><b>Definition:</b> functions.py:7</div></div>
 </div><!-- fragment --><div class="dynheader">
@@ -289,7 +322,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 12 2021 13:00:53 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jul 15 2021 09:48:31 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
