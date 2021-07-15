@@ -185,7 +185,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        self._status_security_policy_sync_state = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        self._status_security_policy_applied_at = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        self._status_rule_count = 0</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        self._status_rule_count: Optional[int] = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        self.mode = <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
@@ -329,8 +329,8 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        self._status_security_policy_sync_state = status_json.get(<span class="stringliteral">&#39;security_policy_sync_state&#39;</span>)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        self._status_rule_count = status_json.get(<span class="stringliteral">&#39;firewall_rule_count&#39;</span>)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">if</span> self._status_rule_count <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find VENAgent &#39;{}&#39; rule count &quot;</span>.format(self.href), status_json)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment"># if self._status_rule_count is None:</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">#    raise pylo.PyloEx(&quot;Cannot find firewall_rule_count VENAgent &#39;{}&#39; rule count &quot;.format(self.href), status_json)</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        config_json = data.get(<span class="stringliteral">&#39;config&#39;</span>)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> config_json <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
@@ -444,7 +444,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 15 2021 12:26:22 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jul 15 2021 13:30:25 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
