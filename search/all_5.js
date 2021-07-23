@@ -12,12 +12,13 @@ var searchData=
   ['exclude_5fprocesses_5femulate_127',['exclude_processes_emulate',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_filter_set_v1.html#a5ef5b1d1bc6d9d115bd4b47afde2a18d',1,'pylo::APIConnector::APIConnector::ExplorerFilterSetV1']]],
   ['execute_128',['execute',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_workload_multi_delete_tracker.html#a00106967c531d2a00bede942fceca83f',1,'pylo.APIConnector.APIConnector.WorkloadMultiDeleteTracker.execute()'],['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_rule_search_query.html#a6e092cf73e33f22497574777b26d6a98',1,'pylo.APIConnector.APIConnector.RuleSearchQuery.execute(self)']]],
   ['execute_5fand_5fresolve_129',['execute_and_resolve',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_rule_search_query.html#a3b0268e5d6844705ede1f4e793099c93',1,'pylo::APIConnector::APIConnector::RuleSearchQuery']]],
-  ['expand_5fnested_5fto_5farray_130',['expand_nested_to_array',['../classpylo_1_1_label_group_1_1_label_group.html#a8d61e77bc9e341db7b2a2eb98f9dba08',1,'pylo::LabelGroup::LabelGroup']]],
-  ['explorer_5fsearch_131',['explorer_search',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a5bebcf980f7f8f959d4c07719a4ad24b',1,'pylo::APIConnector::APIConnector']]],
-  ['explorerfiltersetv1_132',['ExplorerFilterSetV1',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_filter_set_v1.html',1,'pylo::APIConnector::APIConnector']]],
-  ['explorerresult_133',['ExplorerResult',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1']]],
-  ['explorerresultsetv1_134',['ExplorerResultSetV1',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1.html',1,'pylo::APIConnector::APIConnector']]],
-  ['exports_2epy_135',['exports.py',['../exports_8py.html',1,'']]],
-  ['extra_5fdebug_5fmessage_136',['extra_debug_message',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_api_agent_compatibility_report_1_1_api_agent_compatibility_report_item.html#a774ef864b2d6cdeaca6ceb9f17998f24',1,'pylo::APIConnector::APIConnector::ApiAgentCompatibilityReport::ApiAgentCompatibilityReportItem']]],
-  ['extract_5fid_5ffrom_5fhref_137',['extract_id_from_href',['../classpylo_1_1_ruleset_1_1_ruleset.html#a28d56a9a46cbc9594f691dc58380399c',1,'pylo::Ruleset::Ruleset']]]
+  ['execute_5fon_5fsingle_5fobject_130',['execute_on_single_object',['../classpylo_1_1_query_1_1_query.html#a5237af561235f01a1bca0d222af8feda',1,'pylo::Query::Query']]],
+  ['expand_5fnested_5fto_5farray_131',['expand_nested_to_array',['../classpylo_1_1_label_group_1_1_label_group.html#a8d61e77bc9e341db7b2a2eb98f9dba08',1,'pylo::LabelGroup::LabelGroup']]],
+  ['explorer_5fsearch_132',['explorer_search',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a5bebcf980f7f8f959d4c07719a4ad24b',1,'pylo::APIConnector::APIConnector']]],
+  ['explorerfiltersetv1_133',['ExplorerFilterSetV1',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_filter_set_v1.html',1,'pylo::APIConnector::APIConnector']]],
+  ['explorerresult_134',['ExplorerResult',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1']]],
+  ['explorerresultsetv1_135',['ExplorerResultSetV1',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1.html',1,'pylo::APIConnector::APIConnector']]],
+  ['exports_2epy_136',['exports.py',['../exports_8py.html',1,'']]],
+  ['extra_5fdebug_5fmessage_137',['extra_debug_message',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_api_agent_compatibility_report_1_1_api_agent_compatibility_report_item.html#a774ef864b2d6cdeaca6ceb9f17998f24',1,'pylo::APIConnector::APIConnector::ApiAgentCompatibilityReport::ApiAgentCompatibilityReportItem']]],
+  ['extract_5fid_5ffrom_5fhref_138',['extract_id_from_href',['../classpylo_1_1_ruleset_1_1_ruleset.html#a28d56a9a46cbc9594f691dc58380399c',1,'pylo::Ruleset::Ruleset']]]
 ];
