@@ -61,9 +61,11 @@ var searchData=
   ['get_5fstatus_5fsecurity_5fpolicy_5fsync_5fstate_230',['get_status_security_policy_sync_state',['../classpylo_1_1_agent_store_1_1_v_e_n_agent.html#ac556794d1faa4c7e5349b1bf816282e6',1,'pylo::AgentStore::VENAgent']]],
   ['get_5fstatus_5fstring_231',['get_status_string',['../classpylo_1_1_workload_1_1_workload.html#a1698846f41bbda8a87ba1d29eb010e22',1,'pylo::Workload::Workload']]],
   ['get_5ftroubled_5fservices_232',['get_troubled_services',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_cluster_health_1_1_cluster_health_node.html#a26ffbd9e868bf1160caf5763f3d7cf4b',1,'pylo::APIConnector::APIConnector::ClusterHealth::ClusterHealthNode']]],
-  ['get_5fworkloads_5fby_5flabel_5fscope_233',['get_workloads_by_label_scope',['../classpylo_1_1_label_store_1_1_label_store.html#a029297a627ba4de6fab4fbe2045ea85e',1,'pylo::LabelStore::LabelStore']]],
-  ['getsoftwareversion_234',['getSoftwareVersion',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a2fc0b8e7727322a4d04a81d638d9f040',1,'pylo::APIConnector::APIConnector']]],
-  ['getsoftwareversionstring_235',['getSoftwareVersionString',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a7c29a335dfeea197f0d9fc1243d2c46a',1,'pylo::APIConnector::APIConnector']]],
-  ['global_5fservice_5fstatus_236',['global_service_status',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_cluster_health_1_1_cluster_health_node.html#ad848ae68553de0622214ac738bd8ecbe',1,'pylo::APIConnector::APIConnector::ClusterHealth::ClusterHealthNode']]],
-  ['global_5fstatus_237',['global_status',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_api_agent_compatibility_report.html#a973dc185a43827ccf7fabe0718f159b1',1,'pylo::APIConnector::APIConnector::ApiAgentCompatibilityReport']]]
+  ['get_5fvirtual_5fservices_233',['get_virtual_services',['../classpylo_1_1_rule_1_1_rule_host_container.html#a14c8f372afc4e07b99e1b442f3ab7bd3',1,'pylo::Rule::RuleHostContainer']]],
+  ['get_5fworkloads_234',['get_workloads',['../classpylo_1_1_rule_1_1_rule_host_container.html#a8b4dc9ed3d31564d927d55a22745fab1',1,'pylo::Rule::RuleHostContainer']]],
+  ['get_5fworkloads_5fby_5flabel_5fscope_235',['get_workloads_by_label_scope',['../classpylo_1_1_label_store_1_1_label_store.html#a029297a627ba4de6fab4fbe2045ea85e',1,'pylo::LabelStore::LabelStore']]],
+  ['getsoftwareversion_236',['getSoftwareVersion',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a2fc0b8e7727322a4d04a81d638d9f040',1,'pylo::APIConnector::APIConnector']]],
+  ['getsoftwareversionstring_237',['getSoftwareVersionString',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a7c29a335dfeea197f0d9fc1243d2c46a',1,'pylo::APIConnector::APIConnector']]],
+  ['global_5fservice_5fstatus_238',['global_service_status',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_cluster_health_1_1_cluster_health_node.html#ad848ae68553de0622214ac738bd8ecbe',1,'pylo::APIConnector::APIConnector::ClusterHealth::ClusterHealthNode']]],
+  ['global_5fstatus_239',['global_status',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_api_agent_compatibility_report.html#a973dc185a43827ccf7fabe0718f159b1',1,'pylo::APIConnector::APIConnector::ApiAgentCompatibilityReport']]]
 ];

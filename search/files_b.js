@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['workload_2epy_656',['Workload.py',['../_workload_8py.html',1,'']]],
-  ['workloadstore_2epy_657',['WorkloadStore.py',['../_workload_store_8py.html',1,'']]]
+  ['virtualservice_2epy_670',['VirtualService.py',['../_virtual_service_8py.html',1,'']]],
+  ['virtualservicestore_2epy_671',['VirtualServiceStore.py',['../_virtual_service_store_8py.html',1,'']]]
 ];

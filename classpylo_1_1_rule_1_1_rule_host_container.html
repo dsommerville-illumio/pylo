@@ -118,6 +118,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5d01f3e62e71c05e26ca38dace35c968"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad67f0f8837e3bc4c7d4010e5c09213a0"><td class="memItemLeft" align="right" valign="top">List[<a class="el" href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule_host_container.html#ad67f0f8837e3bc4c7d4010e5c09213a0">get_iplists</a> (self)</td></tr>
 <tr class="separator:ad67f0f8837e3bc4c7d4010e5c09213a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b4dc9ed3d31564d927d55a22745fab1"><td class="memItemLeft" align="right" valign="top">List[<a class="el" href="classpylo_1_1_workload_1_1_workload.html">pylo.Workload</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule_host_container.html#a8b4dc9ed3d31564d927d55a22745fab1">get_workloads</a> (self)</td></tr>
+<tr class="separator:a8b4dc9ed3d31564d927d55a22745fab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14c8f372afc4e07b99e1b442f3ab7bd3"><td class="memItemLeft" align="right" valign="top">List[<a class="el" href="classpylo_1_1_virtual_service_1_1_virtual_service.html">pylo.VirtualService</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule_host_container.html#a14c8f372afc4e07b99e1b442f3ab7bd3">get_virtual_services</a> (self)</td></tr>
+<tr class="separator:a14c8f372afc4e07b99e1b442f3ab7bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb65f91a552a9d88a919dbc22468c666"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_rule_1_1_rule_host_container.html#afb65f91a552a9d88a919dbc22468c666">contains_all_workloads</a> (self)</td></tr>
 <tr class="separator:afb65f91a552a9d88a919dbc22468c666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classpylo_1_1_reference_tracker_1_1_referencer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classpylo_1_1_reference_tracker_1_1_referencer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classpylo_1_1_reference_tracker_1_1_referencer.html">pylo.ReferenceTracker.Referencer</a></td></tr>
@@ -166,7 +170,7 @@ Public Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">def </span>__init__(self, owner: <span class="stringliteral">&#39;pylo.Rule&#39;</span>, name: str):</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        pylo.Referencer.__init__(self)</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        self.owner = owner</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        self._items = {}  <span class="comment"># type: Dict[Union[pylo.Label, pylo.LabelGroup, pylo.Workload], Union[pylo.Label, pylo.LabelGroup, pylo.Workload]]</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        self._items = {}  <span class="comment"># type: Dict[Union[pylo.Label, pylo.LabelGroup, pylo.Workload, pylo.VirtualService], Union[pylo.Label, pylo.LabelGroup, pylo.Workload, pylo.VirtualService]]</span></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        self.name = name</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        self._hasAllWorkloads = <span class="keyword">False</span></div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
@@ -189,8 +193,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keyword">def </span>contains_all_workloads(self) -&gt; bool:</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keywordflow">return</span> self._hasAllWorkloads</div>
+<div class="fragment"><div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keyword">def </span>contains_all_workloads(self) -&gt; bool:</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        <span class="keywordflow">return</span> self._hasAllWorkloads</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -210,15 +214,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Returns True if at least 1 iplist is part of this container
-</pre> <div class="fragment"><div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keyword">def </span>contains_iplists(self) -&gt; bool:</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="stringliteral">        Returns True if at least 1 iplist is part of this container</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList</a>):</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+</pre> <div class="fragment"><div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keyword">def </span>contains_iplists(self) -&gt; bool:</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="stringliteral">        Returns True if at least 1 iplist is part of this container</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList</a>):</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_i_p_list_1_1_i_p_list_html"><div class="ttname"><a href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList.IPList</a></div><div class="ttdef"><b>Definition:</b> IPList.py:8</div></div>
 </div><!-- fragment -->
 </div>
@@ -238,15 +242,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keyword">def </span>get_app_labels(self) -&gt; List[Union[pylo.Label,pylo.LabelGroup]]:</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        result = []</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="keywordflow">if</span> (isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>)) <span class="keywordflow">and</span> item.type_is_application():</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                result.append(item)</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">return</span> result</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keyword">def </span>get_app_labels(self) -&gt; List[Union[pylo.Label,pylo.LabelGroup]]:</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        result = []</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordflow">if</span> (isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>)) <span class="keywordflow">and</span> item.type_is_application():</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                result.append(item)</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_label_1_1_label_html"><div class="ttname"><a href="classpylo_1_1_label_1_1_label.html">pylo.Label.Label</a></div><div class="ttdef"><b>Definition:</b> Label.py:7</div></div>
 <div class="ttc" id="aclasspylo_1_1_label_group_1_1_label_group_html"><div class="ttname"><a href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup.LabelGroup</a></div><div class="ttdef"><b>Definition:</b> LabelGroup.py:8</div></div>
 </div><!-- fragment -->
@@ -267,15 +271,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keyword">def </span>get_env_labels(self) -&gt; List[Union[pylo.Label,pylo.LabelGroup]]:</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        result = []</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordflow">if</span> (isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>)) <span class="keywordflow">and</span> item.type_is_environment():</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                result.append(item)</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="keywordflow">return</span> result</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keyword">def </span>get_env_labels(self) -&gt; List[Union[pylo.Label,pylo.LabelGroup]]:</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        result = []</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            <span class="keywordflow">if</span> (isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>)) <span class="keywordflow">and</span> item.type_is_environment():</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                result.append(item)</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -294,15 +298,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">def </span>get_iplists(self) -&gt; List[pylo.IPList]:</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        result = []</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList</a>):</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                result.append(item)</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        <span class="keywordflow">return</span> result</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="keyword">def </span>get_iplists(self) -&gt; List[pylo.IPList]:</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        result = []</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_i_p_list_1_1_i_p_list.html">pylo.IPList</a>):</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;                result.append(item)</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -321,15 +325,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">def </span>get_labels(self) -&gt; List[Union[pylo.Label, pylo.LabelGroup]]:</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        result = []</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>):</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                result.append(item)</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keywordflow">return</span> result</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keyword">def </span>get_labels(self) -&gt; List[Union[pylo.Label, pylo.LabelGroup]]:</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        result = []</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>):</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                result.append(item)</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -348,15 +352,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keyword">def </span>get_loc_labels(self) -&gt; List[Union[pylo.Label,pylo.LabelGroup]]:</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        result = []</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;            <span class="keywordflow">if</span> (isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>)) <span class="keywordflow">and</span> item.type_is_location():</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                result.append(item)</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordflow">return</span> result</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keyword">def </span>get_loc_labels(self) -&gt; List[Union[pylo.Label,pylo.LabelGroup]]:</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        result = []</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            <span class="keywordflow">if</span> (isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>)) <span class="keywordflow">and</span> item.type_is_location():</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                result.append(item)</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -375,15 +379,71 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keyword">def </span>get_role_labels(self) -&gt; List[Union[pylo.Label,pylo.LabelGroup]]:</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        result = []</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <span class="keywordflow">if</span> (isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>)) <span class="keywordflow">and</span> item.type_is_role():</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                result.append(item)</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">return</span> result</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keyword">def </span>get_role_labels(self) -&gt; List[Union[pylo.Label,pylo.LabelGroup]]:</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        result = []</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="keywordflow">if</span> (isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>)) <span class="keywordflow">and</span> item.type_is_role():</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                result.append(item)</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a14c8f372afc4e07b99e1b442f3ab7bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14c8f372afc4e07b99e1b442f3ab7bd3">&#9670;&nbsp;</a></span>get_virtual_services()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[<a class="el" href="classpylo_1_1_virtual_service_1_1_virtual_service.html">pylo.VirtualService</a>] pylo.Rule.RuleHostContainer.get_virtual_services </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <span class="keyword">def </span>get_virtual_services(self) -&gt; List[pylo.VirtualService]:</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        result = []</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_virtual_service_1_1_virtual_service.html">pylo.VirtualService</a>):</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                result.append(item)</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
+<div class="ttc" id="aclasspylo_1_1_virtual_service_1_1_virtual_service_html"><div class="ttname"><a href="classpylo_1_1_virtual_service_1_1_virtual_service.html">pylo.VirtualService.VirtualService</a></div><div class="ttdef"><b>Definition:</b> VirtualService.py:4</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8b4dc9ed3d31564d927d55a22745fab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b4dc9ed3d31564d927d55a22745fab1">&#9670;&nbsp;</a></span>get_workloads()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List[<a class="el" href="classpylo_1_1_workload_1_1_workload.html">pylo.Workload</a>] pylo.Rule.RuleHostContainer.get_workloads </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keyword">def </span>get_workloads(self) -&gt; List[pylo.Workload]:</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        result = []</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_workload_1_1_workload.html">pylo.Workload</a>):</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                result.append(item)</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
+<div class="ttc" id="aclasspylo_1_1_workload_1_1_workload_html"><div class="ttname"><a href="classpylo_1_1_workload_1_1_workload.html">pylo.Workload.Workload</a></div><div class="ttdef"><b>Definition:</b> Workload.py:17</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -402,12 +462,12 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keyword">def </span>has_labels(self) -&gt; bool:</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>):</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">def </span>has_labels(self) -&gt; bool:</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_label_1_1_label.html">pylo.Label</a>) <span class="keywordflow">or</span> isinstance(item, <a class="code" href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup</a>):</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -426,13 +486,12 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keyword">def </span>has_workloads(self) -&gt; bool:</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_workload_1_1_workload.html">pylo.Workload</a>):</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="ttc" id="aclasspylo_1_1_workload_1_1_workload_html"><div class="ttname"><a href="classpylo_1_1_workload_1_1_workload.html">pylo.Workload.Workload</a></div><div class="ttdef"><b>Definition:</b> Workload.py:17</div></div>
+<div class="fragment"><div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">def </span>has_workloads(self) -&gt; bool:</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_workload_1_1_workload.html">pylo.Workload</a>):</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -494,20 +553,29 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                    <span class="comment"># raise Exception(&quot;Cannot find Workload with HREF {} in Rule {}. JSON:\n {}&quot;.format(href, self.owner.href, pylo.nice_json(host_data)))</span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                    find_object = self.owner.owner.owner.owner.WorkloadStore.find_by_href_or_create_tmp(href, <span class="stringliteral">&#39;tmp-deleted-wkl-&#39;</span>+href)</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keywordflow">elif</span> <span class="stringliteral">&#39;actors&#39;</span> <span class="keywordflow">in</span> host_data:</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                actor_value = host_data[<span class="stringliteral">&#39;actors&#39;</span>]</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                <span class="keywordflow">if</span> actor_value <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> actor_value == <span class="stringliteral">&#39;ams&#39;</span>:</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                    self._hasAllWorkloads = <span class="keyword">True</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                    <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                <span class="comment"># TODO implement actors</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;An actor that is not &#39;ams&#39; was detected but this library doesn&#39;t support it yet&quot;</span>, host_data)</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Unsupported reference type&quot;</span>, host_data)</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                self._items[find_object] = find_object</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                find_object.add_reference(self)</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keywordflow">elif</span> <span class="stringliteral">&#39;virtual_service&#39;</span> <span class="keywordflow">in</span> host_data:</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                href = host_data[<span class="stringliteral">&#39;virtual_service&#39;</span>].get(<span class="stringliteral">&#39;href&#39;</span>)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;Cannot find object HREF &#39;</span>, host_data)</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                <span class="comment"># @TODO : better handling of temporary objects</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                find_object = self.owner.owner.owner.owner.VirtualServiceStore.itemsByHRef.get(href)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                    <span class="comment"># raise Exception(&quot;Cannot find VirtualService with HREF {} in Rule {}. JSON:\n {}&quot;.format(href, self.owner.href, pylo.nice_json(host_data)))</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                    find_object = self.owner.owner.owner.owner.VirtualServiceStore.find_by_href_or_create_tmp(href, <span class="stringliteral">&#39;tmp-deleted-wkl-&#39;</span>+href)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            <span class="keywordflow">elif</span> <span class="stringliteral">&#39;actors&#39;</span> <span class="keywordflow">in</span> host_data:</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                actor_value = host_data[<span class="stringliteral">&#39;actors&#39;</span>]</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                <span class="keywordflow">if</span> actor_value <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> actor_value == <span class="stringliteral">&#39;ams&#39;</span>:</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                    self._hasAllWorkloads = <span class="keyword">True</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                    <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                <span class="comment"># TODO implement actors</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;An actor that is not &#39;ams&#39; was detected but this library doesn&#39;t support it yet&quot;</span>, host_data)</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Unsupported reference type&quot;</span>, host_data)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            <span class="keywordflow">if</span> find_object <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                self._items[find_object] = find_object</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                find_object.add_reference(self)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 </div><!-- fragment -->
 </div>
@@ -527,38 +595,44 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keyword">def </span>members_to_str(self) -&gt; str:</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        text = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordflow">if</span> self._hasAllWorkloads:</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            text += <span class="stringliteral">&quot;All Workloads&quot;</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        <span class="keywordflow">for</span> label <span class="keywordflow">in</span> self.get_labels():</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            <span class="keywordflow">if</span> len(text) &gt; 0:</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                text += <span class="stringliteral">&#39;,&#39;</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            text += label.name</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="keywordflow">for</span> iplist <span class="keywordflow">in</span> self.get_iplists():</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            <span class="keywordflow">if</span> len(text) &gt; 0:</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                text += <span class="stringliteral">&#39;,&#39;</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;            text += iplist.name</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self._items.values():</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            <span class="keywordflow">if</span> isinstance(item, <a class="code" href="classpylo_1_1_workload_1_1_workload.html">pylo.Workload</a>):</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                <span class="keywordflow">if</span> len(text) &gt; 0:</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                    text += <span class="stringliteral">&#39;,&#39;</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                text += item.get_name()</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keywordflow">return</span> text</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keyword">def </span>members_to_str(self) -&gt; str:</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        text = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160; </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keywordflow">if</span> self._hasAllWorkloads:</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            text += <span class="stringliteral">&quot;All Workloads&quot;</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordflow">for</span> label <span class="keywordflow">in</span> self.get_labels():</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            <span class="keywordflow">if</span> len(text) &gt; 0:</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                text += <span class="stringliteral">&#39;,&#39;</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            text += label.name</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self.get_iplists():</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            <span class="keywordflow">if</span> len(text) &gt; 0:</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                text += <span class="stringliteral">&#39;,&#39;</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            text += item.name</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self.get_workloads():</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;            <span class="keywordflow">if</span> len(text) &gt; 0:</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                text += <span class="stringliteral">&#39;,&#39;</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            text += item.get_name()</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; </div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <span class="keywordflow">for</span> item <span class="keywordflow">in</span> self.get_virtual_services():</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;            <span class="keywordflow">if</span> len(text) &gt; 0:</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                text += <span class="stringliteral">&#39;,&#39;</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            text += item.name</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keywordflow">return</span> text</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classpylo_1_1_rule_1_1_rule_host_container_a6d7de836965fbd27530265f44651a6b7_cgraph.png" border="0" usemap="#aclasspylo_1_1_rule_1_1_rule_host_container_a6d7de836965fbd27530265f44651a6b7_cgraph" alt=""/></div>
 <map name="aclasspylo_1_1_rule_1_1_rule_host_container_a6d7de836965fbd27530265f44651a6b7_cgraph" id="aclasspylo_1_1_rule_1_1_rule_host_container_a6d7de836965fbd27530265f44651a6b7_cgraph">
-<area shape="rect" title=" " alt="" coords="5,39,248,80"/>
+<area shape="rect" title=" " alt="" coords="5,104,248,145"/>
 <area shape="rect" href="classpylo_1_1_rule_1_1_rule_host_container.html#ad67f0f8837e3bc4c7d4010e5c09213a0" title=" " alt="" coords="296,5,503,47"/>
 <area shape="rect" href="classpylo_1_1_rule_1_1_rule_host_container.html#a501c68ee708d26a8a431744ac6fb09a7" title=" " alt="" coords="296,71,503,112"/>
+<area shape="rect" href="classpylo_1_1_rule_1_1_rule_host_container.html#a14c8f372afc4e07b99e1b442f3ab7bd3" title=" " alt="" coords="296,136,503,177"/>
+<area shape="rect" href="classpylo_1_1_rule_1_1_rule_host_container.html#a8b4dc9ed3d31564d927d55a22745fab1" title=" " alt="" coords="296,201,503,243"/>
 </map>
 </div>
 
@@ -599,7 +673,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 26 2021 11:10:16 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jul 26 2021 15:04:39 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
