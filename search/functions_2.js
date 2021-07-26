@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['cast_5fisbroadcast_702',['cast_isBroadcast',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html#a794a8e55bfa3d367f5847adf4dded90d',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1::ExplorerResult']]],
-  ['cast_5fismulticast_703',['cast_isMulticast',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html#add827d85a878c3942f37fbd2cf7bfa98',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1::ExplorerResult']]],
-  ['cast_5fisunicast_704',['cast_isUnicast',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html#aac4b29e94d19b8ae44af0f661433ae86',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1::ExplorerResult']]],
+  ['cast_5fis_5fbroadcast_702',['cast_is_broadcast',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html#a425711fa44dc1a003ffb388c16f63732',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1::ExplorerResult']]],
+  ['cast_5fis_5fmulticast_703',['cast_is_multicast',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html#a03d977161eed89887d9f2fe6bb569a81',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1::ExplorerResult']]],
+  ['cast_5fis_5funicast_704',['cast_is_unicast',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector_1_1_explorer_result_set_v1_1_1_explorer_result.html#ae405ffcf1b2d274b332810d06046f3c4',1,'pylo::APIConnector::APIConnector::ExplorerResultSetV1::ExplorerResult']]],
   ['clock_5felapsed_5fstr_705',['clock_elapsed_str',['../namespacepylo_1_1_helpers_1_1functions.html#a638bd204153349a5508cf1ae4bf07ce9',1,'pylo::Helpers::functions']]],
   ['clock_5fstart_706',['clock_start',['../namespacepylo_1_1_helpers_1_1functions.html#ab3b33f10ab80767dbf3132978cee1af5',1,'pylo::Helpers::functions']]],
   ['clock_5fstop_707',['clock_stop',['../namespacepylo_1_1_helpers_1_1functions.html#a20d848f1baee0baaa11c7dd726c33d9d',1,'pylo::Helpers::functions']]],

@@ -63,6 +63,6 @@ var searchData=
   ['get_5fvirtual_5fservices_851',['get_virtual_services',['../classpylo_1_1_rule_1_1_rule_host_container.html#a14c8f372afc4e07b99e1b442f3ab7bd3',1,'pylo::Rule::RuleHostContainer']]],
   ['get_5fworkloads_852',['get_workloads',['../classpylo_1_1_rule_1_1_rule_host_container.html#a8b4dc9ed3d31564d927d55a22745fab1',1,'pylo::Rule::RuleHostContainer']]],
   ['get_5fworkloads_5fby_5flabel_5fscope_853',['get_workloads_by_label_scope',['../classpylo_1_1_label_store_1_1_label_store.html#a029297a627ba4de6fab4fbe2045ea85e',1,'pylo::LabelStore::LabelStore']]],
-  ['getsoftwareversion_854',['getSoftwareVersion',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a2fc0b8e7727322a4d04a81d638d9f040',1,'pylo::APIConnector::APIConnector']]],
-  ['getsoftwareversionstring_855',['getSoftwareVersionString',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a7c29a335dfeea197f0d9fc1243d2c46a',1,'pylo::APIConnector::APIConnector']]]
+  ['getsoftwareversion_854',['getSoftwareVersion',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#aa0b70a541e5e02543ed1e41092d40264',1,'pylo::APIConnector::APIConnector']]],
+  ['getsoftwareversionstring_855',['getSoftwareVersionString',['../classpylo_1_1_a_p_i_connector_1_1_a_p_i_connector.html#a5a887acf61153723c6a78682ac0a8676',1,'pylo::APIConnector::APIConnector']]]
 ];

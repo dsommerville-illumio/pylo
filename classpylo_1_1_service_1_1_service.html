@@ -165,22 +165,22 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">def </span>__init__(self, name: str, href: str, owner: <span class="stringliteral">&#39;pylo.ServiceStore&#39;</span>):</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        pylo.ReferenceTracker.__init__(self)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        self.owner: <span class="stringliteral">&#39;pylo.ServiceStore&#39;</span> = owner</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        self.name: str = name</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        self.href: str = href</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        self.entries: List[<span class="stringliteral">&#39;pylo.ServiceEntry&#39;</span>] = []</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        self.description: Optional[str] = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        self.processName: Optional[str] = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        self.deleted: bool = <span class="keyword">False</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        self.raw_json = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">def </span>__init__(self, name: str, href: str, owner: <span class="stringliteral">&#39;pylo.ServiceStore&#39;</span>):</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        pylo.ReferenceTracker.__init__(self)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        self.owner: <span class="stringliteral">&#39;pylo.ServiceStore&#39;</span> = owner</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        self.name: str = name</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        self.href: str = href</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        self.entries: List[<span class="stringliteral">&#39;pylo.ServiceEntry&#39;</span>] = []</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        self.description: Optional[str] = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        self.processName: Optional[str] = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        self.deleted: bool = <span class="keyword">False</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        self.raw_json = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -200,9 +200,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">def </span>get_api_reference_json(self):</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">return</span> {<span class="stringliteral">&#39;service&#39;</span>: {<span class="stringliteral">&#39;href&#39;</span>: self.href}}</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">def </span>get_api_reference_json(self):</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">return</span> {<span class="stringliteral">&#39;service&#39;</span>: {<span class="stringliteral">&#39;href&#39;</span>: self.href}}</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -231,13 +231,13 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">def </span>get_entries_str_list(self, protocolFirst=True) -&gt; List[str]:</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        result: List[str] = []</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> self.entries:</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            result.append(entry.to_string_standard(protocol_first=protocolFirst))</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="fragment"><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">def </span>get_entries_str_list(self, protocolFirst=True) -&gt; List[str]:</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        result: List[str] = []</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> self.entries:</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            result.append(entry.to_string_standard(protocol_first=protocolFirst))</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">return</span> result</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -266,21 +266,21 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">def </span>load_from_json(self, data):</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        self.raw_json = data</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        self.description = data[<span class="stringliteral">&#39;description&#39;</span>]</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        self.processName = data[<span class="stringliteral">&#39;process_name&#39;</span>]</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        service_ports = data.get(<span class="stringliteral">&#39;service_ports&#39;</span>)</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">if</span> service_ports <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">for</span> entry_data <span class="keywordflow">in</span> data[<span class="stringliteral">&#39;service_ports&#39;</span>]:</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                entry = ServiceEntry.create_from_json(entry_data)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                self.entries.append(entry)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">if</span> data[<span class="stringliteral">&#39;deleted_at&#39;</span>] <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            self.deleted = <span class="keyword">True</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">def </span>load_from_json(self, data):</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        self.raw_json = data</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        self.description = data[<span class="stringliteral">&#39;description&#39;</span>]</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        self.processName = data[<span class="stringliteral">&#39;process_name&#39;</span>]</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        service_ports = data.get(<span class="stringliteral">&#39;service_ports&#39;</span>)</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">if</span> service_ports <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keywordflow">for</span> entry_data <span class="keywordflow">in</span> data[<span class="stringliteral">&#39;service_ports&#39;</span>]:</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                entry = ServiceEntry.create_from_json(entry_data)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                self.entries.append(entry)</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">if</span> data[<span class="stringliteral">&#39;deleted_at&#39;</span>] <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            self.deleted = <span class="keyword">True</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -347,7 +347,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 26 2021 15:26:29 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Jul 26 2021 15:58:47 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
