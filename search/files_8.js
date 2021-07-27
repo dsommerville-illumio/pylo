@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['referencetracker_2epy_662',['ReferenceTracker.py',['../_reference_tracker_8py.html',1,'']]],
-  ['rule_2epy_663',['Rule.py',['../_rule_8py.html',1,'']]],
-  ['ruleset_2epy_664',['Ruleset.py',['../_ruleset_8py.html',1,'']]],
-  ['rulesetstore_2epy_665',['RulesetStore.py',['../_ruleset_store_8py.html',1,'']]]
+  ['organization_2epy_915',['Organization.py',['../_organization_8py.html',1,'']]]
 ];

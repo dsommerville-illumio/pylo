@@ -234,12 +234,13 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">for</span> nested_label <span class="keywordflow">in</span> label.expand_nested_to_array():</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    results[nested_label] = nested_label</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Unsupported object type {}&quot;</span>.format(type(label)))</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Unsupported object type {}&quot;</span>.format(<a class="code" href="namespacepylo_1_1cli.html#a82f4e247ddd388c6968f7f712ae67a20">type</a>(label)))</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> list(results.values())</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 <div class="ttc" id="aclasspylo_1_1_label_1_1_label_html"><div class="ttname"><a href="classpylo_1_1_label_1_1_label.html">pylo.Label.Label</a></div><div class="ttdef"><b>Definition:</b> Label.py:7</div></div>
 <div class="ttc" id="aclasspylo_1_1_label_group_1_1_label_group_html"><div class="ttname"><a href="classpylo_1_1_label_group_1_1_label_group.html">pylo.LabelGroup.LabelGroup</a></div><div class="ttdef"><b>Definition:</b> LabelGroup.py:8</div></div>
+<div class="ttc" id="anamespacepylo_1_1cli_html_a82f4e247ddd388c6968f7f712ae67a20"><div class="ttname"><a href="namespacepylo_1_1cli.html#a82f4e247ddd388c6968f7f712ae67a20">pylo.cli.type</a></div><div class="ttdeci">type</div><div class="ttdef"><b>Definition:</b> __init__.py:14</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -393,7 +394,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 26 2021 15:58:47 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jul 27 2021 08:43:25 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -263,7 +263,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                    <span class="keywordflow">for</span> col_index <span class="keywordflow">in</span> range(1, source_worksheet.max_column+1):</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                        item = source_worksheet.cell(row_count, col_index).value</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                        new_object[self._detected_headers[col_index-1]] = item</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                        <span class="keywordflow">if</span> item <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> (type(item) <span class="keywordflow">is</span> int <span class="keywordflow">or</span> type(item) <span class="keywordflow">is</span> bool <span class="keywordflow">or</span> len(item) &gt; 0):</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                        <span class="keywordflow">if</span> item <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> (<a class="code" href="namespacepylo_1_1cli.html#a82f4e247ddd388c6968f7f712ae67a20">type</a>(item) <span class="keywordflow">is</span> int <span class="keywordflow">or</span> <a class="code" href="namespacepylo_1_1cli.html#a82f4e247ddd388c6968f7f712ae67a20">type</a>(item) <span class="keywordflow">is</span> bool <span class="keywordflow">or</span> len(item) &gt; 0):</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                            some_fields_have_data = <span class="keyword">True</span></div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                    <span class="keywordflow">if</span> <span class="keywordflow">not</span> some_fields_have_data:</div>
@@ -285,6 +285,7 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
+<div class="ttc" id="anamespacepylo_1_1cli_html_a82f4e247ddd388c6968f7f712ae67a20"><div class="ttname"><a href="namespacepylo_1_1cli.html#a82f4e247ddd388c6968f7f712ae67a20">pylo.cli.type</a></div><div class="ttdeci">type</div><div class="ttdef"><b>Definition:</b> __init__.py:14</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -477,7 +478,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 26 2021 15:58:47 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Tue Jul 27 2021 08:43:25 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
