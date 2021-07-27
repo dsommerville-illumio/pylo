@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['query_2epy_916',['Query.py',['../_query_8py.html',1,'']]]
+  ['organization_2epy_914',['Organization.py',['../_organization_8py.html',1,'']]]
 ];
