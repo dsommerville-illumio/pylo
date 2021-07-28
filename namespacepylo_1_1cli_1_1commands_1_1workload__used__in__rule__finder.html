@@ -84,6 +84,8 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:aa5c611f10b3bd27c4f81a3f80d6e57bb"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aa5c611f10b3bd27c4f81a3f80d6e57bb">command_name</a> = &quot;workload-used-in-rules-finder&quot;</td></tr>
 <tr class="separator:aa5c611f10b3bd27c4f81a3f80d6e57bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cabb28fe30cc66bac5eb3cac14adf82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a7cabb28fe30cc66bac5eb3cac14adf82">command_object</a> = Command(<a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aa5c611f10b3bd27c4f81a3f80d6e57bb">command_name</a>, <a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a1beeeb68a580cc7049eddb3bb1887309">run</a>, <a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">fill_parser</a>)</td></tr>
+<tr class="separator:a7cabb28fe30cc66bac5eb3cac14adf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aef25ee291e2602c0e506341159d673cb"></a>
@@ -102,7 +104,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">def </span><a class="code" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">fill_parser</a>(parser: argparse.ArgumentParser):</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--only-deleted&#39;</span>, type=bool, required=<span class="keyword">False</span>, nargs=<span class="stringliteral">&#39;?&#39;</span>, const=<span class="keyword">True</span>, help=<span class="stringliteral">&#39;only look for deleted workloads&#39;</span>)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--only-deleted&#39;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&#39;only look for deleted workloads&#39;</span>)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="ttc" id="anamespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder_html_aef25ee291e2602c0e506341159d673cb"><div class="ttname"><a href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">pylo.cli.commands.workload_used_in_rule_finder.fill_parser</a></div><div class="ttdeci">def fill_parser(argparse.ArgumentParser parser)</div><div class="ttdef"><b>Definition:</b> workload_used_in_rule_finder.py:9</div></div>
@@ -160,10 +162,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a7cabb28fe30cc66bac5eb3cac14adf82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cabb28fe30cc66bac5eb3cac14adf82">&#9670;&nbsp;</a></span>command_object</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pylo.cli.commands.workload_used_in_rule_finder.command_object = Command(<a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aa5c611f10b3bd27c4f81a3f80d6e57bb">command_name</a>, <a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a1beeeb68a580cc7049eddb3bb1887309">run</a>, <a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">fill_parser</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 27 2021 15:34:52 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Jul 28 2021 08:58:32 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
