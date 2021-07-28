@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['organization_788',['Organization',['../classpylo_1_1_organization_1_1_organization.html',1,'pylo::Organization']]]
+  ['organization_775',['Organization',['../classpylo_1_1_organization_1_1_organization.html',1,'pylo::Organization']]]
 ];

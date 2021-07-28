@@ -110,11 +110,11 @@ Variables</h2></td></tr>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--input-file-delimiter&#39;</span>, type=str, required=<span class="keyword">False</span>, default=<span class="stringliteral">&#39;,&#39;</span>,</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                        help=<span class="stringliteral">&#39;CSV field delimiter&#39;</span>)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--match-on-hostname&#39;</span>, type=bool, nargs=<span class="stringliteral">&#39;?&#39;</span>, required=<span class="keyword">False</span>, default=<span class="keyword">False</span>, const=<span class="keyword">True</span>,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--match-on-hostname&#39;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>,</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                        help=<span class="stringliteral">&quot;In order to be relabeled, a workload must match a HOSTNAME entry from the CSV file&quot;</span>)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--match-on-ip&#39;</span>, type=bool, nargs=<span class="stringliteral">&#39;?&#39;</span>, required=<span class="keyword">False</span>, default=<span class="keyword">False</span>, const=<span class="keyword">True</span>,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--match-on-ip&#39;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>,</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        help=<span class="stringliteral">&quot;In order to be relabeled, a workload must match an IP entry from the CSV file&quot;</span>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--match-on-href&#39;</span>, type=bool, nargs=<span class="stringliteral">&#39;?&#39;</span>, required=<span class="keyword">False</span>, default=<span class="keyword">False</span>, const=<span class="keyword">True</span>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--match-on-href&#39;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>,</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                        help=<span class="stringliteral">&quot;In order to be relabeled, a workload must match a HREF entry from the CSV file&quot;</span>)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--filter-env-label&#39;</span>, type=str, required=<span class="keyword">False</span>, default=<span class="keywordtype">None</span>,</div>
@@ -175,7 +175,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 28 2021 10:06:25 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Wed Jul 28 2021 10:17:26 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
