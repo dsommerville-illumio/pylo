@@ -122,31 +122,32 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    hostname = args[<span class="stringliteral">&#39;pce&#39;</span>]</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    settings_use_cache = args[<span class="stringliteral">&#39;use_cache&#39;</span>]</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    org = <a class="code" href="classpylo_1_1_organization_1_1_organization.html">pylo.Organization</a>(1)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> settings_use_cache:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        print(<span class="stringliteral">&quot; * Loading objects from cached PCE &#39;{}&#39; data... &quot;</span>.format(hostname), end=<span class="stringliteral">&quot;&quot;</span>, flush=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        org.load_from_cached_file(hostname)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        print(<span class="stringliteral">&quot; * Loading objects from PCE &#39;{}&#39; via API... &quot;</span>.format(hostname), end=<span class="stringliteral">&quot;&quot;</span>, flush=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        org.load_from_saved_credentials(hostname, include_deleted_workloads=<span class="keyword">True</span>, prompt_for_api_key=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    print(<span class="stringliteral">&quot;OK!\n&quot;</span>)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    print(<span class="stringliteral">&quot; * PCE statistics: &quot;</span>)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    print(org.stats_to_str(padding=<span class="stringliteral">&#39;    &#39;</span>))</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    print(flush=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment"># We are getting the command object associated to the command name</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    selected_command = commands.available_commands[args[<span class="stringliteral">&#39;command&#39;</span>]]</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> selected_command <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find command named &#39;{}&#39;&quot;</span>.format(args[<span class="stringliteral">&#39;command&#39;</span>]))</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    org = <a class="code" href="classpylo_1_1_organization_1_1_organization.html">pylo.Organization</a>(1)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> settings_use_cache:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        print(<span class="stringliteral">&quot; * Loading objects from cached PCE &#39;{}&#39; data... &quot;</span>.format(hostname), end=<span class="stringliteral">&quot;&quot;</span>, flush=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        org.load_from_cached_file(hostname)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        print(<span class="stringliteral">&quot; * Loading objects from PCE &#39;{}&#39; via API... &quot;</span>.format(hostname), end=<span class="stringliteral">&quot;&quot;</span>, flush=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        org.load_from_saved_credentials(hostname, include_deleted_workloads=<span class="keyword">True</span>, prompt_for_api_key=<span class="keyword">True</span>, list_of_objects_to_load=selected_command.load_specific_objects_only)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    print(<span class="stringliteral">&quot;OK!\n&quot;</span>)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span> args[<span class="stringliteral">&#39;command&#39;</span>] <span class="keywordflow">in</span> commands.available_commands:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        command = commands.available_commands[args[<span class="stringliteral">&#39;command&#39;</span>]]</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        print(<span class="stringliteral">&quot;**** {} UTILITY ****&quot;</span>.format(command.name.upper()), flush=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        commands.available_commands[args[<span class="stringliteral">&#39;command&#39;</span>]].main(args, org)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        print(<span class="stringliteral">&quot;**** END OF {} UTILITY ****&quot;</span>.format(command.name.upper()))</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        print()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find command named &#39;{}&#39;&quot;</span>.format(args[<span class="stringliteral">&#39;command&#39;</span>]))</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    print(<span class="stringliteral">&quot; * PCE statistics: &quot;</span>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    print(org.stats_to_str(padding=<span class="stringliteral">&#39;    &#39;</span>))</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    print(flush=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    print(<span class="stringliteral">&quot;**** {} UTILITY ****&quot;</span>.format(selected_command.name.upper()), flush=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    commands.available_commands[args[<span class="stringliteral">&#39;command&#39;</span>]].main(args, org)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    print(<span class="stringliteral">&quot;**** END OF {} UTILITY ****&quot;</span>.format(selected_command.name.upper()))</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    print()</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 <div class="ttc" id="aclasspylo_1_1_organization_1_1_organization_html"><div class="ttname"><a href="classpylo_1_1_organization_1_1_organization.html">pylo.Organization.Organization</a></div><div class="ttdef"><b>Definition:</b> Organization.py:12</div></div>
 <div class="ttc" id="anamespacepylo_1_1cli_html_abc8a49a1e2fccd4ca00efd5108f69bfb"><div class="ttname"><a href="namespacepylo_1_1cli.html#abc8a49a1e2fccd4ca00efd5108f69bfb">pylo.cli.run</a></div><div class="ttdeci">def run()</div><div class="ttdef"><b>Definition:</b> __init__.py:12</div></div>
@@ -156,7 +157,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 28 2021 12:15:40 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jul 29 2021 09:38:57 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

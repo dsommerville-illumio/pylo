@@ -84,6 +84,8 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:aa5c611f10b3bd27c4f81a3f80d6e57bb"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aa5c611f10b3bd27c4f81a3f80d6e57bb">command_name</a> = &quot;workload-used-in-rules-finder&quot;</td></tr>
 <tr class="separator:aa5c611f10b3bd27c4f81a3f80d6e57bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af35da7509e1a253f158eb31908676ee9"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#af35da7509e1a253f158eb31908676ee9">objects_load_filter</a> = ['workloads', 'rules', 'rulesets']</td></tr>
+<tr class="separator:af35da7509e1a253f158eb31908676ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cabb28fe30cc66bac5eb3cac14adf82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a7cabb28fe30cc66bac5eb3cac14adf82">command_object</a> = Command(<a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aa5c611f10b3bd27c4f81a3f80d6e57bb">command_name</a>, <a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a1beeeb68a580cc7049eddb3bb1887309">run</a>, <a class="el" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">fill_parser</a>)</td></tr>
 <tr class="separator:a7cabb28fe30cc66bac5eb3cac14adf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -103,11 +105,11 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">def </span><a class="code" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">fill_parser</a>(parser: argparse.ArgumentParser):</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--only-deleted&#39;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&#39;only look for deleted workloads&#39;</span>)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">def </span><a class="code" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">fill_parser</a>(parser: argparse.ArgumentParser):</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    parser.add_argument(<span class="stringliteral">&#39;--only-deleted&#39;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&#39;only look for deleted workloads&#39;</span>)</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="ttc" id="anamespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder_html_aef25ee291e2602c0e506341159d673cb"><div class="ttname"><a href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">pylo.cli.commands.workload_used_in_rule_finder.fill_parser</a></div><div class="ttdeci">def fill_parser(argparse.ArgumentParser parser)</div><div class="ttdef"><b>Definition:</b> workload_used_in_rule_finder.py:9</div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="ttc" id="anamespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder_html_aef25ee291e2602c0e506341159d673cb"><div class="ttname"><a href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#aef25ee291e2602c0e506341159d673cb">pylo.cli.commands.workload_used_in_rule_finder.fill_parser</a></div><div class="ttdeci">def fill_parser(argparse.ArgumentParser parser)</div><div class="ttdef"><b>Definition:</b> workload_used_in_rule_finder.py:10</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -136,14 +138,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">def </span><a class="code" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a1beeeb68a580cc7049eddb3bb1887309">run</a>(options, org: pylo.Organization):</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    print()</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    print(<span class="stringliteral">&quot;**** {} UTILITY ****&quot;</span>.format(command_name.upper()))</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    __main(options, org)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    print(<span class="stringliteral">&quot;**** END OF {} UTILITY ****&quot;</span>.format(command_name.upper()))</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">def </span><a class="code" href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a1beeeb68a580cc7049eddb3bb1887309">run</a>(options, org: pylo.Organization):</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    print()</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    print(<span class="stringliteral">&quot;**** {} UTILITY ****&quot;</span>.format(command_name.upper()))</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    __main(options, org)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    print(<span class="stringliteral">&quot;**** END OF {} UTILITY ****&quot;</span>.format(command_name.upper()))</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="ttc" id="anamespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder_html_a1beeeb68a580cc7049eddb3bb1887309"><div class="ttname"><a href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a1beeeb68a580cc7049eddb3bb1887309">pylo.cli.commands.workload_used_in_rule_finder.run</a></div><div class="ttdeci">def run(options, pylo.Organization org)</div><div class="ttdef"><b>Definition:</b> workload_used_in_rule_finder.py:76</div></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="ttc" id="anamespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder_html_a1beeeb68a580cc7049eddb3bb1887309"><div class="ttname"><a href="namespacepylo_1_1cli_1_1commands_1_1workload__used__in__rule__finder.html#a1beeeb68a580cc7049eddb3bb1887309">pylo.cli.commands.workload_used_in_rule_finder.run</a></div><div class="ttdeci">def run(options, pylo.Organization org)</div><div class="ttdef"><b>Definition:</b> workload_used_in_rule_finder.py:77</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -176,10 +178,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="af35da7509e1a253f158eb31908676ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af35da7509e1a253f158eb31908676ee9">&#9670;&nbsp;</a></span>objects_load_filter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list pylo.cli.commands.workload_used_in_rule_finder.objects_load_filter = ['workloads', 'rules', 'rulesets']</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 28 2021 12:15:40 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jul 29 2021 09:38:57 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

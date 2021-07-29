@@ -76,8 +76,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a11f02c41551e7a70dee883b41811474b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1cli_1_1commands_1_1_command.html#a11f02c41551e7a70dee883b41811474b">__init__</a> (self, str name, main_func, parser_func)</td></tr>
-<tr class="separator:a11f02c41551e7a70dee883b41811474b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc55eacad63ff390bfb6f5d2f64e2633"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1cli_1_1commands_1_1_command.html#afc55eacad63ff390bfb6f5d2f64e2633">__init__</a> (self, str name, main_func, parser_func, Optional[List[str]] load_specific_objects_only=None)</td></tr>
+<tr class="separator:afc55eacad63ff390bfb6f5d2f64e2633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -87,8 +87,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4db63981ddfb91689bafe9ca18eef976"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a11f02c41551e7a70dee883b41811474b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11f02c41551e7a70dee883b41811474b">&#9670;&nbsp;</a></span>__init__()</h2>
+<a id="afc55eacad63ff390bfb6f5d2f64e2633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc55eacad63ff390bfb6f5d2f64e2633">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,7 +115,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>parser_func</em>&#160;</td>
+          <td class="paramname"><em>parser_func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[List[str]] &#160;</td>
+          <td class="paramname"><em>load_specific_objects_only</em> = <code>None</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -124,15 +130,16 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keyword">def </span>__init__(self, name: str, main_func, parser_func):</div>
+<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <span class="keyword">def </span>__init__(self, name: str, main_func, parser_func, load_specific_objects_only: Optional[List[str]] = <span class="keywordtype">None</span>):</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        self.name: str = name</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        self.main = main_func</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        self.fill_parser = parser_func</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        available_commands[name] = self</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        self.load_specific_objects_only: Optional[List[str]] = load_specific_objects_only</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        available_commands[name] = self</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;available_commands: Dict[str, Command] = {}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;available_commands: Dict[str, Command] = {}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -171,7 +178,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 28 2021 12:15:40 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jul 29 2021 09:38:57 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

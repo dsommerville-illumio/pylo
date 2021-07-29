@@ -126,12 +126,12 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        <span class="keyword">def </span>__init__(self, connector: <span class="stringliteral">&#39;pylo.APIConnector&#39;</span>):</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;            self.connector = connector</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;            self._hrefs = {}</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;            self._errors = {}</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            self._wkls = {}</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        <span class="keyword">def </span>__init__(self, connector: <span class="stringliteral">&#39;pylo.APIConnector&#39;</span>):</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;            self.connector = connector</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            self._hrefs = {}</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;            self._errors = {}</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            self._wkls = {}</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -167,9 +167,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        <span class="keyword">def </span>add_error(self, href: str, message: str):</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;            self._errors[href] = message</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        <span class="keyword">def </span>add_error(self, href: str, message: str):</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            self._errors[href] = message</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -198,9 +198,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        <span class="keyword">def </span>add_href(self, href: str):</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;            self._hrefs[href] = <span class="keyword">True</span></div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        <span class="keyword">def </span>add_href(self, href: str):</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;            self._hrefs[href] = <span class="keyword">True</span></div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -229,10 +229,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        <span class="keyword">def </span>add_workload(self, wkl: <span class="stringliteral">&#39;pylo.Workload&#39;</span>):</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;            self._hrefs[wkl.href] = <span class="keyword">True</span></div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;            self._wkls[wkl.href] = wkl</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        <span class="keyword">def </span>add_workload(self, wkl: <span class="stringliteral">&#39;pylo.Workload&#39;</span>):</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            self._hrefs[wkl.href] = <span class="keyword">True</span></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            self._wkls[wkl.href] = wkl</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -251,9 +251,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;        <span class="keyword">def </span>count_entries(self):</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;            <span class="keywordflow">return</span> len(self._hrefs)</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        <span class="keyword">def </span>count_entries(self):</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;            <span class="keywordflow">return</span> len(self._hrefs)</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -272,10 +272,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        <span class="keyword">def </span>count_errors(self):</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;            <span class="keywordflow">return</span> len(self._errors)</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160; </div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keyword">def </span>new_tracker_workload_multi_delete(self):</div>
+<div class="fragment"><div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        <span class="keyword">def </span>count_errors(self):</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;            <span class="keywordflow">return</span> len(self._errors)</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; </div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keyword">def </span>new_tracker_workload_multi_delete(self):</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -304,36 +304,36 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="keyword">def </span>execute(self, unpair_agents=False):</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; </div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;            <span class="keywordflow">if</span> len(self._hrefs) &lt; 1:</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;WorkloadMultiDeleteTracker is empty&quot;</span>)</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160; </div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;            result = self.connector.objects_workload_delete_multi(list(self._hrefs.keys()))</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;            <span class="comment"># print(pylo.nice_json(result))</span></div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> <a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(result) <span class="keywordflow">is</span> list:</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_api_ex.html">pylo.PyloApiEx</a>(<span class="stringliteral">&quot;API didnt return expected JSON format&quot;</span>, result)</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160; </div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;            agents_to_unpair = []</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> result:</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> <a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(entry) <span class="keywordflow">is</span> dict:</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_api_ex.html">pylo.PyloApiEx</a>(<span class="stringliteral">&quot;API didnt return expected JSON format&quot;</span>, entry)</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                href = entry.get(<span class="stringliteral">&quot;href&quot;</span>)</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;                <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">or</span> <a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(href) <span class="keywordflow">is</span> <span class="keywordflow">not</span> str:</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_api_ex.html">pylo.PyloApiEx</a>(<span class="stringliteral">&quot;API didnt return expected JSON format&quot;</span>, entry)</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160; </div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                error = entry.get(<span class="stringliteral">&quot;errors&quot;</span>)</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                error_string = json.dumps(error)</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                <span class="keywordflow">if</span> unpair_agents <span class="keywordflow">and</span> error_string.find(<span class="stringliteral">&quot;method_not_allowed_error&quot;</span>) &gt; -1:</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                    agents_to_unpair.append(href)</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                    <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                        self._errors[href] = error_string</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;            <span class="keywordflow">if</span> len(agents_to_unpair) &gt; 0:</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;                self._unpair_agents(agents_to_unpair)</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        <span class="keyword">def </span>execute(self, unpair_agents=False):</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160; </div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keywordflow">if</span> len(self._hrefs) &lt; 1:</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;WorkloadMultiDeleteTracker is empty&quot;</span>)</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; </div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;            result = self.connector.objects_workload_delete_multi(list(self._hrefs.keys()))</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;            <span class="comment"># print(pylo.nice_json(result))</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> <a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(result) <span class="keywordflow">is</span> list:</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_api_ex.html">pylo.PyloApiEx</a>(<span class="stringliteral">&quot;API didnt return expected JSON format&quot;</span>, result)</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;            agents_to_unpair = []</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160; </div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;            <span class="keywordflow">for</span> entry <span class="keywordflow">in</span> result:</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> <a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(entry) <span class="keywordflow">is</span> dict:</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_api_ex.html">pylo.PyloApiEx</a>(<span class="stringliteral">&quot;API didnt return expected JSON format&quot;</span>, entry)</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;                href = entry.get(<span class="stringliteral">&quot;href&quot;</span>)</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">or</span> <a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(href) <span class="keywordflow">is</span> <span class="keywordflow">not</span> str:</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                    <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_api_ex.html">pylo.PyloApiEx</a>(<span class="stringliteral">&quot;API didnt return expected JSON format&quot;</span>, entry)</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160; </div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                error = entry.get(<span class="stringliteral">&quot;errors&quot;</span>)</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                error_string = json.dumps(error)</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;                <span class="keywordflow">if</span> unpair_agents <span class="keywordflow">and</span> error_string.find(<span class="stringliteral">&quot;method_not_allowed_error&quot;</span>) &gt; -1:</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                    agents_to_unpair.append(href)</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;                    <span class="keywordflow">if</span> href <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;                        self._errors[href] = error_string</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160; </div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            <span class="keywordflow">if</span> len(agents_to_unpair) &gt; 0:</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;                self._unpair_agents(agents_to_unpair)</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_api_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_api_ex.html">pylo.Exception.PyloApiEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:14</div></div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 <div class="ttc" id="anamespacepylo_1_1utilities_1_1explorer__report__exporter_html_a88aa6c5cbed7fe748f7f0f331d135aec"><div class="ttname"><a href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">pylo.utilities.explorer_report_exporter.type</a></div><div class="ttdeci">type</div><div class="ttdef"><b>Definition:</b> explorer_report_exporter.py:13</div></div>
@@ -378,9 +378,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        <span class="keyword">def </span>get_error_by_href(self, href: str) -&gt; Union[str, <span class="keywordtype">None</span>]:</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;            <span class="keywordflow">return</span> self._errors.get(href)</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        <span class="keyword">def </span>get_error_by_href(self, href: str) -&gt; Union[str, <span class="keywordtype">None</span>]:</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;            <span class="keywordflow">return</span> self._errors.get(href)</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -409,12 +409,12 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        <span class="keyword">def </span>get_error_by_wlk(self, wkl: <span class="stringliteral">&#39;pylo.Workload&#39;</span>) -&gt; Union[str, <span class="keywordtype">None</span>]:</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;            found = self._errors.get(wkl.href, pylo.objectNotFound)</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;            <span class="keywordflow">if</span> found <span class="keywordflow">is</span> pylo.objectNotFound:</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;                <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;            <span class="keywordflow">return</span> found</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        <span class="keyword">def </span>get_error_by_wlk(self, wkl: <span class="stringliteral">&#39;pylo.Workload&#39;</span>) -&gt; Union[str, <span class="keywordtype">None</span>]:</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;            found = self._errors.get(wkl.href, pylo.objectNotFound)</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;            <span class="keywordflow">if</span> found <span class="keywordflow">is</span> pylo.objectNotFound:</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;            <span class="keywordflow">return</span> found</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -439,7 +439,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 28 2021 12:15:40 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Jul 29 2021 09:38:57 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
