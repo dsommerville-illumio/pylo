@@ -160,9 +160,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keyword">def </span>count_rules(self):</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">return</span> len(self.rules_byHref)</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">def </span>count_rules(self):</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> len(self.rules_byHref)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -269,21 +269,21 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                    resolve_providers_as_virtual_services=<span class="keyword">True</span>, resolve_providers_as_workloads=<span class="keyword">True</span>) -&gt; <span class="stringliteral">&#39;pylo.Rule&#39;</span>:</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        new_rule_json = self.owner.owner.connector.objects_rule_create(</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            intra_scope=intra_scope, ruleset_href=self.href,</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            consumers=consumers, providers=providers, services=services,</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            description=description, machine_auth=machine_auth, secure_connect=secure_connect, enabled=enabled,</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            stateless=stateless, consuming_security_principals=consuming_security_principals,</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            resolve_consumers_as_virtual_services=resolve_providers_as_virtual_services,</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            resolve_consumers_as_workloads=resolve_consumers_as_workloads,</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            resolve_providers_as_virtual_services=resolve_providers_as_virtual_services,</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            resolve_providers_as_workloads=resolve_providers_as_workloads</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        )</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">return</span> self.load_single_rule_from_json(new_rule_json)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    resolve_providers_as_virtual_services=<span class="keyword">True</span>, resolve_providers_as_workloads=<span class="keyword">True</span>) -&gt; <span class="stringliteral">&#39;pylo.Rule&#39;</span>:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        new_rule_json = self.owner.owner.connector.objects_rule_create(</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            intra_scope=intra_scope, ruleset_href=self.href,</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            consumers=consumers, providers=providers, services=services,</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            description=description, machine_auth=machine_auth, secure_connect=secure_connect, enabled=enabled,</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            stateless=stateless, consuming_security_principals=consuming_security_principals,</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            resolve_consumers_as_virtual_services=resolve_providers_as_virtual_services,</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            resolve_consumers_as_workloads=resolve_consumers_as_workloads,</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            resolve_providers_as_virtual_services=resolve_providers_as_virtual_services,</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            resolve_providers_as_workloads=resolve_providers_as_workloads</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        )</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> self.load_single_rule_from_json(new_rule_json)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -311,13 +311,13 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">def </span>extract_id_from_href(self):</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        match = ruleset_id_extraction_regex.match(self.href)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">if</span> match <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot extract ruleset_id from href &#39;{}&#39;&quot;</span>.format(self.href))</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">return</span> match.group(<span class="stringliteral">&quot;id&quot;</span>)</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">def </span>extract_id_from_href(self):</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        match = ruleset_id_extraction_regex.match(self.href)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">if</span> match <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot extract ruleset_id from href &#39;{}&#39;&quot;</span>.format(self.href))</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">return</span> match.group(<span class="stringliteral">&quot;id&quot;</span>)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 </div><!-- fragment -->
 </div>
@@ -353,15 +353,15 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">def </span>get_ruleset_url(self, pce_hostname: str = <span class="keywordtype">None</span>, pce_port: int = <span class="keywordtype">None</span>):</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">if</span> pce_hostname <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">or</span> pce_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            connector = pylo.find_connector_or_die(self)</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keywordflow">if</span> pce_hostname <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                pce_hostname = connector.hostname</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordflow">if</span> pce_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                pce_port = connector.port</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;https://{}:{}/#/rulesets/{}/draft/rules/&#39;</span>.format(pce_hostname, pce_port, self.extract_id_from_href())</div>
+<div class="fragment"><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">def </span>get_ruleset_url(self, pce_hostname: str = <span class="keywordtype">None</span>, pce_port: int = <span class="keywordtype">None</span>):</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">if</span> pce_hostname <span class="keywordflow">is</span> <span class="keywordtype">None</span> <span class="keywordflow">or</span> pce_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            connector = pylo.find_connector_or_die(self)</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordflow">if</span> pce_hostname <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                pce_hostname = connector.hostname</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">if</span> pce_port <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                pce_port = connector.port</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;https://{}:{}/#/rulesets/{}/draft/rules/&#39;</span>.format(pce_hostname, pce_port, self.extract_id_from_href())</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -464,7 +464,6 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        self.rules_byHref[new_rule.href] = new_rule</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">return</span> new_rule</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
 <div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule.html">pylo.Rule.Rule</a></div><div class="ttdef"><b>Definition:</b> Rule.py:8</div></div>
 </div><!-- fragment -->
 </div>
@@ -560,7 +559,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 29 2021 10:08:28 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jul 30 2021 09:48:48 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
