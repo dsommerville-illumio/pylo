@@ -182,10 +182,11 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">def </span>create_fake_empty_config():</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">return</span> {<span class="stringliteral">&#39;iplists&#39;</span>: [], <span class="stringliteral">&#39;workloads&#39;</span>: [], <span class="stringliteral">&#39;virtual_services&#39;</span>: [], <span class="stringliteral">&#39;labels&#39;</span>: [], <span class="stringliteral">&#39;labelgroups&#39;</span>: [], <span class="stringliteral">&#39;services&#39;</span>: [],</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <span class="stringliteral">&#39;rulesets&#39;</span>: [], <span class="stringliteral">&#39;security_principals&#39;</span>: []</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        data = {}</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">for</span> object_type <span class="keywordflow">in</span> pylo.APIConnector.get_all_object_types().values():</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            data[object_type] = []</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">return</span> data</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -226,11 +227,11 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">def </span>get_config_from_api(self, con: pylo.APIConnector, include_deleted_workloads=<span class="keyword">False</span>, list_of_objects_to_load: Optional[List[str]] = <span class="keywordtype">None</span>):</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        self.connector = con</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">return</span> con.get_pce_objects(include_deleted_workloads=include_deleted_workloads, list_of_objects_to_load=list_of_objects_to_load)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">def </span>get_config_from_api(self, con: pylo.APIConnector, include_deleted_workloads=<span class="keyword">False</span>, list_of_objects_to_load: Optional[List[str]] = <span class="keywordtype">None</span>):</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        self.connector = con</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">return</span> con.get_pce_objects(include_deleted_workloads=include_deleted_workloads, list_of_objects_to_load=list_of_objects_to_load)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -717,33 +718,33 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">def </span>stats_to_str(self, padding=&#39;&#39;):</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        stats = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        stats += <span class="stringliteral">&quot;{}- Version {}\n&quot;</span>.format(padding, self.pce_version.generate_str_from_numbers())</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        stats += <span class="stringliteral">&quot;{}- {} Labels in total. Loc: {} / Env: {} / App: {} / Role: {}&quot;</span>.\</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            format(padding,</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                   self.LabelStore.count_labels(),</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                   self.LabelStore.count_location_labels(),</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                   self.LabelStore.count_environment_labels(),</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                   self.LabelStore.count_application_labels(),</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                   self.LabelStore.count_role_labels())</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        stats += <span class="stringliteral">&quot;\n{}- Workloads: Managed: {} / Unmanaged: {} / Deleted: {}&quot;</span>. \</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            format(padding,</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                   self.WorkloadStore.count_managed_workloads(),</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                   self.WorkloadStore.count_unmanaged_workloads(<span class="keyword">True</span>),</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                   self.WorkloadStore.count_deleted_workloads())</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        stats += <span class="stringliteral">&quot;\n{}- {} IPlists in total.&quot;</span>. \</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            format(padding,</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                   self.IPListStore.<a class="code" href="namespacepylo_1_1utilities_1_1ven__upgrader.html#a9e49cb36f5b15a83ebf3f6d5b7dd0aae">count</a>())</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        stats += <span class="stringliteral">&quot;\n{}- {} RuleSets and {} Rules.&quot;</span>. \</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            format(padding, self.RulesetStore.count_rulesets(), self.RulesetStore.count_rules())</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">return</span> stats</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">def </span>stats_to_str(self, padding=&#39;&#39;):</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        stats = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        stats += <span class="stringliteral">&quot;{}- Version {}\n&quot;</span>.format(padding, self.pce_version.generate_str_from_numbers())</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        stats += <span class="stringliteral">&quot;{}- {} Labels in total. Loc: {} / Env: {} / App: {} / Role: {}&quot;</span>.\</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            format(padding,</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                   self.LabelStore.count_labels(),</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                   self.LabelStore.count_location_labels(),</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                   self.LabelStore.count_environment_labels(),</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                   self.LabelStore.count_application_labels(),</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                   self.LabelStore.count_role_labels())</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        stats += <span class="stringliteral">&quot;\n{}- Workloads: Managed: {} / Unmanaged: {} / Deleted: {}&quot;</span>. \</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            format(padding,</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                   self.WorkloadStore.count_managed_workloads(),</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                   self.WorkloadStore.count_unmanaged_workloads(<span class="keyword">True</span>),</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                   self.WorkloadStore.count_deleted_workloads())</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        stats += <span class="stringliteral">&quot;\n{}- {} IPlists in total.&quot;</span>. \</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            format(padding,</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                   self.IPListStore.<a class="code" href="namespacepylo_1_1utilities_1_1ven__upgrader.html#a9e49cb36f5b15a83ebf3f6d5b7dd0aae">count</a>())</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        stats += <span class="stringliteral">&quot;\n{}- {} RuleSets and {} Rules.&quot;</span>. \</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            format(padding, self.RulesetStore.count_rulesets(), self.RulesetStore.count_rules())</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">return</span> stats</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
 <div class="ttc" id="anamespacepylo_1_1utilities_1_1ven__upgrader_html_a9e49cb36f5b15a83ebf3f6d5b7dd0aae"><div class="ttname"><a href="namespacepylo_1_1utilities_1_1ven__upgrader.html#a9e49cb36f5b15a83ebf3f6d5b7dd0aae">pylo.utilities.ven_upgrader.count</a></div><div class="ttdeci">dictionary count</div><div class="ttdef"><b>Definition:</b> ven_upgrader.py:96</div></div>
 </div><!-- fragment -->
 </div>
@@ -783,7 +784,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 30 2021 09:48:48 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Fri Jul 30 2021 13:36:04 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
