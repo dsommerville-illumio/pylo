@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['query_788',['Query',['../classpylo_1_1_query_1_1_query.html',1,'pylo::Query']]]
+  ['query_792',['Query',['../classpylo_1_1_query_1_1_query.html',1,'pylo::Query']]]
 ];

@@ -90,6 +90,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a28d56a9a46cbc9594f691dc58380399c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a895f2b994790a0cc1b4b462f416db154"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_ruleset_1_1_ruleset.html#a895f2b994790a0cc1b4b462f416db154">get_ruleset_url</a> (self, str pce_hostname=None, int pce_port=None)</td></tr>
 <tr class="separator:a895f2b994790a0cc1b4b462f416db154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40193adeb78c2e06536c1ac4dee6efdd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_ruleset_1_1_ruleset.html#a40193adeb78c2e06536c1ac4dee6efdd">api_set_name</a> (self, str new_name)</td></tr>
+<tr class="separator:a40193adeb78c2e06536c1ac4dee6efdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ca36477fb0dd4b9cad0b71fe3416d89"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_ruleset_1_1_ruleset.html#a5ca36477fb0dd4b9cad0b71fe3416d89">api_set_description</a> (self, str new_description)</td></tr>
+<tr class="separator:a5ca36477fb0dd4b9cad0b71fe3416d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -275,6 +279,74 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a5ca36477fb0dd4b9cad0b71fe3416d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ca36477fb0dd4b9cad0b71fe3416d89">&#9670;&nbsp;</a></span>api_set_description()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def pylo.Ruleset.Ruleset.api_set_description </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>new_description</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">def </span>api_set_description(self, new_description: str):</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        self.owner.owner.connector.objects_ruleset_update(self.href, update_data={<span class="stringliteral">&#39;description&#39;</span>: new_description})</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        self.description = new_description</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a40193adeb78c2e06536c1ac4dee6efdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40193adeb78c2e06536c1ac4dee6efdd">&#9670;&nbsp;</a></span>api_set_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def pylo.Ruleset.Ruleset.api_set_name </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>new_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">def </span>api_set_name(self, new_name: str):</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        find_collision = self.owner.find_ruleset_by_name(new_name)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">if</span> find_collision <span class="keywordflow">is</span> <span class="keywordflow">not</span> self:</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;A Ruleset with name &#39;{}&#39; already exists&quot;</span>.format(new_name))</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        self.owner.owner.connector.objects_ruleset_update(self.href, update_data={<span class="stringliteral">&#39;name&#39;</span>: new_name})</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        self.name = new_name</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="aacbe6109182c7b40a88224048e4bf149"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacbe6109182c7b40a88224048e4bf149">&#9670;&nbsp;</a></span>count_rules()</h2>
 
@@ -318,7 +390,6 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">return</span> match.group(<span class="stringliteral">&quot;id&quot;</span>)</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -362,6 +433,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                pce_port = connector.port</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&#39;https://{}:{}/#/rulesets/{}/draft/rules/&#39;</span>.format(pce_hostname, pce_port, self.extract_id_from_href())</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -464,7 +536,7 @@ Here is the call graph for this function:</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        self.rules_byHref[new_rule.href] = new_rule</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">return</span> new_rule</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule.html">pylo.Rule.Rule</a></div><div class="ttdef"><b>Definition:</b> Rule.py:8</div></div>
+<div class="ttc" id="aclasspylo_1_1_rule_1_1_rule_html"><div class="ttname"><a href="classpylo_1_1_rule_1_1_rule.html">pylo.Rule.Rule</a></div><div class="ttdef"><b>Definition:</b> Rule.py:25</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -559,7 +631,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 2 2021 13:12:23 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 2 2021 15:29:51 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
