@@ -158,33 +158,25 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">:param name: str
-:param href: str
-:param ltype: int|str
-</pre> <div class="fragment"><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">def </span>__init__(self, name: str, href: str, ltype: int, owner: LabelStore):</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="stringliteral">        :param name: str</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="stringliteral">        :param href: str</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="stringliteral">        :param ltype: int|str</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        self.owner: LabelStore = owner</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        self.name: str = name</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        self.href: str = href</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span> <a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(ltype) <span class="keywordflow">is</span> str:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">if</span> ltype == <span class="stringliteral">&#39;loc&#39;</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                ltype = label_type_loc</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">elif</span> ltype == <span class="stringliteral">&#39;env&#39;</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                ltype = label_type_env</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">elif</span> ltype == <span class="stringliteral">&#39;app&#39;</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                ltype = label_type_app</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">elif</span> ltype == <span class="stringliteral">&#39;role&#39;</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                ltype = label_type_role</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;Tried to initialize a Label object with unsupported type &#39;%s&#39;&quot;</span> % (ltype))</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        self._type = ltype</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">def </span>__init__(self, name: str, href: str, ltype: int, owner: LabelStore):</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        self.owner: LabelStore = owner</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        self.name: str = name</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        self.href: str = href</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordflow">if</span> <a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(ltype) <span class="keywordflow">is</span> str:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <span class="keywordflow">if</span> ltype == <span class="stringliteral">&#39;loc&#39;</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                ltype = label_type_loc</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <span class="keywordflow">elif</span> ltype == <span class="stringliteral">&#39;env&#39;</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                ltype = label_type_env</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">elif</span> ltype == <span class="stringliteral">&#39;app&#39;</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                ltype = label_type_app</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">elif</span> ltype == <span class="stringliteral">&#39;role&#39;</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                ltype = label_type_role</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;Tried to initialize a Label object with unsupported type &#39;%s&#39;&quot;</span> % (ltype))</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        self._type = ltype</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="ttc" id="anamespacepylo_1_1utilities_1_1explorer__report__exporter_html_a88aa6c5cbed7fe748f7f0f331d135aec"><div class="ttname"><a href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">pylo.utilities.explorer_report_exporter.type</a></div><div class="ttdeci">type</div><div class="ttdef"><b>Definition:</b> explorer_report_exporter.py:13</div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -224,13 +216,13 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">def </span>api_set_name(self, new_name: str):</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        find_collision = self.owner.find_label_by_name_and_type(new_name, self.type())</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span> find_collision <span class="keywordflow">is</span> <span class="keywordflow">not</span> self:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;A Label/LabelGroup with name &#39;{}&#39; already exists&quot;</span>.format(new_name))</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        self.owner.owner.connector.objects_label_update(self.href, data={<span class="stringliteral">&#39;name&#39;</span>: new_name})</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        self.name = new_name</div>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">def </span>api_set_name(self, new_name: str):</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        find_collision = self.owner.find_label_by_name_and_type(new_name, self.type())</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> find_collision <span class="keywordflow">is</span> <span class="keywordflow">not</span> self:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;A Label/LabelGroup with name &#39;{}&#39; already exists&quot;</span>.format(new_name))</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        self.owner.owner.connector.objects_label_update(self.href, data={<span class="stringliteral">&#39;name&#39;</span>: new_name})</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        self.name = new_name</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -260,9 +252,9 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Reimplemented in <a class="el" href="classpylo_1_1_label_group_1_1_label_group.html#ad6ce4357a0c8e1140c86ba292239ebeb">pylo.LabelGroup.LabelGroup</a>, and <a class="el" href="classpylo_1_1_label_1_1_label.html#a8a42816908ea68d399d5ae43b24d7a92">pylo.Label.Label</a>.</p>
-<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">def </span>is_group(self) -&gt; bool:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;not implemented&quot;</span>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">def </span>is_group(self) -&gt; bool:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;not implemented&quot;</span>)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -283,9 +275,9 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Reimplemented in <a class="el" href="classpylo_1_1_label_group_1_1_label_group.html#a6ba05d5befeba5a110adcf5dd695e5ca">pylo.LabelGroup.LabelGroup</a>, and <a class="el" href="classpylo_1_1_label_1_1_label.html#a1ef4b4a6b1d814136df658ccb79df2cc">pylo.Label.Label</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">def </span>is_label(self) -&gt; bool:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;not implemented&quot;</span>)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">def </span>is_label(self) -&gt; bool:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;not implemented&quot;</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -304,9 +296,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">def </span><a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(self):</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> self._type</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">def </span><a class="code" href="namespacepylo_1_1utilities_1_1explorer__report__exporter.html#a88aa6c5cbed7fe748f7f0f331d135aec">type</a>(self):</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> self._type</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -325,9 +317,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">def </span>type_is_application(self) -&gt; bool:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> self._type == label_type_app</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">def </span>type_is_application(self) -&gt; bool:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> self._type == label_type_app</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -346,9 +338,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">def </span>type_is_environment(self) -&gt; bool:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> self._type == label_type_env</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">def </span>type_is_environment(self) -&gt; bool:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> self._type == label_type_env</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -367,9 +359,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">def </span>type_is_location(self) -&gt; bool:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> self._type == label_type_loc</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">def </span>type_is_location(self) -&gt; bool:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> self._type == label_type_loc</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -388,9 +380,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">def </span>type_is_role(self) -&gt; bool:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> self._type == label_type_role</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">def </span>type_is_role(self) -&gt; bool:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> self._type == label_type_role</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -409,17 +401,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">def </span>type_string(self) -&gt; str:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">if</span> self._type == label_type_loc:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;loc&#39;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span> self._type == label_type_env:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;env&#39;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> self._type == label_type_app:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;app&#39;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span> self._type == label_type_role:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;role&#39;</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;unsupported Label type #{} for label href={}&quot;</span>.format(self._type, self.href))</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">def </span>type_string(self) -&gt; str:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> self._type == label_type_loc:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;loc&#39;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span> self._type == label_type_env:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;env&#39;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span> self._type == label_type_app:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;app&#39;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> self._type == label_type_role:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&#39;role&#39;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;unsupported Label type #{} for label href={}&quot;</span>.format(self._type, self.href))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -438,18 +430,18 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">def </span>type_to_short_string(self):</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> self.type_is_location():</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;loc&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">elif</span> self.type_is_environment():</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;env&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">elif</span> self.type_is_application():</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;app&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">elif</span> self.type_is_role():</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;role&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;unsupported yet&quot;</span>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">def </span>type_to_short_string(self):</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">if</span> self.type_is_location():</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;loc&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">elif</span> self.type_is_environment():</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;env&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">elif</span> self.type_is_application():</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;app&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">elif</span> self.type_is_role():</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;role&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;unsupported yet&quot;</span>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -486,7 +478,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 2 2021 15:29:51 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 2 2021 16:14:08 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -120,29 +120,29 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01867"></a><span class="lineno"> 1867</span>&#160;            <span class="keyword">def </span>__init__(self, raw_json_data, organization: <span class="stringliteral">&#39;pylo.Organization&#39;</span>):</div>
-<div class="line"><a name="l01868"></a><span class="lineno"> 1868</span>&#160;                self._raw_json = raw_json_data</div>
-<div class="line"><a name="l01869"></a><span class="lineno"> 1869</span>&#160;                self.rules = {}</div>
-<div class="line"><a name="l01870"></a><span class="lineno"> 1870</span>&#160;                self.rules_per_ruleset = {}</div>
-<div class="line"><a name="l01871"></a><span class="lineno"> 1871</span>&#160; </div>
-<div class="line"><a name="l01872"></a><span class="lineno"> 1872</span>&#160;                <span class="keywordflow">for</span> rule_data <span class="keywordflow">in</span> raw_json_data:</div>
-<div class="line"><a name="l01873"></a><span class="lineno"> 1873</span>&#160;                    rule_href = rule_data.get(<span class="stringliteral">&#39;href&#39;</span>)</div>
-<div class="line"><a name="l01874"></a><span class="lineno"> 1874</span>&#160;                    <span class="keywordflow">if</span> rule_href <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l01875"></a><span class="lineno"> 1875</span>&#160;                        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;Cannot find rule HREF in RuleSearchQuery response&#39;</span>, rule_data)</div>
-<div class="line"><a name="l01876"></a><span class="lineno"> 1876</span>&#160;                    rule_found = organization.RulesetStore.find_rule_by_href(rule_href)</div>
-<div class="line"><a name="l01877"></a><span class="lineno"> 1877</span>&#160;                    <span class="keywordflow">if</span> rule_found <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l01878"></a><span class="lineno"> 1878</span>&#160;                        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find rule with HREF &#39;{}&#39; in Organization&quot;</span>.format(rule_href), rule_data)</div>
-<div class="line"><a name="l01879"></a><span class="lineno"> 1879</span>&#160; </div>
-<div class="line"><a name="l01880"></a><span class="lineno"> 1880</span>&#160;                    self.rules[rule_found.href] = rule_found</div>
-<div class="line"><a name="l01881"></a><span class="lineno"> 1881</span>&#160;                    ruleset_found = self.rules_per_ruleset.get(rule_found.owner)</div>
-<div class="line"><a name="l01882"></a><span class="lineno"> 1882</span>&#160;                    <span class="keywordflow">if</span> ruleset_found <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l01883"></a><span class="lineno"> 1883</span>&#160;                        <span class="comment"># print(&quot;new ruleset&quot;)</span></div>
-<div class="line"><a name="l01884"></a><span class="lineno"> 1884</span>&#160;                        self.rules_per_ruleset[rule_found.owner] = {rule_found.href: rule_found}</div>
-<div class="line"><a name="l01885"></a><span class="lineno"> 1885</span>&#160;                    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l01886"></a><span class="lineno"> 1886</span>&#160;                        <span class="comment"># print(&quot;existing rs&quot;)</span></div>
-<div class="line"><a name="l01887"></a><span class="lineno"> 1887</span>&#160;                        self.rules_per_ruleset[rule_found.owner][rule_found.href] = rule_found</div>
-<div class="line"><a name="l01888"></a><span class="lineno"> 1888</span>&#160; </div>
-<div class="line"><a name="l01889"></a><span class="lineno"> 1889</span>&#160;    <span class="keyword">def </span>new_RuleSearchQuery(self):</div>
+<div class="fragment"><div class="line"><a name="l01879"></a><span class="lineno"> 1879</span>&#160;            <span class="keyword">def </span>__init__(self, raw_json_data, organization: <span class="stringliteral">&#39;pylo.Organization&#39;</span>):</div>
+<div class="line"><a name="l01880"></a><span class="lineno"> 1880</span>&#160;                self._raw_json = raw_json_data</div>
+<div class="line"><a name="l01881"></a><span class="lineno"> 1881</span>&#160;                self.rules = {}</div>
+<div class="line"><a name="l01882"></a><span class="lineno"> 1882</span>&#160;                self.rules_per_ruleset = {}</div>
+<div class="line"><a name="l01883"></a><span class="lineno"> 1883</span>&#160; </div>
+<div class="line"><a name="l01884"></a><span class="lineno"> 1884</span>&#160;                <span class="keywordflow">for</span> rule_data <span class="keywordflow">in</span> raw_json_data:</div>
+<div class="line"><a name="l01885"></a><span class="lineno"> 1885</span>&#160;                    rule_href = rule_data.get(<span class="stringliteral">&#39;href&#39;</span>)</div>
+<div class="line"><a name="l01886"></a><span class="lineno"> 1886</span>&#160;                    <span class="keywordflow">if</span> rule_href <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l01887"></a><span class="lineno"> 1887</span>&#160;                        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&#39;Cannot find rule HREF in RuleSearchQuery response&#39;</span>, rule_data)</div>
+<div class="line"><a name="l01888"></a><span class="lineno"> 1888</span>&#160;                    rule_found = organization.RulesetStore.find_rule_by_href(rule_href)</div>
+<div class="line"><a name="l01889"></a><span class="lineno"> 1889</span>&#160;                    <span class="keywordflow">if</span> rule_found <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l01890"></a><span class="lineno"> 1890</span>&#160;                        <span class="keywordflow">raise</span> <a class="code" href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.PyloEx</a>(<span class="stringliteral">&quot;Cannot find rule with HREF &#39;{}&#39; in Organization&quot;</span>.format(rule_href), rule_data)</div>
+<div class="line"><a name="l01891"></a><span class="lineno"> 1891</span>&#160; </div>
+<div class="line"><a name="l01892"></a><span class="lineno"> 1892</span>&#160;                    self.rules[rule_found.href] = rule_found</div>
+<div class="line"><a name="l01893"></a><span class="lineno"> 1893</span>&#160;                    ruleset_found = self.rules_per_ruleset.get(rule_found.owner)</div>
+<div class="line"><a name="l01894"></a><span class="lineno"> 1894</span>&#160;                    <span class="keywordflow">if</span> ruleset_found <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l01895"></a><span class="lineno"> 1895</span>&#160;                        <span class="comment"># print(&quot;new ruleset&quot;)</span></div>
+<div class="line"><a name="l01896"></a><span class="lineno"> 1896</span>&#160;                        self.rules_per_ruleset[rule_found.owner] = {rule_found.href: rule_found}</div>
+<div class="line"><a name="l01897"></a><span class="lineno"> 1897</span>&#160;                    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l01898"></a><span class="lineno"> 1898</span>&#160;                        <span class="comment"># print(&quot;existing rs&quot;)</span></div>
+<div class="line"><a name="l01899"></a><span class="lineno"> 1899</span>&#160;                        self.rules_per_ruleset[rule_found.owner][rule_found.href] = rule_found</div>
+<div class="line"><a name="l01900"></a><span class="lineno"> 1900</span>&#160; </div>
+<div class="line"><a name="l01901"></a><span class="lineno"> 1901</span>&#160;    <span class="keyword">def </span>new_RuleSearchQuery(self):</div>
 <div class="ttc" id="aclasspylo_1_1_exception_1_1_pylo_ex_html"><div class="ttname"><a href="classpylo_1_1_exception_1_1_pylo_ex.html">pylo.Exception.PyloEx</a></div><div class="ttdef"><b>Definition:</b> Exception.py:4</div></div>
 </div><!-- fragment -->
 </div>
@@ -163,9 +163,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01864"></a><span class="lineno"> 1864</span>&#160;            <span class="keyword">def </span>count_results(self):</div>
-<div class="line"><a name="l01865"></a><span class="lineno"> 1865</span>&#160;                <span class="keywordflow">return</span> len(self.rules)</div>
-<div class="line"><a name="l01866"></a><span class="lineno"> 1866</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l01876"></a><span class="lineno"> 1876</span>&#160;            <span class="keyword">def </span>count_results(self):</div>
+<div class="line"><a name="l01877"></a><span class="lineno"> 1877</span>&#160;                <span class="keywordflow">return</span> len(self.rules)</div>
+<div class="line"><a name="l01878"></a><span class="lineno"> 1878</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -204,7 +204,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 2 2021 15:29:51 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Aug 2 2021 16:14:08 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
