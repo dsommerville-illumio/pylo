@@ -213,7 +213,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;Invalid protocol provided: {}&quot;</span>.format(proto))</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            protocol_int = <a class="code" href="namespacepylo_1_1utilities_1_1ven__import__from__file.html#aa2cd12406b3939b32a63a400017c3b18">int</a>(proto)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            protocol_int = <a class="code" href="namespacepylo_1_1utilities_1_1ven__reassign__pce.html#acba673179666d1ca9265b8d8ef8d7b09">int</a>(proto)</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        port_parts = port_input.split(<span class="stringliteral">&#39;-&#39;</span>)</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">if</span> len(port_parts) &gt; 2:</div>
@@ -230,15 +230,15 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> to_port_input.isdigit():</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;Invalid port provided: &#39;{}&#39; in string &#39;{}&#39;&quot;</span>.format(to_port_input, txt))</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keywordflow">return</span> DirectServiceInRule(protocol_int, port=<a class="code" href="namespacepylo_1_1utilities_1_1ven__import__from__file.html#aa2cd12406b3939b32a63a400017c3b18">int</a>(from_port_input), toport=<a class="code" href="namespacepylo_1_1utilities_1_1ven__import__from__file.html#aa2cd12406b3939b32a63a400017c3b18">int</a>(to_port_input))</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keywordflow">return</span> DirectServiceInRule(protocol_int, port=<a class="code" href="namespacepylo_1_1utilities_1_1ven__reassign__pce.html#acba673179666d1ca9265b8d8ef8d7b09">int</a>(from_port_input), toport=<a class="code" href="namespacepylo_1_1utilities_1_1ven__reassign__pce.html#acba673179666d1ca9265b8d8ef8d7b09">int</a>(to_port_input))</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> port_input.isdigit():</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">raise</span> PyloEx(<span class="stringliteral">&quot;Invalid port provided: &#39;{}&#39; in string &#39;{}&#39;&quot;</span>.format(port_input, txt))</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">return</span> DirectServiceInRule(protocol_int, port=<a class="code" href="namespacepylo_1_1utilities_1_1ven__import__from__file.html#aa2cd12406b3939b32a63a400017c3b18">int</a>(port_input))</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">return</span> DirectServiceInRule(protocol_int, port=<a class="code" href="namespacepylo_1_1utilities_1_1ven__reassign__pce.html#acba673179666d1ca9265b8d8ef8d7b09">int</a>(port_input))</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="ttc" id="anamespacepylo_1_1utilities_1_1ven__import__from__file_html_aa2cd12406b3939b32a63a400017c3b18"><div class="ttname"><a href="namespacepylo_1_1utilities_1_1ven__import__from__file.html#aa2cd12406b3939b32a63a400017c3b18">pylo.utilities.ven_import_from_file.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> ven_import_from_file.py:36</div></div>
+<div class="ttc" id="anamespacepylo_1_1utilities_1_1ven__reassign__pce_html_acba673179666d1ca9265b8d8ef8d7b09"><div class="ttname"><a href="namespacepylo_1_1utilities_1_1ven__reassign__pce.html#acba673179666d1ca9265b8d8ef8d7b09">pylo.utilities.ven_reassign_pce.int</a></div><div class="ttdeci">int</div><div class="ttdef"><b>Definition:</b> ven_reassign_pce.py:30</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -418,7 +418,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 5 2021 09:23:13 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Thu Aug 5 2021 12:43:39 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
