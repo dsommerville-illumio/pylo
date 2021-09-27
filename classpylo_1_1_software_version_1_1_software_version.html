@@ -90,8 +90,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab6be5785326009e3e023a0e3c147f049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac967844f0d403ebf97594e301ed6dddf"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_software_version_1_1_software_version.html#ac967844f0d403ebf97594e301ed6dddf">__lt__</a> (self, other)</td></tr>
 <tr class="separator:ac967844f0d403ebf97594e301ed6dddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4a0b954d0240f8dc40e038476a6b509"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_software_version_1_1_software_version.html#ac4a0b954d0240f8dc40e038476a6b509">__le__</a> (self, other)</td></tr>
+<tr class="separator:ac4a0b954d0240f8dc40e038476a6b509"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5304b42499861a2760025f9007dc0cfb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_software_version_1_1_software_version.html#a5304b42499861a2760025f9007dc0cfb">__gt__</a> (self, other)</td></tr>
 <tr class="separator:a5304b42499861a2760025f9007dc0cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a94c5ad5ebe8a9c50cae34cf90c59c5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_software_version_1_1_software_version.html#a3a94c5ad5ebe8a9c50cae34cf90c59c5">__ge__</a> (self, other)</td></tr>
+<tr class="separator:a3a94c5ad5ebe8a9c50cae34cf90c59c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad69c621efef39ffb881336f2207570"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_software_version_1_1_software_version.html#a7ad69c621efef39ffb881336f2207570">__eq__</a> (self, target_version)</td></tr>
 <tr class="separator:a7ad69c621efef39ffb881336f2207570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a979ac03c632aed9d56b57d8733dd44c7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpylo_1_1_software_version_1_1_software_version.html#a979ac03c632aed9d56b57d8733dd44c7">generate_str_from_numbers</a> (self)</td></tr>
@@ -198,13 +202,53 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">def </span>__eq__(self, target_version):</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">if</span> target_version.major == self.major <span class="keywordflow">and</span> target_version.middle == self.middle <span class="keywordflow">and</span> \</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                target_version.minor == self.minor <span class="keywordflow">and</span> target_version.build == self.build:</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">def </span>__eq__(self, target_version):</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">if</span> target_version.major == self.major <span class="keywordflow">and</span> target_version.middle == self.middle <span class="keywordflow">and</span> \</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                target_version.minor == self.minor <span class="keywordflow">and</span> target_version.build == self.build:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="a3a94c5ad5ebe8a9c50cae34cf90c59c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a94c5ad5ebe8a9c50cae34cf90c59c5">&#9670;&nbsp;</a></span>__ge__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def pylo.SoftwareVersion.SoftwareVersion.__ge__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>other</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">def </span>__ge__(self, other):</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> self.is_greater_or_equal_than(other)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_software_version_1_1_software_version_a3a94c5ad5ebe8a9c50cae34cf90c59c5_cgraph.png" border="0" usemap="#aclasspylo_1_1_software_version_1_1_software_version_a3a94c5ad5ebe8a9c50cae34cf90c59c5_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_software_version_1_1_software_version_a3a94c5ad5ebe8a9c50cae34cf90c59c5_cgraph" id="aclasspylo_1_1_software_version_1_1_software_version_a3a94c5ad5ebe8a9c50cae34cf90c59c5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,204,47"/>
+<area shape="rect" href="classpylo_1_1_software_version_1_1_software_version.html#a9dbf4e36f760031365132915bbe8d41a" title=" " alt="" coords="252,5,467,47"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a5304b42499861a2760025f9007dc0cfb"></a>
@@ -232,9 +276,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">def </span>__gt__(self, other):</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> self.is_greater_than(other)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">def </span>__gt__(self, other):</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">return</span> self.is_greater_than(other)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
 </div><!-- fragment --><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -242,6 +286,46 @@ Here is the call graph for this function:</div>
 <map name="aclasspylo_1_1_software_version_1_1_software_version_a5304b42499861a2760025f9007dc0cfb_cgraph" id="aclasspylo_1_1_software_version_1_1_software_version_a5304b42499861a2760025f9007dc0cfb_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,204,47"/>
 <area shape="rect" href="classpylo_1_1_software_version_1_1_software_version.html#a21d71b2f7eee66f9dae497170e05a73e" title=" " alt="" coords="252,5,451,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac4a0b954d0240f8dc40e038476a6b509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a0b954d0240f8dc40e038476a6b509">&#9670;&nbsp;</a></span>__le__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def pylo.SoftwareVersion.SoftwareVersion.__le__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>other</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">def </span>__le__(self, other):</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> self.is_lower_or_equal_than(other)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+</div><!-- fragment --><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classpylo_1_1_software_version_1_1_software_version_ac4a0b954d0240f8dc40e038476a6b509_cgraph.png" border="0" usemap="#aclasspylo_1_1_software_version_1_1_software_version_ac4a0b954d0240f8dc40e038476a6b509_cgraph" alt=""/></div>
+<map name="aclasspylo_1_1_software_version_1_1_software_version_ac4a0b954d0240f8dc40e038476a6b509_cgraph" id="aclasspylo_1_1_software_version_1_1_software_version_ac4a0b954d0240f8dc40e038476a6b509_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,204,47"/>
+<area shape="rect" href="classpylo_1_1_software_version_1_1_software_version.html#af2220336bfa24c4656b59ac334a1ee8f" title=" " alt="" coords="252,5,457,47"/>
 </map>
 </div>
 
@@ -336,10 +420,10 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">def </span>generate_str_from_numbers(self):</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;{}.{}.{}-{}&quot;</span>.format(self.major, self.middle, self.minor, self.build)</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">def </span>generate_str_from_numbers(self):</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;{}.{}.{}-{}&quot;</span>.format(self.major, self.middle, self.minor, self.build)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -604,7 +688,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 12 2021 08:10:46 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Generated on Mon Sep 27 2021 08:06:10 for Pylo by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
