@@ -1,7 +1,6 @@
 from typing import Optional
+
 import pylo
-from .Helpers import nice_json
-from pylo import log
 
 
 class SecurityPrincipal(pylo.ReferenceTracker):
@@ -33,7 +32,7 @@ class SecurityPrincipalStore:
     def load_principals_from_json(self, json_list):
         for json_item in json_list:
             if 'name' not in json_item or 'href' not in json_item:
-                raise pylo.PyloEx("Cannot find 'value'/name or href for SecurityPrincipal in JSON:\n" + nice_json(json_item))
+                raise pylo.PyloEx("Cannot find 'value'/name or href for SecurityPrincipal in JSON:\n" + pylo.nice_json(json_item))
 
             new_item_name = json_item['name']
             new_item_href = json_item['href']
@@ -42,7 +41,7 @@ class SecurityPrincipalStore:
             # (eventually) by someone. In such a case, you need to use hostname instead
             if new_item_name is None:
                 if 'hostname' not in json_item:
-                    raise pylo.PyloEx("Cannot find 'value'/hostname in JSON:\n" + nice_json(json_item))
+                    raise pylo.PyloEx("Cannot find 'value'/hostname in JSON:\n" + pylo.nice_json(json_item))
                 new_item_name = json_item['hostname']
 
             new_item = pylo.SecurityPrincipal(new_item_name, new_item_href, self)
@@ -59,7 +58,7 @@ class SecurityPrincipalStore:
             self.itemsByHRef[new_item_href] = new_item
             self.itemsByName[new_item_name] = new_item
 
-            log.debug("Found SecurityPrincipal '%s' with href '%s'", new_item_name, new_item_href)
+            pylo.log.debug("Found SecurityPrincipal '%s' with href '%s'", new_item_name, new_item_href)
 
     def find_by_href_or_die(self, href: str):
 

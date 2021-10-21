@@ -1,7 +1,6 @@
-import pylo
-from pylo import log
-
 from typing import Dict
+
+import pylo
 
 
 class VirtualServiceStore:
@@ -35,7 +34,7 @@ class VirtualServiceStore:
             self.itemsByHRef[new_item_href] = new_item
             self.itemsByName[new_item_name] = new_item
 
-            log.debug("Found VirtualService '%s' with href '%s'", new_item_name, new_item_href)
+            pylo.log.debug("Found VirtualService '%s' with href '%s'", new_item_name, new_item_href)
 
     def find_by_href_or_create_tmp(self, href: str, tmp_name: str) -> 'pylo.VirtualService':
         find_object = self.itemsByHRef.get(href)

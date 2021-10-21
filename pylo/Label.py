@@ -1,12 +1,10 @@
-from .ReferenceTracker import ReferenceTracker
-from .LabelCommon import LabelCommon
-from .LabelStore import LabelStore
+import pylo
 
 
-class Label(ReferenceTracker, LabelCommon):
-    def __init__(self, name, href, ltype, owner: 'LabelStore'):
-        ReferenceTracker.__init__(self)
-        LabelCommon.__init__(self, name, href, ltype, owner)
+class Label(pylo.ReferenceTracker, pylo.LabelCommon):
+    def __init__(self, name, href, ltype, owner: 'pylo.LabelStore'):
+        pylo.ReferenceTracker.__init__(self)
+        pylo.LabelCommon.__init__(self, name, href, ltype, owner)
 
     def is_group(self) -> bool:
         return False

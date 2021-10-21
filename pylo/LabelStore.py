@@ -1,9 +1,8 @@
-from typing import Optional, Union, Dict
-import pylo
-from pylo import log
-from .Helpers import *
 import random
 from hashlib import md5
+from typing import Optional, Union, Dict
+
+import pylo
 
 label_type_loc = 3
 label_type_env = 2
@@ -39,7 +38,7 @@ class LabelStore:
     def loadLabelsFromJson(self, json_list):
         for json_label in json_list:
             if 'value' not in json_label or 'href' not in json_label or 'key' not in json_label:
-                raise Exception("Cannot find 'value'/name or href for Label in JSON:\n" + nice_json(json_label))
+                raise Exception("Cannot find 'value'/name or href for Label in JSON:\n" + pylo.nice_json(json_label))
             new_label_name = json_label['value']
             new_label_href = json_label['href']
             new_label_type = json_label['key']
@@ -59,8 +58,8 @@ class LabelStore:
                 self.applicationLabels[new_label_name] = new_label
             elif new_label.type_is_role():
                 self.roleLabels[new_label_name] = new_label
-            
-            log.debug("Found Label '%s' with href '%s' and type '%s'", new_label_name, new_label_href, new_label_type)
+
+            pylo.log.debug("Found Label '%s' with href '%s' and type '%s'", new_label_name, new_label_href, new_label_type)
 
     def loadLabelGroupsFromJson(self, json_list):
 
@@ -68,7 +67,7 @@ class LabelStore:
 
         for json_label in json_list:
             if 'name' not in json_label or 'href' not in json_label or 'key' not in json_label:
-                raise Exception("Cannot find 'value'/name or href for Label in JSON:\n" + nice_json(json_label))
+                raise Exception("Cannot find 'value'/name or href for Label in JSON:\n" + pylo.nice_json(json_label))
             new_label_name = json_label['name']
             newLabelHref = json_label['href']
             newLabelType_str = json_label['key']
@@ -95,7 +94,7 @@ class LabelStore:
 
             new_label.raw_json = json_label
 
-            log.info("Found LabelGroup '%s' with href '%s' and type '%s'", new_label_name, newLabelHref, newLabelType)
+            pylo.log.info("Found LabelGroup '%s' with href '%s' and type '%s'", new_label_name, newLabelHref, newLabelType)
 
         for group in created_groups:
             group.load_from_json()
@@ -291,7 +290,7 @@ class LabelStore:
         json_label = connector.objects_label_create(name, type)
 
         if 'value' not in json_label or 'href' not in json_label or 'key' not in json_label:
-            raise pylo.PyloEx("Cannot find 'value'/name or href for Label in JSON:\n" + nice_json(json_label))
+            raise pylo.PyloEx("Cannot find 'value'/name or href for Label in JSON:\n" + pylo.nice_json(json_label))
         new_label_name = json_label['value']
         new_label_href = json_label['href']
         new_label_type = json_label['key']

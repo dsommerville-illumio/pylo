@@ -1,11 +1,7 @@
 from datetime import datetime
+from typing import Optional, Dict
 
 import pylo
-from pylo import log, SoftwareVersion
-from .Helpers import *
-import re
-import datetime
-from typing import *
 
 # version_regex = re.compile(r"^(?P<major>[0-9]+)\.(?P<middle>[0-9]+)\.(?P<minor>[0-9]+)-(?P<build>[0-9]+)(u[0-9]+)?$")
 
@@ -19,7 +15,7 @@ class VENAgent(pylo.ReferenceTracker):
         self.workload: Optional['pylo.Workload'] = workload
 
         self.software_version: Optional['pylo.SoftwareVersion'] = None
-        self._last_heartbeat: Optional[datetime.datetime] = None
+        self._last_heartbeat: Optional[datetime] = None
 
         self._status_security_policy_sync_state: Optional[str] = None
         self._status_security_policy_applied_at: Optional[str] = None
@@ -29,7 +25,7 @@ class VENAgent(pylo.ReferenceTracker):
 
         self.raw_json = None
 
-    def _get_date_from_json(self, prop_name_in_json: str) -> Optional[datetime.datetime]:
+    def _get_date_from_json(self, prop_name_in_json: str) -> Optional[datetime]:
         status_json = self.raw_json.get('status')
         if status_json is None:
             return None
@@ -38,7 +34,7 @@ class VENAgent(pylo.ReferenceTracker):
         if prop_value is None:
             return None
 
-        return datetime.datetime.strptime(prop_value, "%Y-%m-%dT%H:%M:%S.%fZ")
+        return datetime.strptime(prop_value, "%Y-%m-%dT%H:%M:%S.%fZ")
 
     def load_from_json(self, data):
         self.raw_json = data
@@ -79,7 +75,7 @@ class VENAgent(pylo.ReferenceTracker):
             else:
                 self.mode = "build"
 
-    def get_last_heartbeat_date(self) -> Optional[datetime.datetime]:
+    def get_last_heartbeat_date(self) -> Optional[datetime]:
         if self._last_heartbeat is None:
             self._last_heartbeat = self._get_date_from_json('last_heartbeat_on')
         return self._last_heartbeat
@@ -121,6 +117,3 @@ class AgentStore:
 
     def count_agents(self) -> int:
         return len(self.itemsByHRef)
-
-
-

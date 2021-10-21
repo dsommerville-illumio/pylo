@@ -1,8 +1,7 @@
+import re
 from typing import Optional, List, Union, Dict
 
 import pylo
-from pylo import log, Organization
-import re
 
 ruleset_id_extraction_regex = re.compile(r"^/orgs/([0-9]+)/sec_policy/([0-9]+)?(draft)?/rule_sets/(?P<id>[0-9]+)$")
 

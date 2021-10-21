@@ -1,34 +1,34 @@
 from typing import Union
-from .Exception import PyloEx
-from .LabelStore import label_type_role, label_type_env, label_type_loc, label_type_app, LabelStore
+
+import pylo
 
 
 class LabelCommon:
 
-    def __init__(self, name: str, href: str, label_type: Union[int, str], owner: LabelStore):
-        self.owner: LabelStore = owner
+    def __init__(self, name: str, href: str, label_type: Union[int, str], owner: pylo.LabelStore):
+        self.owner: pylo.LabelStore = owner
         self.name: str = name
         self.href: str = href
 
         if type(label_type) is str:
             if label_type == 'loc':
-                label_type = label_type_loc
+                label_type = pylo.label_type_loc
             elif label_type == 'env':
-                label_type = label_type_env
+                label_type = pylo.label_type_env
             elif label_type == 'app':
-                label_type = label_type_app
+                label_type = pylo.label_type_app
             elif label_type == 'role':
-                label_type = label_type_role
+                label_type = pylo.label_type_role
             else:
-                raise PyloEx("Tried to initialize a Label object with unsupported type '%s'" % (ltype))
+                raise pylo.PyloEx("Tried to initialize a Label object with unsupported type '%s'" % (pylo.ltype))
 
         self._type = label_type
 
     def is_label(self) -> bool:
-        raise PyloEx("not implemented")
+        raise pylo.PyloEx("not implemented")
 
     def is_group(self) -> bool:
-        raise PyloEx("not implemented")
+        raise pylo.PyloEx("not implemented")
 
     def type_to_short_string(self):
         if self.type_is_location():
@@ -40,38 +40,38 @@ class LabelCommon:
         elif self.type_is_role():
             return "role"
 
-        raise PyloEx("unsupported yet")
+        raise pylo.PyloEx("unsupported yet")
 
     def type_is_location(self) -> bool:
-        return self._type == label_type_loc
+        return self._type == pylo.label_type_loc
 
     def type_is_environment(self) -> bool:
-        return self._type == label_type_env
+        return self._type == pylo.label_type_env
 
     def type_is_application(self) -> bool:
-        return self._type == label_type_app
+        return self._type == pylo.label_type_app
 
     def type_is_role(self) -> bool:
-        return self._type == label_type_role
+        return self._type == pylo.label_type_role
 
     def type(self):
         return self._type
 
     def type_string(self) -> str:
-        if self._type == label_type_loc:
+        if self._type == pylo.label_type_loc:
             return 'loc'
-        if self._type == label_type_env:
+        if self._type == pylo.label_type_env:
             return 'env'
-        if self._type == label_type_app:
+        if self._type == pylo.label_type_app:
             return 'app'
-        if self._type == label_type_role:
+        if self._type == pylo.label_type_role:
             return 'role'
-        raise PyloEx("unsupported Label type #{} for label href={}".format(self._type, self.href))
+        raise pylo.PyloEx("unsupported Label type #{} for label href={}".format(self._type, self.href))
 
     def api_set_name(self, new_name: str):
         find_collision = self.owner.find_label_by_name_and_type(new_name, self.type())
         if find_collision is not self:
-            raise PyloEx("A Label/LabelGroup with name '{}' already exists".format(new_name))
+            raise pylo.PyloEx("A Label/LabelGroup with name '{}' already exists".format(new_name))
 
         self.owner.owner.connector.objects_label_update(self.href, data={'name': new_name})
         self.name = new_name

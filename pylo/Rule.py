@@ -1,9 +1,6 @@
 from typing import Optional, List, Union, Dict, Any
 
 import pylo
-from pylo import log, Organization, Workload, Label, LabelGroup, Ruleset, Referencer, SecurityPrincipal, PyloEx, \
-    Service, nice_json, string_list_to_text, find_connector_or_die, VirtualService, IPList
-import re
 
 
 class RuleApiUpdateStack:
@@ -25,8 +22,8 @@ class RuleApiUpdateStack:
 
 class Rule:
 
-    def __init__(self, owner: 'Ruleset'):
-        self.owner: Ruleset = owner
+    def __init__(self, owner: 'pylo.Ruleset'):
+        self.owner: pylo.Ruleset = owner
         self.description: Optional[str] = None
         self.services: RuleServiceContainer = RuleServiceContainer(self)
         self.providers: RuleHostContainer = RuleHostContainer(self, 'providers')
@@ -121,9 +118,9 @@ class Rule:
 
 class RuleSecurityPrincipalContainer(pylo.Referencer):
     def __init__(self, owner: 'pylo.Rule'):
-        Referencer.__init__(self)
+        pylo.Referencer.__init__(self)
         self.owner = owner
-        self._items: Dict[SecurityPrincipal, SecurityPrincipal] = {}  # type:
+        self._items: Dict[pylo.SecurityPrincipal, pylo.SecurityPrincipal] = {}  # type:
 
     def load_from_json(self, data):
         ss_store = self.owner.owner.owner.owner.SecurityPrincipalStore  # make it a local variable for fast lookups
@@ -191,7 +188,7 @@ class DirectServiceInRule:
             lower = txt.lower()
             if lower == 'icmp':
                 return DirectServiceInRule(proto=1)
-            raise PyloEx("Invalid service syntax '{}'".format(txt))
+            raise pylo.PyloEx("Invalid service syntax '{}'".format(txt))
 
         if protocol_first:
             proto = parts[0]
@@ -207,38 +204,38 @@ class DirectServiceInRule:
             elif proto_lower == 'udp':
                 protocol_int = 17
             else:
-                raise PyloEx("Invalid protocol provided: {}".format(proto))
+                raise pylo.PyloEx("Invalid protocol provided: {}".format(proto))
         else:
             protocol_int = int(proto)
 
         port_parts = port_input.split('-')
         if len(port_parts) > 2:
-            raise PyloEx("Invalid port provided: '{}' in string '{}'".format(port_input, txt))
+            raise pylo.PyloEx("Invalid port provided: '{}' in string '{}'".format(port_input, txt))
 
         if len(port_parts) == 2:
             if protocol_int != 17 and protocol_int != 6:
-                raise PyloEx("Only TCP and UDP support port ranges so this service in invalid: '{}'".format(txt))
+                raise pylo.PyloEx("Only TCP and UDP support port ranges so this service in invalid: '{}'".format(txt))
             from_port_input = port_parts[0]
             to_port_input = port_parts[1]
 
             if not from_port_input.isdigit():
-                raise PyloEx("Invalid port provided: '{}' in string '{}'".format(from_port_input, txt))
+                raise pylo.PyloEx("Invalid port provided: '{}' in string '{}'".format(from_port_input, txt))
             if not to_port_input.isdigit():
-                raise PyloEx("Invalid port provided: '{}' in string '{}'".format(to_port_input, txt))
+                raise pylo.PyloEx("Invalid port provided: '{}' in string '{}'".format(to_port_input, txt))
 
             return DirectServiceInRule(protocol_int, port=int(from_port_input), toport=int(to_port_input))
 
         if not port_input.isdigit():
-            raise PyloEx("Invalid port provided: '{}' in string '{}'".format(port_input, txt))
+            raise pylo.PyloEx("Invalid port provided: '{}' in string '{}'".format(port_input, txt))
 
         return DirectServiceInRule(protocol_int, port=int(port_input))
 
 
 class RuleServiceContainer(pylo.Referencer):
     def __init__(self, owner: 'pylo.Rule'):
-        Referencer.__init__(self)
+        pylo.Referencer.__init__(self)
         self.owner = owner
-        self._items: Dict[Service, Service] = {}
+        self._items: Dict[pylo.Service, pylo.Service] = {}
         self._direct_services: List[DirectServiceInRule] = []
 
     def load_from_json_legacy_single(self, data):
@@ -262,10 +259,10 @@ class RuleServiceContainer(pylo.Referencer):
             if href is None:
                 port = data.get('port')
                 if port is None:
-                    raise PyloEx("unsupported service type in rule: {}".format(nice_json(data)))
+                    raise pylo.PyloEx("unsupported service type in rule: {}".format(pylo.nice_json(data)))
                 protocol = data.get('proto')
                 if protocol is None:
-                    raise PyloEx("Protocol not found in direct service use: {}".format(nice_json(data)))
+                    raise pylo.PyloEx("Protocol not found in direct service use: {}".format(pylo.nice_json(data)))
 
                 to_port = data.get('to_port')
                 direct_port = DirectServiceInRule(protocol, port, to_port)
@@ -309,7 +306,7 @@ class RuleServiceContainer(pylo.Referencer):
         for service in self._items.values():
             if len(text) > 0:
                 text += separator
-            text += service.name + ': ' + string_list_to_text(service.get_entries_str_list())
+            text += service.name + ': ' + pylo.string_list_to_text(service.get_entries_str_list())
 
         for direct in self._direct_services:
             if len(text) > 0:
@@ -336,7 +333,7 @@ class RuleServiceContainer(pylo.Referencer):
         """
         Synchronize a Rule's services after some changes were made
         """
-        connector = find_connector_or_die(self)
+        connector = pylo.find_connector_or_die(self)
         data = self.get_api_json_payload()
         data = {'ingress_services': data}
 
@@ -350,9 +347,12 @@ class RuleServiceContainer(pylo.Referencer):
 
 class RuleHostContainer(pylo.Referencer):
     def __init__(self, owner: 'pylo.Rule', name: str):
-        Referencer.__init__(self)
+        pylo.Referencer.__init__(self)
         self.owner = owner
-        self._items: Dict[Union[Label, LabelGroup, Workload, VirtualService], Union[Label, LabelGroup, Workload, VirtualService]] = {}
+        self._items: Dict[
+            Union[pylo.Label, pylo.LabelGroup, pylo.Workload, pylo.VirtualService],
+            Union[pylo.Label, pylo.LabelGroup, pylo.Workload, pylo.VirtualService]
+        ] = {}
         self.name = name
         self._hasAllWorkloads = False
 
@@ -373,28 +373,28 @@ class RuleHostContainer(pylo.Referencer):
             if 'label' in host_data:
                 href = host_data['label'].get('href')
                 if href is None:
-                    PyloEx('Cannot find object HREF ', host_data)
+                    pylo.PyloEx('Cannot find object HREF ', host_data)
                 find_object = label_store.itemsByHRef.get(href)
                 if find_object is None:
                     raise Exception('Cannot find Label with HREF {} in Rule {}'.format(href, self.owner.href))
             elif 'label_group' in host_data:
                 href = host_data['label_group'].get('href')
                 if href is None:
-                    raise PyloEx('Cannot find object HREF ', host_data)
+                    raise pylo.PyloEx('Cannot find object HREF ', host_data)
                 find_object = label_store.itemsByHRef.get(href)
                 if find_object is None:
                     raise Exception('Cannot find LabelGroup with HREF {} in Rule {}'.format(href, self.owner.href))
             elif 'ip_list' in host_data:
                 href = host_data['ip_list'].get('href')
                 if href is None:
-                    raise PyloEx('Cannot find object HREF ', host_data)
+                    raise pylo.PyloEx('Cannot find object HREF ', host_data)
                 find_object = iplist_store.itemsByHRef.get(href)
                 if find_object is None:
                     raise Exception('Cannot find IPList with HREF {} in Rule {}'.format(href, self.owner.href))
             elif 'workload' in host_data:
                 href = host_data['workload'].get('href')
                 if href is None:
-                    raise PyloEx('Cannot find object HREF ', host_data)
+                    raise pylo.PyloEx('Cannot find object HREF ', host_data)
                 # @TODO : better handling of temporary objects
                 find_object = workload_store.itemsByHRef.get(href)
                 if find_object is None:
@@ -403,7 +403,7 @@ class RuleHostContainer(pylo.Referencer):
             elif 'virtual_service' in host_data:
                 href = host_data['virtual_service'].get('href')
                 if href is None:
-                    raise PyloEx('Cannot find object HREF ', host_data)
+                    raise pylo.PyloEx('Cannot find object HREF ', host_data)
                 # @TODO : better handling of temporary objects
                 find_object = virtual_service_store.itemsByHRef.get(href)
                 if find_object is None:
@@ -415,9 +415,9 @@ class RuleHostContainer(pylo.Referencer):
                     self._hasAllWorkloads = True
                     continue
                 # TODO implement actors
-                raise PyloEx("An actor that is not 'ams' was detected but this library doesn't support it yet", host_data)
+                raise pylo.PyloEx("An actor that is not 'ams' was detected but this library doesn't support it yet", host_data)
             else:
-                raise PyloEx("Unsupported reference type", host_data)
+                raise pylo.PyloEx("Unsupported reference type", host_data)
 
             if find_object is not None:
                 self._items[find_object] = find_object
@@ -429,7 +429,7 @@ class RuleHostContainer(pylo.Referencer):
         :return: True if contains at least one Workload
         """
         for item in self._items.values():
-            if isinstance(item, Workload):
+            if isinstance(item, pylo.Workload):
                 return True
         return False
 
@@ -439,7 +439,7 @@ class RuleHostContainer(pylo.Referencer):
         :return: True if contains at least one Virtual Service
         """
         for item in self._items.values():
-            if isinstance(item, VirtualService):
+            if isinstance(item, pylo.VirtualService):
                 return True
         return False
 
@@ -449,7 +449,7 @@ class RuleHostContainer(pylo.Referencer):
         :return: True if contains at least one Label or LabelGroup
         """
         for item in self._items.values():
-            if isinstance(item, Label) or isinstance(item, LabelGroup):
+            if isinstance(item, pylo.Label) or isinstance(item, pylo.LabelGroup):
                 return True
         return False
 
@@ -461,7 +461,7 @@ class RuleHostContainer(pylo.Referencer):
         result = []
 
         for item in self._items.values():
-            if isinstance(item, Label) or isinstance(item, LabelGroup):
+            if isinstance(item, pylo.Label) or isinstance(item, pylo.LabelGroup):
                 result.append(item)
 
         return result
@@ -474,7 +474,7 @@ class RuleHostContainer(pylo.Referencer):
         result = []
 
         for item in self._items.values():
-            if (isinstance(item, Label) or isinstance(item, LabelGroup)) and item.type_is_role():
+            if (isinstance(item, pylo.Label) or isinstance(item, pylo.LabelGroup)) and item.type_is_role():
                 result.append(item)
 
         return result
@@ -487,7 +487,7 @@ class RuleHostContainer(pylo.Referencer):
         result = []
 
         for item in self._items.values():
-            if (isinstance(item, Label) or isinstance(item, LabelGroup)) and item.type_is_application():
+            if (isinstance(item, pylo.Label) or isinstance(item, pylo.LabelGroup)) and item.type_is_application():
                 result.append(item)
 
         return result
@@ -500,7 +500,7 @@ class RuleHostContainer(pylo.Referencer):
         result = []
 
         for item in self._items.values():
-            if (isinstance(item, Label) or isinstance(item, LabelGroup)) and item.type_is_environment():
+            if (isinstance(item, pylo.Label) or isinstance(item, pylo.LabelGroup)) and item.type_is_environment():
                 result.append(item)
 
         return result
@@ -513,7 +513,7 @@ class RuleHostContainer(pylo.Referencer):
         result = []
 
         for item in self._items.values():
-            if (isinstance(item, Label) or isinstance(item, LabelGroup)) and item.type_is_location():
+            if (isinstance(item, pylo.Label) or isinstance(item, pylo.LabelGroup)) and item.type_is_location():
                 result.append(item)
 
         return result
@@ -558,11 +558,11 @@ class RuleHostContainer(pylo.Referencer):
         Returns True if at least 1 iplist is part of this container
         """
         for item in self._items.values():
-            if isinstance(item, IPList):
+            if isinstance(item, pylo.IPList):
                 return True
         return False
 
-    def get_iplists(self) -> List[IPList]:
+    def get_iplists(self) -> List[pylo.IPList]:
         """
         Get a list of IPLists which are part of this container
         :return:
@@ -570,12 +570,12 @@ class RuleHostContainer(pylo.Referencer):
         result = []
 
         for item in self._items.values():
-            if isinstance(item, IPList):
+            if isinstance(item, pylo.IPList):
                 result.append(item)
 
         return result
 
-    def get_workloads(self) -> List[Workload]:
+    def get_workloads(self) -> List[pylo.Workload]:
         """
         Get a list of Workloads which are part of this container
         :return:
@@ -583,7 +583,7 @@ class RuleHostContainer(pylo.Referencer):
         result = []
 
         for item in self._items.values():
-            if isinstance(item, Workload):
+            if isinstance(item, pylo.Workload):
                 result.append(item)
 
         return result
@@ -596,7 +596,7 @@ class RuleHostContainer(pylo.Referencer):
         result = []
 
         for item in self._items.values():
-            if isinstance(item, VirtualService):
+            if isinstance(item, pylo.VirtualService):
                 result.append(item)
 
         return result

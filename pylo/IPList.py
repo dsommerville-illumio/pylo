@@ -1,8 +1,6 @@
 from typing import Dict, Optional
 
 import pylo
-from pylo import log
-from .Helpers import *
 
 
 class IPList(pylo.ReferenceTracker):
@@ -37,12 +35,12 @@ class IPList(pylo.ReferenceTracker):
 
         ip_ranges_array = json_input.get("ip_ranges")
         if ip_ranges_array is None:
-            raise pylo.PyloEx("cannot find 'ip_ranges' in IPList JSON:\n" + nice_json(json_input))
+            raise pylo.PyloEx("cannot find 'ip_ranges' in IPList JSON:\n" + pylo.nice_json(json_input))
 
         for ip_range in ip_ranges_array:
             from_ip = ip_range.get("from_ip")
             if from_ip is None:
-                raise pylo.PyloEx("cannot find 'from_ip' in IPList JSON:\n" + nice_json(ip_range))
+                raise pylo.PyloEx("cannot find 'from_ip' in IPList JSON:\n" + pylo.nice_json(ip_range))
 
             slash_pos = from_ip.find('/')
             if slash_pos < 0:
@@ -98,7 +96,7 @@ class IPListStore:
     def load_iplists_from_json(self, json_list):
         for json_item in json_list:
             if 'name' not in json_item or 'href' not in json_item:
-                raise Exception("Cannot find 'value'/name or href for iplist in JSON:\n" + nice_json(json_item))
+                raise Exception("Cannot find 'value'/name or href for iplist in JSON:\n" + pylo.nice_json(json_item))
             new_iplist_name = json_item['name']
             new_iplist_href = json_item['href']
             new_iplist_desc = json_item.get('description')
@@ -112,7 +110,7 @@ class IPListStore:
             self.itemsByHRef[new_iplist_href] = new_iplist
             self.itemsByName[new_iplist_name] = new_iplist
 
-            log.debug("Found iplist '%s' with href '%s'", new_iplist_name, new_iplist_href)
+            pylo.log.debug("Found iplist '%s' with href '%s'", new_iplist_name, new_iplist_href)
 
     def find_by_href(self, href: str) -> 'pylo.IPList':
         return self.itemsByHRef.get(href)

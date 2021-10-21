@@ -1,8 +1,6 @@
 from typing import Dict, Union
-import pylo
-from typing import *
 
-from pylo import Label
+import pylo
 
 
 class LabelGroup(pylo.ReferenceTracker, pylo.LabelCommon):
