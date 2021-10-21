@@ -24,6 +24,7 @@ setup(
         'requests~=2.25.1',
         'openpyxl~=3.0.6',
         'xlsxwriter~=1.3.7',
+        'dataclasses~=0.8'
     ],
     entry_points={
         'console_scripts': ['pylo-cli=pylo.cli:run'],
