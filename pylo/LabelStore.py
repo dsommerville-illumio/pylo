@@ -4,11 +4,6 @@ from typing import Optional, Union, Dict
 
 import pylo
 
-label_type_loc = 3
-label_type_env = 2
-label_type_app = 1
-label_type_role = 0
-
 
 class LabelStore:
 
@@ -25,13 +20,13 @@ class LabelStore:
     @staticmethod
     def label_type_str_to_int(label_type: str):
         if label_type == 'role':
-            return label_type_role
+            return pylo.ROLE_LABEL_TYPE
         if label_type == 'app':
-            return label_type_app
+            return pylo.APP_LABEL_TYPE
         if label_type == 'env':
-            return label_type_env
+            return pylo.ENV_LABEL_TYPE
         if label_type == 'loc':
-            return label_type_loc
+            return pylo.LOC_LABEL_TYPE
 
         raise pylo.PyloEx("Unsupported Label/LabelGroup type '{}'".format(label_type))
 
@@ -81,13 +76,13 @@ class LabelStore:
 
             self.itemsByHRef[newLabelHref] = new_label
 
-            if newLabelType == label_type_loc:
+            if newLabelType == pylo.LOC_LABEL_TYPE:
                 self.locationLabels[new_label_name] = new_label
-            elif newLabelType == label_type_env:
+            elif newLabelType == pylo.ENV_LABEL_TYPE:
                 self.environmentLabels[new_label_name] = new_label
-            elif newLabelType == label_type_app:
+            elif newLabelType == pylo.APP_LABEL_TYPE:
                 self.applicationLabels[new_label_name] = new_label
-            elif newLabelType == label_type_role:
+            elif newLabelType == pylo.ROLE_LABEL_TYPE:
                 self.roleLabels[new_label_name] = new_label
             else:
                 raise pylo.PyloEx("Unsupported LabelGroup type '{}' from json data".format(newLabelType), json_label)
@@ -153,13 +148,13 @@ class LabelStore:
         return None
 
     def find_label_by_name_and_type(self, name: str, type: int):
-        if type == label_type_loc:
+        if type == pylo.LOC_LABEL_TYPE:
             return self.locationLabels.get(name)
-        if type == label_type_env:
+        if type == pylo.ENV_LABEL_TYPE:
             return self.environmentLabels.get(name)
-        if type == label_type_app:
+        if type == pylo.APP_LABEL_TYPE:
             return self.applicationLabels.get(name)
-        if type == label_type_role:
+        if type == pylo.ROLE_LABEL_TYPE:
             return self.roleLabels.get(name)
         raise Exception("Unsupported")
 
@@ -323,13 +318,13 @@ class LabelStore:
         ref = None
         name = name.lower()
 
-        if type == label_type_loc:
+        if type == pylo.LOC_LABEL_TYPE:
             ref = self.locationLabels
-        elif type == label_type_env:
+        elif type == pylo.ENV_LABEL_TYPE:
             ref = self.environmentLabels
-        elif type == label_type_app:
+        elif type == pylo.APP_LABEL_TYPE:
             ref = self.applicationLabels
-        elif type == label_type_role:
+        elif type == pylo.ROLE_LABEL_TYPE:
             ref = self.roleLabels
         else:
             raise pylo.PyloEx("Unsupported type '{}'".format(type))
@@ -349,13 +344,13 @@ class LabelStore:
         name = name.lower()
         result = []
 
-        if type == label_type_loc:
+        if type == pylo.LOC_LABEL_TYPE:
             ref = self.locationLabels
-        elif type == label_type_env:
+        elif type == pylo.ENV_LABEL_TYPE:
             ref = self.environmentLabels
-        elif type == label_type_app:
+        elif type == pylo.APP_LABEL_TYPE:
             ref = self.applicationLabels
-        elif type == label_type_role:
+        elif type == pylo.ROLE_LABEL_TYPE:
             ref = self.roleLabels
 
         for labelName in ref.keys():

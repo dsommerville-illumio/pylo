@@ -16,7 +16,7 @@ from .APIConnector import APIConnector
 from .LabelCommon import LabelCommon
 from .Label import Label
 from .LabelGroup import LabelGroup
-from .LabelStore import LabelStore, label_type_app, label_type_env, label_type_loc, label_type_role
+from .LabelStore import LabelStore
 from .IPList import IPList, IPListStore
 from .AgentStore import AgentStore, VENAgent
 from .Workload import Workload, WorkloadInterface

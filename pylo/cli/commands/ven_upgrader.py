@@ -73,7 +73,7 @@ def __main(args, org: pylo.Organization, **kwargs):
         print("   * Environment Labels specified")
         for raw_label_name in args['filter_env_label'].split(','):
             print("     - label named '{}'".format(raw_label_name), end='', flush=True)
-            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.label_type_env)
+            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.ENV_LABEL_TYPE)
             if label is None:
                 print("NOT FOUND!")
                 raise pylo.PyloEx("Cannot find label named '{}'".format(raw_label_name))
@@ -86,7 +86,7 @@ def __main(args, org: pylo.Organization, **kwargs):
         print("   * Location Labels specified")
         for raw_label_name in args['filter_loc_label'].split(','):
             print("     - label named '{}' ".format(raw_label_name), end='', flush=True)
-            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.label_type_loc)
+            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.LOC_LABEL_TYPE)
             if label is None:
                 print("NOT FOUND!")
                 raise pylo.PyloEx("Cannot find label named '{}'".format(raw_label_name))
@@ -99,7 +99,7 @@ def __main(args, org: pylo.Organization, **kwargs):
         print("   * Application Labels specified")
         for raw_label_name in args['filter_app_label'].split(','):
             print("     - label named '{}' ".format(raw_label_name), end='', flush=True)
-            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.label_type_app)
+            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.APP_LABEL_TYPE)
             if label is None:
                 print("NOT FOUND!")
                 raise pylo.PyloEx("Cannot find label named '{}'".format(raw_label_name))
@@ -112,7 +112,7 @@ def __main(args, org: pylo.Organization, **kwargs):
         print("   * Role Labels specified")
         for raw_label_name in args['filter_role_label']:
             print("     - label named '{}' ".format(raw_label_name), end='', flush=True)
-            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.label_type_role)
+            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.ROLE_LABEL_TYPE)
             if label is None:
                 print("NOT FOUND!")
                 raise pylo.PyloEx("Cannot find label named '{}'".format(raw_label_name))

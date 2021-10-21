@@ -12,13 +12,13 @@ class LabelCommon:
 
         if type(label_type) is str:
             if label_type == 'loc':
-                label_type = pylo.label_type_loc
+                label_type = pylo.LOC_LABEL_TYPE
             elif label_type == 'env':
-                label_type = pylo.label_type_env
+                label_type = pylo.ENV_LABEL_TYPE
             elif label_type == 'app':
-                label_type = pylo.label_type_app
+                label_type = pylo.APP_LABEL_TYPE
             elif label_type == 'role':
-                label_type = pylo.label_type_role
+                label_type = pylo.ROLE_LABEL_TYPE
             else:
                 raise pylo.PyloEx("Tried to initialize a Label object with unsupported type '%s'" % (pylo.ltype))
 
@@ -43,28 +43,28 @@ class LabelCommon:
         raise pylo.PyloEx("unsupported yet")
 
     def type_is_location(self) -> bool:
-        return self._type == pylo.label_type_loc
+        return self._type == pylo.LOC_LABEL_TYPE
 
     def type_is_environment(self) -> bool:
-        return self._type == pylo.label_type_env
+        return self._type == pylo.ENV_LABEL_TYPE
 
     def type_is_application(self) -> bool:
-        return self._type == pylo.label_type_app
+        return self._type == pylo.APP_LABEL_TYPE
 
     def type_is_role(self) -> bool:
-        return self._type == pylo.label_type_role
+        return self._type == pylo.ROLE_LABEL_TYPE
 
     def type(self):
         return self._type
 
     def type_string(self) -> str:
-        if self._type == pylo.label_type_loc:
+        if self._type == pylo.LOC_LABEL_TYPE:
             return 'loc'
-        if self._type == pylo.label_type_env:
+        if self._type == pylo.ENV_LABEL_TYPE:
             return 'env'
-        if self._type == pylo.label_type_app:
+        if self._type == pylo.APP_LABEL_TYPE:
             return 'app'
-        if self._type == pylo.label_type_role:
+        if self._type == pylo.ROLE_LABEL_TYPE:
             return 'role'
         raise pylo.PyloEx("unsupported Label type #{} for label href={}".format(self._type, self.href))
 

@@ -154,7 +154,7 @@ print("")
 print(" - Looking for APP label '{}' in PCE database... ".format(args['app']), end='')
 app_label: Optional[pylo.Label] = None
 if args['app'] is not None:
-    app_label = org.LabelStore.find_label_by_name_and_type(args['app'], pylo.label_type_app)
+    app_label = org.LabelStore.find_label_by_name_and_type(args['app'], pylo.APP_LABEL_TYPE)
     if app_label is None:
         pylo.log.error("NOT FOUND!")
         exit(1)
@@ -165,7 +165,7 @@ else:
 print(" - Looking for ENV label '{}' in PCE database... ".format(args['env']), end='')
 env_label: Optional[pylo.Label] = None
 if args['env'] is not None:
-    env_label = org.LabelStore.find_label_by_name_and_type(args['env'], pylo.label_type_env)
+    env_label = org.LabelStore.find_label_by_name_and_type(args['env'], pylo.ENV_LABEL_TYPE)
     if env_label is None:
         pylo.log.error("NOT FOUND!")
         exit(1)
@@ -176,7 +176,7 @@ else:
 print(" - Looking for LOC label '{}' in PCE database... ".format(args['loc']), end='')
 loc_label: Optional[pylo.Label] = None
 if args['loc'] is not None:
-    loc_label = org.LabelStore.find_label_by_name_and_type(args['loc'], pylo.label_type_loc)
+    loc_label = org.LabelStore.find_label_by_name_and_type(args['loc'], pylo.LOC_LABEL_TYPE)
     if loc_label is None:
         pylo.log.error("NOT FOUND!")
         exit(1)
@@ -263,7 +263,7 @@ for workload in workload_for_report.values():
 
     data['interfaces'] = workload.interfaces_to_string(separator=',', show_ignored=False)
 
-    
+
     if not workload.unmanaged:
         data['ven version'] = workload.ven_agent.software_version.version_string
         data['mode'] = workload.ven_agent.mode

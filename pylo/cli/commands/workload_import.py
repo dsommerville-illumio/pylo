@@ -352,19 +352,19 @@ def __main(args, org: pylo.Organization, **kwargs):
 
         new_workload['labels'] = []
 
-        found_role_label = org.LabelStore.find_label_by_name_and_type(data['role'], pylo.label_type_role)
+        found_role_label = org.LabelStore.find_label_by_name_and_type(data['role'], pylo.ROLE_LABEL_TYPE)
         if found_role_label is not None:
             new_workload['labels'].append({'href': found_role_label.href})
 
-        found_app_label = org.LabelStore.find_label_by_name_and_type(data['app'], pylo.label_type_app)
+        found_app_label = org.LabelStore.find_label_by_name_and_type(data['app'], pylo.APP_LABEL_TYPE)
         if found_app_label is not None:
             new_workload['labels'].append({'href': found_app_label.href})
 
-        found_env_label = org.LabelStore.find_label_by_name_and_type(data['env'], pylo.label_type_env)
+        found_env_label = org.LabelStore.find_label_by_name_and_type(data['env'], pylo.ENV_LABEL_TYPE)
         if found_env_label is not None:
             new_workload['labels'].append({'href': found_env_label.href})
 
-        found_loc_label = org.LabelStore.find_label_by_name_and_type(data['loc'], pylo.label_type_loc)
+        found_loc_label = org.LabelStore.find_label_by_name_and_type(data['loc'], pylo.LOC_LABEL_TYPE)
         if found_loc_label is not None:
             new_workload['labels'].append({'href': found_loc_label.href})
 
