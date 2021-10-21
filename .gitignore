@@ -10,3 +10,15 @@
 .idea
 __pycache__/
 *.iml
+
+# virtual environment
+venv/
+
+# pyenv version file
+.python-version
+
+# VS Code IDE config
+.vscode/
+
+# pytest files
+.pytest_cache/
