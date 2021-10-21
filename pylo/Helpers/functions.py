@@ -1,7 +1,10 @@
+import functools
 import json
 import os
 import re
 import time
+
+import Helpers
 
 
 def nice_json(json_obj):
@@ -119,7 +122,7 @@ ___ipv6_pattern = re.compile(r"""
              |  (?<!:)              #
              |  (?<=:) (?<!::) :    #
              )                      # OR
-         |                          #   A v4 address with NO leading zeros 
+         |                          #   A v4 address with NO leading zeros
             (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)
             (?: \.
                 (?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)
@@ -141,6 +144,12 @@ def hostname_from_fqdn(fqdn: str):
     return fqdn.split('.')[0]
 
 
+def convert_protocol(protocol) -> int:
+    if type(protocol) is str:
+        if not protocol.isnumeric():
+            return Helpers.Protocol[protocol.upper()].value
+    return int(protocol)
+
 __clocks_start = {}
 __clocks_end = {}
 
@@ -153,14 +162,9 @@ def clock_stop(name:str = 'default'):
     __clocks_end[name] = time.time()
 
 
-import functools
-
-
 def clock_elapsed_str(name:str = 'default'):
     t = time.time()-__clocks_start[name]
     return "%d:%02d:%02d.%03d" % \
            functools.reduce(lambda ll,b : divmod(ll[0],b) + ll[1:],
                   [(t*1000,),1000,60,60])
     return "{}".format(time.time()-__clocks_start[name])
-
-
