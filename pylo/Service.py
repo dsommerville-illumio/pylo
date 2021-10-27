@@ -1,8 +1,7 @@
-from typing import Dict, List, Any
+from dataclasses import dataclass
+from typing import Dict, List, Optional
+
 import pylo
-from pylo import log
-from .Helpers import *
-from typing import *
 
 
 class PortMap:
@@ -12,22 +11,13 @@ class PortMap:
         self._protocol_map = {}
 
     def add(self, protocol, start_port: int, end_port: int = None, skip_recalculation=False):
+        try:
+            protocol = pylo.convert_protocol(protocol)
+        except Exception as e:
+            raise pylo.PyloEx("Unsupported protocol name '{}'".format(protocol)) from e
 
-        proto = None
-
-        if type(protocol) is str:
-            lower = protocol.lower()
-            if lower == 'tcp':
-                proto = 6
-            elif lower == 'udp':
-                proto = 17
-            else:
-                raise pylo.PyloEx("Unsupported protocol name '{}'".format(protocol))
-        else:
-            proto = protocol
-
-        if proto != 6 and proto != 17:
-            self._protocol_map[proto] = True
+        if not pylo.Protocol.has_value(protocol):
+            self._protocol_map[protocol] = True
             return
 
         if start_port is None:
@@ -101,64 +91,50 @@ class PortMap:
         self._udp_map.sort(key=first_entry)
 
 
+@dataclass
 class ServiceEntry:
-    def __init__(self, protocol: int, port: int = None, to_port: Optional[int] = None, icmp_code: Optional[int] = None,
-                 icmp_type: Optional[int] = None):
-        self.protocol = protocol
-        self.port: int = port
-        self.to_port: Optional[int] = to_port
-        self.icmp_type: Optional[int] = icmp_type
-        self.icmp_code: Optional[int] = icmp_code
-
-    @staticmethod
-    def create_from_json(data: Dict):
-        protocol = data['proto']
-        if protocol == 1:
-            icmp_code = data['icmp_code']
-            icmp_type = data['icmp_type']
-            entry = ServiceEntry(protocol, icmp_code=icmp_code, icmp_type=icmp_type)
-        elif protocol == 17 or protocol == 6:
-            port = data['port']
-            to_port = data.get('to_port')
-            entry = ServiceEntry(protocol, port=port, to_port=to_port)
-        else:
-            entry = ServiceEntry(protocol)
-
-        return entry
+    protocol: int
+    port: int = None
+    to_port: int = None
+    icmp_code: int = None
+    icmp_type: int = None
+    process_name: str = None
+    user_name: str = None
+    service_name: str = None
+    windows_service_name = None
 
     def is_tcp(self) -> bool:
-        return self.protocol == 6
+        return self.protocol == pylo.TCP
 
     def is_udp(self) -> bool:
-        return self.protocol == 17
+        return self.protocol == pylo.UDP
+
+    @classmethod
+    def create_from_json(cls, data: Dict):
+        return cls(
+            protocol=pylo.convert_protocol(data['proto']),
+            icmp_code=data.get('icmp_code'),
+            icmp_type=data.get('icmp_type'),
+            port=data.get('port'),
+            to_port=data.get('to_port'),
+            process_name=data.get('process_name'),
+            user_name=data.get('user_name'),
+            service_name=data.get('service_name'),
+            windows_service_name=data.get('windows_service_name')
+        )
 
     def to_string_standard(self, protocol_first=True) -> str:
-
         if self.protocol == -1:
             return 'All Services'
 
-        if protocol_first:
-            if self.protocol == 17:
-                if self.to_port is None:
-                    return 'udp/' + str(self.port)
-                return 'udp/' + str(self.port) + '-' + str(self.to_port)
-            elif self.protocol == 6:
-                if self.to_port is None:
-                    return 'tcp/' + str(self.port)
-                return 'tcp/' + str(self.port) + '-' + str(self.to_port)
-
-            return 'proto/' + str(self.protocol)
-
-        if self.protocol == 17:
-            if self.to_port is None:
-                return str(self.port) + '/udp'
-            return str(self.port) + '-' + str(self.to_port) + '/udp'
-        elif self.protocol == 6:
-            if self.to_port is None:
-                return str(self.port) + '/tcp'
-            return str(self.port) + '-' + str(self.to_port) + '/tcp'
-
-        return str(self.protocol) + '/proto'
+        ports = self.port if self.to_port is None else '{}-{}'.format(self.port, self.to_port)
+        protocol_name = 'proto'
+        service_value = self.protocol
+        if self.protocol == pylo.TCP or self.protocol == pylo.UDP:
+            protocol_name = pylo.Protocol(self.protocol).name.lower()
+            service_value = ports
+        return '{}/{}'(protocol_name, service_value) if protocol_first \
+            else '{}/{}'(service_value, protocol_name)
 
 
 class Service(pylo.ReferenceTracker):
@@ -170,7 +146,7 @@ class Service(pylo.ReferenceTracker):
         self.name: str = name
         self.href: str = href
 
-        self.entries: List['pylo.ServiceEntry'] = []
+        self.entries: List['pylo.Service'] = []
 
         self.description: Optional[str] = None
         self.processName: Optional[str] = None
@@ -220,7 +196,7 @@ class ServiceStore(pylo.Referencer):
     def load_services_from_json(self, json_list):
         for json_item in json_list:
             if 'name' not in json_item or 'href' not in json_item:
-                raise Exception("Cannot find 'value'/name or href for service in JSON:\n" + nice_json(json_item))
+                raise Exception("Cannot find 'value'/name or href for service in JSON:\n" + pylo.nice_json(json_item))
             new_item_name = json_item['name']
             new_item_href = json_item['href']
 
@@ -233,4 +209,4 @@ class ServiceStore(pylo.Referencer):
             self.itemsByHRef[new_item_href] = new_item
             self.itemsByName[new_item_name] = new_item
 
-            log.debug("Found service '%s' with href '%s'", new_item_name, new_item_href)
+            pylo.log.debug("Found service '%s' with href '%s'", new_item_name, new_item_href)
