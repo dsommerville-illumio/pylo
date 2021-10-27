@@ -60,7 +60,7 @@ print("* Now testing query '{}' against PCEs workload:".format(current_query))
 query = pylo.Query()
 q.parse(current_query)
 
-# for wkl in org.WorkloadStore.itemsByName.values():
+# for wkl in org.WorkloadStore.items_by_name.values():
 #     print(" - wkl '{}': ".format(wkl.get_name()), end='', flush=True)
 #     print(query.execute_on_single_object(wkl))
 #

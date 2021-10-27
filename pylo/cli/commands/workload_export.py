@@ -63,7 +63,7 @@ def __main(args, org: pylo.Organization, **kwargs):
             csv_report_headers.append('_' + field)
     csv_report = pylo.ArrayToExport(csv_report_headers)
 
-    all_workloads = org.WorkloadStore.itemsByHRef.copy()
+    all_workloads = org.WorkloadStore.items_by_href.copy()
     used_filters = {}
 
     def add_workload_to_report(wkl: pylo.Workload = None, filter=None, filter_append_prefix='_'):

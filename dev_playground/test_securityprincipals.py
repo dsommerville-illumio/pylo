@@ -23,7 +23,7 @@ print("Organization statistics:\n{}\n\n".format(org.stats_to_str()))
 
 # pylo.log_set_debug()
 
-for group in org.SecurityPrincipalStore.itemsByHRef.values():
+for group in org.SecurityPrincipalStore.items_by_href.values():
     print(" - Found User Group '{}' with SID '{}'".format(group.name, group.href))
     print("    + used in '{}' places".format(group.count_references()))
 

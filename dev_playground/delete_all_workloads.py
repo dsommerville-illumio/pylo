@@ -33,14 +33,14 @@ print("\n")
 
 deletedWorkloads = 0
 
-href_list = list(target.WorkloadStore.itemsByHRef.keys())
+href_list = list(target.WorkloadStore.items_by_href.keys())
 
-while deletedWorkloads < len(target.WorkloadStore.itemsByHRef):
+while deletedWorkloads < len(target.WorkloadStore.items_by_href):
     print(" - Deleting workloads " + str(deletedWorkloads+1) + "-" + str(numberOfWorkloadsPerBatch+deletedWorkloads) +
-          " of " + str(len(target.WorkloadStore.itemsByHRef)))
+          " of " + str(len(target.WorkloadStore.items_by_href)))
     href_to_delete = []
     for i in range(0, numberOfWorkloadsPerBatch):
-        if deletedWorkloads+i >= len(target.WorkloadStore.itemsByHRef):
+        if deletedWorkloads+i >= len(target.WorkloadStore.items_by_href):
             continue
         href_to_delete.append(href_list[deletedWorkloads+i])
 

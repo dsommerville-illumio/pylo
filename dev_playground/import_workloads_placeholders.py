@@ -49,7 +49,7 @@ print("OK!")
 
 print('Location Labels Translation table stats:\n{}\n'.format(old_to_new_loc_labels.stats_to_str('  ')))
 
-workloads_selected_for_import = origin.WorkloadStore.itemsByHRef
+workloads_selected_for_import = origin.WorkloadStore.items_by_href
 
 print("* After filtering %i Workloads are marked as Importable" % len(workloads_selected_for_import))
 

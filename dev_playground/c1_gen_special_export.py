@@ -318,7 +318,7 @@ print("OK!")
 # <editor-fold desc="IPLists export">
 csv_file = pylo.Helpers.ArrayToExport(['name', 'href', 'members'])
 print()
-iplists = org.IPListStore.itemsByHRef.values()
+iplists = org.IPListStore.items_by_href.values()
 print(" * Processing {} IPLIsts data... ".format(len(workload_for_report)), end='')
 for iplist in iplists:
     data = {'name': iplist.name,
@@ -335,7 +335,7 @@ print("OK!")
 # <editor-fold desc="Services export">
 csv_file = pylo.Helpers.ArrayToExport(['name', 'href', 'members'])
 print()
-services = org.ServiceStore.itemsByHRef.values()
+services = org.ServiceStore.items_by_href.values()
 print(" * Processing {} Services data... ".format(len(workload_for_report)), end='')
 for service in services:
     data = {'name': service.name,

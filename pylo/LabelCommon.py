@@ -1,14 +1,12 @@
 from typing import Union
 
-from .LabelStore import LabelStore
 from .Exception import PyloEx
 from .Helpers import LOC_LABEL_TYPE, ENV_LABEL_TYPE, APP_LABEL_TYPE, ROLE_LABEL_TYPE
 
 
 class LabelCommon:
 
-    def __init__(self, name: str, href: str, label_type: Union[int, str], owner: LabelStore):
-        self.owner: LabelStore = owner
+    def __init__(self, name: str, href: str, label_type: Union[int, str]):
         self.name: str = name
         self.href: str = href
 
@@ -71,9 +69,11 @@ class LabelCommon:
         raise PyloEx("unsupported Label type #{} for label href={}".format(self._type, self.href))
 
     def api_set_name(self, new_name: str):
-        find_collision = self.owner.find_label_by_name_and_type(new_name, self.type())
-        if find_collision is not self:
-            raise PyloEx("A Label/LabelGroup with name '{}' already exists".format(new_name))
+        # FIXME
+        # find_collision = self.owner.find_label_by_name_and_type(new_name, self.type())
+        # if find_collision is not self:
+        #     raise PyloEx("A Label/LabelGroup with name '{}' already exists".format(new_name))
 
-        self.owner.owner.connector.objects_label_update(self.href, data={'name': new_name})
-        self.name = new_name
+        # self.owner.owner.connector.objects_label_update(self.href, data={'name': new_name})
+        # self.name = new_name
+        pass

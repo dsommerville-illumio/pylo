@@ -1,7 +1,5 @@
 import logging
 
-import pylo
-
 log = logging.getLogger('PYLO')
 
 
@@ -32,7 +30,7 @@ def get_logger():
 
 
 def find_connector_or_die(obj):
-    connector = obj.__dict__.get('connector')  # type: pylo.APIConnector
+    connector = obj.__dict__.get('connector')
     if connector is None:
         owner = obj.__dict__.get('owner')
         if owner is None:

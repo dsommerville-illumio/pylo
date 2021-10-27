@@ -1,8 +1,9 @@
 import ipaddress
 import copy
-from typing import Optional, List
+from typing import List
 
-import pylo
+from .Exception import PyloEx
+from .Helpers import is_valid_ipv6, string_list_to_text
 
 
 def sort_first(val):
@@ -18,7 +19,7 @@ class IP4Map:
         self._entries = []
 
     @staticmethod
-    def ip_entry_from_text(entry: str, ignore_ipv6=True) -> Optional[List[int]]:
+    def ip_entry_from_text(entry: str, ignore_ipv6=True) -> List[int]:
         new_entry = None
 
         dash_find = entry.find('-')
@@ -26,27 +27,27 @@ class IP4Map:
         if dash_find > 0:
             # this is a range entry
             start_txt = entry[0:dash_find]
-            if ignore_ipv6 and pylo.is_valid_ipv6(start_txt):
+            if ignore_ipv6 and is_valid_ipv6(start_txt):
                 return None
             end_txt = entry[dash_find+1:]
-            if ignore_ipv6 and pylo.is_valid_ipv6(end_txt):
+            if ignore_ipv6 and is_valid_ipv6(end_txt):
                 return None
             start_ip_object = ipaddress.IPv4Address(start_txt)
             end_ip_object = ipaddress.IPv4Address(end_txt)
             new_entry = [int(start_ip_object), int(end_ip_object)]
             if new_entry[start] > new_entry[end]:
-                raise pylo.PyloEx("Invalid IP Ranged entered with start address > end address: {}".format(entry))
+                raise PyloEx("Invalid IP Ranged entered with start address > end address: {}".format(entry))
         elif entry.find('/') > 0:
             # This is a network entry
             network_str = entry[0:(entry.find('/'))]
-            if ignore_ipv6 and (pylo.is_valid_ipv6(network_str) or network_str == '::'):
+            if ignore_ipv6 and (is_valid_ipv6(network_str) or network_str == '::'):
                 return None
             ip_object = ipaddress.IPv4Network(entry)
             new_entry = [int(ip_object.network_address), int(ip_object.broadcast_address)]
-            if ignore_ipv6 and pylo.is_valid_ipv6(ip_object.network_address.__str__()):
+            if ignore_ipv6 and is_valid_ipv6(ip_object.network_address.__str__()):
                 return None
         else:
-            if ignore_ipv6 and pylo.is_valid_ipv6(entry):
+            if ignore_ipv6 and is_valid_ipv6(entry):
                 return None
             ip_object = ipaddress.IPv4Address(entry)
             new_entry = [int(ip_object), int(ip_object)]
@@ -54,7 +55,6 @@ class IP4Map:
         return new_entry
 
     def add_from_text(self, entry: str, skip_recalculation=False, ignore_ipv6=True):
-
         new_entry = self.ip_entry_from_text(entry, ignore_ipv6=ignore_ipv6)
 
         if ignore_ipv6 and new_entry is None:
@@ -65,7 +65,6 @@ class IP4Map:
             self.sort_and_recalculate()
 
     def intersection(self, another_map: 'IP4Map'):
-
         inverted_map = IP4Map()
         inverted_map.add_from_text('0.0.0.0-255.255.255.255')
 
@@ -154,7 +153,7 @@ class IP4Map:
             if entry[end] < cursor[end]:
                 continue
 
-            raise pylo.PyloEx("Error while sorting IP4Map, unexpected value found: entry({}-{}) cursor({}-{})".format(
+            raise PyloEx("Error while sorting IP4Map, unexpected value found: entry({}-{}) cursor({}-{})".format(
                 ipaddress.IPv4Address(entry[start]),
                 ipaddress.IPv4Address(entry[end]),
                 ipaddress.IPv4Address(cursor[start]),
@@ -173,7 +172,7 @@ class IP4Map:
         for entry in self._entries:
             ranges.append('{}-{}'.format(ipaddress.IPv4Address(entry[start]), ipaddress.IPv4Address(entry[end])))
 
-        return pylo.string_list_to_text(ranges, separator=separator)
+        return string_list_to_text(ranges, separator=separator)
 
     def to_list_of_string(self):
         ranges = []
@@ -244,13 +243,11 @@ class IP4Map:
 
                 for netmask in range(1, 32, 1):
                     new_end = net_start | masks[netmask]
-                    #print("{}/{}/{}/{}".format(ipaddress.IPv4Address(net_start), ipaddress.IPv4Address(net_end), ipaddress.IPv4Address(new_end), 32 - netmask))
 
                     if new_end > net_end:
                         result.append('{}/{}'.format(ipaddress.IPv4Address(net_start), 33 - netmask))
                         net_start = previous_loop_end + 1
                         previous_loop_end = net_start
-                        #print("breaking loop with {}/{}".format(ipaddress.IPv4Address(net_start), ipaddress.IPv4Address(previous_loop_end)))
                         break
 
                     if new_end == net_end:
@@ -287,23 +284,3 @@ class IP4Map:
                 print('{}{}{}'.format(padding, list_marker, ipaddress.IPv4Address(entry[0])))
             else:
                 print('{}{}{}-{}'.format(padding, list_marker, ipaddress.IPv4Address(entry[0]), ipaddress.IPv4Address(entry[1])))
-
-
-# test = IP4Map()
-# test.add_from_text('10.0.0.0/16')
-# test.add_from_text('10.0.0.0-10.2.50.50')
-# test.add_from_text('192.168.1.2')
-# test.add_from_text('1.0.0.0/8')
-# test.add_from_text('192.168.1.0-192.168.2.0')
-# test.substract_from_text('192.168.0.0-192.168.1.255')
-#
-# test.add_from_text('200.0.0.0-200.1.255.255')
-# test.substract_from_text('199.255.255.255-200.1.0.0')  # should produce 200.1.0.1-200.1.255.255
-#
-# test.add_from_text('200.10.0.0-200.11.255.255')
-# test.substract_from_text('200.10.10.10-200.11.0.0')  # should produce 200.10.0.0-200.10.10.9 and 200.11.0.1-200.11.255.255
-#
-# test.add_from_text('200.20.0.0-200.21.255.255')
-# test.substract_from_text('200.20.10.10-200.22.0.0')  # should produce 200.20.0.0-200.20.10.9
-#
-# test.print_to_std(header="Show IP4Map test:", padding='')

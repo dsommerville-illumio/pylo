@@ -1,10 +1,9 @@
-import pylo
+from  .ReferenceTracker import ReferenceTracker
 
 
-class VirtualService(pylo.ReferenceTracker):
-    def __init__(self, name: str, href: str, owner: 'pylo.VirtualServiceStore'):
-        pylo.ReferenceTracker.__init__(self)
-        self.owner = owner
+class VirtualService(ReferenceTracker):
+    def __init__(self, name: str, href: str):
+        super().__init__(self)
         self.name: str = name
         self.href: str = href
 
@@ -12,4 +11,3 @@ class VirtualService(pylo.ReferenceTracker):
 
     def load_from_json(self, data):
         self.raw_json = data
-

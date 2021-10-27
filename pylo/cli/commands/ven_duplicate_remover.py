@@ -27,7 +27,7 @@ def __main(args, org: pylo.Organization, **kwargs):
     csv_report = pylo.ArrayToExport(csv_report_headers)
 
     # <editor-fold desc="PCE Configuration Download and Parsing">
-    all_workloads = org.WorkloadStore.itemsByHRef.copy()
+    all_workloads = org.WorkloadStore.items_by_href.copy()
     used_filters = {}
 
     def add_workload_to_report(wkl: pylo.Workload, action: str):

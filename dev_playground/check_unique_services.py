@@ -19,7 +19,7 @@ def check_unique_within_single_pce(org: pylo.Organization):
     conflicting_names = {}  # type: dict[str,list[pylo.Service]]
     unique_names = {}  # type: dict[str,pylo.Service]
 
-    for service in org.ServiceStore.itemsByHRef.values():
+    for service in org.ServiceStore.items_by_href.values():
         svc_name = service.name.lower()
         if svc_name in conflicting_names:
             conflicting_names[svc_name].append(service)
@@ -39,10 +39,10 @@ def check_conflicts_between_two_pce(origin: pylo.Organization, target: pylo.Orga
     names = {}  # type: dict[str, pylo.Service]
     conflicts = {}  # type: dict[str, str]
 
-    for service in origin.ServiceStore.itemsByName.values():
+    for service in origin.ServiceStore.items_by_name.values():
         names[service.name.lower()] = service
 
-    for service in target.ServiceStore.itemsByName.values():
+    for service in target.ServiceStore.items_by_name.values():
         service_name_lower = service.name.lower()
         if service_name_lower in names:
             conflicts[service_name_lower] = service_name_lower

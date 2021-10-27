@@ -1,15 +1,11 @@
 import re
 
-import pylo
+from .Exception import PyloEx
 
 version_regex = re.compile(r"^(?P<major>[0-9]+)\.(?P<middle>[0-9]+)\.(?P<minor>[0-9]+)(-(?P<build>[0-9]+))?([-]?[uHhcs][0-9]+)?([-]?dev)?$")
 
 
 class SoftwareVersion:
-
-    """
-    :type version_string: str
-    """
 
     def __init__(self, version_string: str):
         self.version_string = version_string
@@ -27,7 +23,7 @@ class SoftwareVersion:
         match = version_regex.match(version_string)
 
         if match is None:
-            raise pylo.PyloEx("version_string has invalid version format: {}".format(version_string))
+            raise PyloEx("version_string has invalid version format: {}".format(version_string))
 
         self.major = int(match.group("major"))
         self.middle = int(match.group("middle"))
@@ -38,7 +34,7 @@ class SoftwareVersion:
         else:
             self.build = int(match.group("build"))
 
-    def is_greater_than(self, target_version: 'pylo.SoftwareVersion'):
+    def is_greater_than(self, target_version: 'SoftwareVersion'):
         if self.major > target_version.major:
             return True
         if target_version.major == self.major:
@@ -53,7 +49,7 @@ class SoftwareVersion:
 
         return False
 
-    def is_greater_or_equal_than(self, target_version: 'pylo.SoftwareVersion'):
+    def is_greater_or_equal_than(self, target_version: 'SoftwareVersion'):
         if self.major > target_version.major:
             return True
         if target_version.major == self.major:
@@ -68,7 +64,7 @@ class SoftwareVersion:
 
         return False
 
-    def is_lower_than(self, target_version: 'pylo.SoftwareVersion'):
+    def is_lower_than(self, target_version: 'SoftwareVersion'):
         if self.major < target_version.major:
             return True
         if target_version.major == self.major:
@@ -82,7 +78,7 @@ class SoftwareVersion:
                         return True
         return False
 
-    def is_lower_or_equal_than(self, target_version: 'pylo.SoftwareVersion'):
+    def is_lower_or_equal_than(self, target_version: 'SoftwareVersion'):
         if self.major < target_version.major:
             return True
         if target_version.major == self.major:
@@ -96,7 +92,7 @@ class SoftwareVersion:
                         return True
         return False
 
-    def equals(self, target_version: 'pylo.SoftwareVersion'):
+    def equals(self, target_version: 'SoftwareVersion'):
         if target_version.major == self.major and target_version.middle == self.middle and \
                 target_version.minor == self.minor and target_version.build == self.build:
             return True

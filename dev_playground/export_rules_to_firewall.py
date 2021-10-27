@@ -504,7 +504,7 @@ csv_workload_rows = []
 
 workloads_tags = TagIndex()
 
-for workload in org.WorkloadStore.itemsByHRef.values():
+for workload in org.WorkloadStore.items_by_href.values():
     workload_json = {'name': workload.get_name(), 'href': workload.href, 'description': workload.description}
 
     # Extracting Tags
@@ -558,7 +558,7 @@ csv_services_header = ['name', 'ports', 'description', 'href']
 
 services_tags = TagIndex()
 
-for service in org.ServiceStore.itemsByHRef.values():
+for service in org.ServiceStore.items_by_href.values():
     service_json = {'name': service.name, 'href': service.href, 'description': service.description}
 
     # Extracting Tags
@@ -639,7 +639,7 @@ csv_iplists_headers = ['name', 'members', 'description', 'href']
 
 iplists_tags = TagIndex()
 
-for iplist in org.IPListStore.itemsByHRef.values():
+for iplist in org.IPListStore.items_by_href.values():
     iplist_json = {'name': iplist.name, 'href': iplist.href, 'description': iplist.description}
 
     # Extracting Tags

@@ -249,7 +249,7 @@ def __main(args, org: pylo.Organization, **kwargs):
     # </editor-fold>
 
     # <editor-fold desc="Filter the list of VENs to be relabeled">
-    workloads_to_relabel = org.WorkloadStore.itemsByHRef.copy()
+    workloads_to_relabel = org.WorkloadStore.items_by_href.copy()
     print(" * PCE has {} managed workloads. Now applying requested filters:".format(len(workloads_to_relabel)))
     for workload_href in list(workloads_to_relabel.keys()):
         workload = workloads_to_relabel[workload_href]

@@ -1,14 +1,16 @@
-import pylo
+class Referencer:
+    def reference_name_changed(self):
+        raise Exception('not implemented')
 
 
 class ReferenceTracker:
     def __init__(self):
-        self._references = {}  # type: dict[Referencer, Referencer]
+        self._references = {}
 
-    def add_reference(self, ref: 'pylo.Referencer'):
+    def add_reference(self, ref: Referencer):
         self._references[ref] = ref
 
-    def remove_reference(self, ref: 'pylo.Referencer'):
+    def remove_reference(self, ref: Referencer):
         index = self._references.get(ref)
         if index is None:
             raise Exception('Tried to unreference an object which is not actually referenced')
@@ -26,12 +28,6 @@ class ReferenceTracker:
             if type(obj) in classes:
                 matches.append(obj)
         return matches
-
-
-
-class Referencer:
-    def reference_name_changed(self):
-        raise Exception('not implemented')
 
 
 class Pathable:

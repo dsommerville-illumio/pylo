@@ -78,7 +78,7 @@ def __main(args, org: pylo.Organization, **kwargs):
     # <editor-fold desc="Name/Hostname collision detection">
     print(" * Checking for name/hostname collisions:", flush=True)
     name_cache = {}
-    for workload in org.WorkloadStore.itemsByHRef.values():
+    for workload in org.WorkloadStore.items_by_href.values():
         lower_name = None
         if workload.forced_name is not None and len(workload.forced_name) > 0:
             lower_name = workload.forced_name.lower()
@@ -135,7 +135,7 @@ def __main(args, org: pylo.Organization, **kwargs):
     print(" * Checking for IP addresses collisions:")
     ip_cache = {}
     count_duplicate_ip_addresses_in_csv = 0
-    for workload in org.WorkloadStore.itemsByHRef.values():
+    for workload in org.WorkloadStore.items_by_href.values():
         for interface in workload.interfaces:
             if interface.ip not in ip_cache:
                 ip_cache[interface.ip] = {'pce': True, 'workload': workload}
@@ -215,7 +215,7 @@ def __main(args, org: pylo.Organization, **kwargs):
     # <editor-fold desc="Label collision detection">
     print(" * Checking for Labels case collisions and missing ones to be created:")
     name_cache = {}
-    for label in org.LabelStore.itemsByHRef.values():
+    for label in org.LabelStore.items_by_href.values():
         lower_name = None
         if label.name is not None:
             lower_name = label.name.lower()

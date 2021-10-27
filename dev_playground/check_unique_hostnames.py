@@ -17,7 +17,7 @@ def check_unique_within_single_pce(org: pylo.Organization):
     conflicting_names = {}  # type: dict[str,list[pylo.Workload]]
     unique_names = {}  # type: dict[str,pylo.Workload]
 
-    for workload in org.WorkloadStore.itemsByHRef.values():
+    for workload in org.WorkloadStore.items_by_href.values():
         """:type workload: pylo.Workload"""
         wkl_name = workload.name.lower()
         if wkl_name in conflicting_names:
@@ -38,10 +38,10 @@ def check_conflicts_between_two_pce(origin: pylo.Organization, target: pylo.Orga
     names = {}  # type: dict[str, pylo.Workload]
     conflicts = {}  # type: dict[str, str]
 
-    for workload in origin.WorkloadStore.itemsByHRef.values():
+    for workload in origin.WorkloadStore.items_by_href.values():
         names[workload.name.lower()] = workload
 
-    for workload in target.WorkloadStore.itemsByHRef.values():
+    for workload in target.WorkloadStore.items_by_href.values():
         workload_name_lower = workload.name.lower()
         if workload_name_lower in names:
             conflicts[workload_name_lower] = workload_name_lower

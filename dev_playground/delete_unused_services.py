@@ -17,7 +17,7 @@ print("OK!\n")
 
 print(' - Looking for unused objects ... ', end='', flush=True)
 unused_services = []  # type: list[pylo.Service]
-for service in org.ServiceStore.itemsByHRef.values():
+for service in org.ServiceStore.items_by_href.values():
     if service.count_references() == 0 and not service.deleted:
         unused_services.append(service)
 print('OK!')

@@ -1,7 +1,9 @@
 from dataclasses import dataclass
 from typing import Dict, List, Optional
 
-import pylo
+from .Exception import PyloEx
+from .Helpers import Protocol, TCP, UDP, convert_protocol
+from .ReferenceTracker import ReferenceTracker
 
 
 class PortMap:
@@ -12,11 +14,11 @@ class PortMap:
 
     def add(self, protocol, start_port: int, end_port: int = None, skip_recalculation=False):
         try:
-            protocol = pylo.convert_protocol(protocol)
+            protocol = convert_protocol(protocol)
         except Exception as e:
-            raise pylo.PyloEx("Unsupported protocol name '{}'".format(protocol)) from e
+            raise PyloEx("Unsupported protocol name '{}'".format(protocol)) from e
 
-        if not pylo.Protocol.has_value(protocol):
+        if not Protocol.has_value(protocol):
             self._protocol_map[protocol] = True
             return
 
@@ -104,15 +106,15 @@ class ServiceEntry:
     windows_service_name: str = None
 
     def is_tcp(self) -> bool:
-        return self.protocol == pylo.TCP
+        return self.protocol == TCP
 
     def is_udp(self) -> bool:
-        return self.protocol == pylo.UDP
+        return self.protocol == UDP
 
     @classmethod
     def create_from_json(cls, data: Dict):
         return cls(
-            protocol=pylo.convert_protocol(data['proto']),
+            protocol=convert_protocol(data['proto']),
             icmp_code=data.get('icmp_code'),
             icmp_type=data.get('icmp_type'),
             port=data.get('port'),
@@ -130,28 +132,27 @@ class ServiceEntry:
         ports = self.port if self.to_port is None else '{}-{}'.format(self.port, self.to_port)
         protocol_name = 'proto'
         service_value = self.protocol
-        if self.protocol == pylo.TCP or self.protocol == pylo.UDP:
-            protocol_name = pylo.Protocol(self.protocol).name.lower()
+        if self.protocol == TCP or self.protocol == UDP:
+            protocol_name = Protocol(self.protocol).name.lower()
             service_value = ports
         return '{}/{}'(protocol_name, service_value) if protocol_first \
             else '{}/{}'(service_value, protocol_name)
 
 
-class Service(pylo.ReferenceTracker):
+class Service(ReferenceTracker):
 
-    def __init__(self, name: str, href: str, owner: 'pylo.ServiceStore'):
-        pylo.ReferenceTracker.__init__(self)
+    def __init__(self, name: str, href: str):
+        super().__init__(self)
 
-        self.owner: 'pylo.ServiceStore' = owner
-        self.name: str = name
-        self.href: str = href
+        self.name = name
+        self.href = href
 
-        self.entries: List['pylo.Service'] = []
+        self.entries = []
 
-        self.description: Optional[str] = None
-        self.processName: Optional[str] = None
+        self.description = None
+        self.processName = None
 
-        self.deleted: bool = False
+        self.deleted = False
 
         self.raw_json = None
 
@@ -178,35 +179,3 @@ class Service(pylo.ReferenceTracker):
         for entry in self.entries:
             result.append(entry.to_string_standard(protocol_first=protocol_first))
         return result
-
-
-class ServiceStore(pylo.Referencer):
-    itemsByName: Dict[str, Service]
-    itemsByHRef: Dict[str, Service]
-
-    def __init__(self, owner):
-        """:type owner: pylo.Organization"""
-        pylo.Referencer.__init__(self)
-        self.owner = owner
-        self.itemsByHRef = {}
-        self.itemsByName = {}
-
-        self.special_allservices = pylo.Service('All Services', '/api/v1/orgs/1/sec_policy/draft/services/1', self)
-
-    def load_services_from_json(self, json_list):
-        for json_item in json_list:
-            if 'name' not in json_item or 'href' not in json_item:
-                raise Exception("Cannot find 'value'/name or href for service in JSON:\n" + pylo.nice_json(json_item))
-            new_item_name = json_item['name']
-            new_item_href = json_item['href']
-
-            new_item = pylo.Service(new_item_name, new_item_href, self)
-            new_item.load_from_json(json_item)
-
-            if new_item_href in self.itemsByHRef:
-                raise Exception("A service with href '%s' already exists in the table", new_item_href)
-
-            self.itemsByHRef[new_item_href] = new_item
-            self.itemsByName[new_item_name] = new_item
-
-            pylo.log.debug("Found service '%s' with href '%s'", new_item_name, new_item_href)

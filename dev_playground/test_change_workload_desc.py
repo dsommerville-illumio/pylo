@@ -20,7 +20,7 @@ print("OK!\n")
 
 # pylo.log_set_debug()
 
-for workload in org.WorkloadStore.itemsByHRef.values():
+for workload in org.WorkloadStore.items_by_href.values():
     if workload.deleted or workload.temporary:
         continue
     print(" - updating wkl '{}' ... ".format(workload.name), end='', flush=True)

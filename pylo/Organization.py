@@ -4,23 +4,33 @@ import datetime
 import getpass
 from typing import Optional, List
 
-import pylo
+from .LabelStore import LabelStore
+from .IPListStore import IPListStore
+from .WorkloadStore import WorkloadStore
+from .VirtualServiceStore import VirtualServiceStore
+from .VENAgentStore import VENAgentStore
+from .ServiceStore import ServiceStore
+from .RulesetStore import RulesetStore
+from .SecurityPrincipalStore import SecurityPrincipalStore
+from .SoftwareVersion import SoftwareVersion
+from .Exception import PyloEx
+from .APIConnector import APIConnector
 
 
 class Organization:
 
     def __init__(self, org_id):
         self.id: int = org_id
-        self.connector: Optional['pylo.APIConnector'] = None
-        self.LabelStore: 'pylo.LabelStore' = pylo.LabelStore(self)
-        self.IPListStore: 'pylo.IPListStore' = pylo.IPListStore(self)
-        self.WorkloadStore: 'pylo.WorkloadStore' = pylo.WorkloadStore(self)
-        self.VirtualServiceStore: 'pylo.VirtualServiceStore' = pylo.VirtualServiceStore(self)
-        self.AgentStore: 'pylo.AgentStore' = pylo.AgentStore(self)
-        self.ServiceStore: 'pylo.ServiceStore' = pylo.ServiceStore(self)
-        self.RulesetStore: 'pylo.RulesetStore' = pylo.RulesetStore(self)
-        self.SecurityPrincipalStore: 'pylo.SecurityPrincipalStore' = pylo.SecurityPrincipalStore(self)
-        self.pce_version: Optional['pylo.SoftwareVersion'] = None
+        self.connector = None
+        self.LabelStore = LabelStore(self)
+        self.IPListStore = IPListStore(self)
+        self.WorkloadStore = WorkloadStore(self)
+        self.VirtualServiceStore = VirtualServiceStore(self)
+        self.VENAgentStore = VENAgentStore(self)
+        self.ServiceStore = ServiceStore(self)
+        self.RulesetStore = RulesetStore(self)
+        self.SecurityPrincipalStore = SecurityPrincipalStore(self)
+        self.pce_version = None
 
     def load_from_cached_file(self, hostname: str, no_exception_if_file_does_not_exist=False) -> bool:
         # filename should be like 'cache_xxx.yyy.zzz.json'
@@ -31,17 +41,17 @@ class Organization:
             with open(filename) as json_file:
                 data = json.load(json_file)
                 if 'pce_version' not in data:
-                    raise pylo.PyloEx("Cannot find PCE version in cache file")
-                self.pce_version = pylo.SoftwareVersion(data['pce_version'])
+                    raise PyloEx("Cannot find PCE version in cache file")
+                self.pce_version = SoftwareVersion(data['pce_version'])
                 if 'data' not in data:
-                    raise pylo.PyloEx("Cache file '%s' was found and successfully loaded but no 'data' object could be found" % filename)
+                    raise PyloEx("Cache file '%s' was found and successfully loaded but no 'data' object could be found" % filename)
                 self.load_from_json(data['data'])
                 return True
 
         if no_exception_if_file_does_not_exist:
             return False
 
-        raise pylo.PyloEx("Cache file '%s' was not found!" % filename)
+        raise PyloEx("Cache file '%s' was not found!" % filename)
 
     def load_from_cache_or_saved_credentials(self, hostname: str, include_deleted_workloads=False, prompt_for_api_key_if_missing=True):
         # filename should be like 'cache_xxx.yyy.zzz.json'
@@ -52,16 +62,16 @@ class Organization:
             with open(filename) as json_file:
                 data = json.load(json_file)
                 if 'pce_version' not in data:
-                    raise pylo.PyloEx("Cannot find PCE version in cache file")
-                self.pce_version = pylo.SoftwareVersion(data['pce_version'])
+                    raise PyloEx("Cannot find PCE version in cache file")
+                self.pce_version = SoftwareVersion(data['pce_version'])
                 if 'data' not in data:
-                    raise pylo.PyloEx("Cache file '%s' was found and successfully loaded but no 'data' object could be found" % filename)
+                    raise PyloEx("Cache file '%s' was found and successfully loaded but no 'data' object could be found" % filename)
                 self.load_from_json(data['data'])
-            self.connector = pylo.APIConnector.create_from_credentials_in_file(hostname)
+            self.connector = APIConnector.create_from_credentials_in_file(hostname)
         else:
             self.load_from_saved_credentials(hostname, include_deleted_workloads=include_deleted_workloads, prompt_for_api_key=prompt_for_api_key_if_missing)
 
-    def make_cache_file_from_api(self, con: pylo.APIConnector, include_deleted_workloads=False):
+    def make_cache_file_from_api(self, con: APIConnector, include_deleted_workloads=False):
         # filename should be like 'cache_xxx.yyy.zzz.json'
         filename = 'cache_' + con.hostname + '.json'
 
@@ -91,15 +101,15 @@ class Organization:
             port = hostname[separator_pos+1:]
             hostname = hostname[0:separator_pos]
 
-        connector = pylo.APIConnector.create_from_credentials_in_file(hostname)
+        connector = APIConnector.create_from_credentials_in_file(hostname)
         if connector is None:
             if not prompt_for_api_key:
-                raise pylo.PyloEx('Cannot find credentials for host {}'.format(hostname))
+                raise PyloEx('Cannot find credentials for host {}'.format(hostname))
             print('Cannot find credentials for host "{}".\nPlease input an API user:'.format(hostname), end='')
             user = input()
             password = getpass.getpass()
 
-            connector = pylo.APIConnector(hostname, port, user, password, skip_ssl_cert_check=True, orgID=self.id)
+            connector = APIConnector(hostname, port, user, password, skip_ssl_cert_check=True, orgID=self.id)
 
         self.load_from_api(connector, include_deleted_workloads=include_deleted_workloads, list_of_objects_to_load=list_of_objects_to_load)
 
@@ -107,16 +117,16 @@ class Organization:
 
         object_to_load = {}
         if list_of_objects_to_load is not None:
-            all_types = pylo.APIConnector.get_all_object_types()
+            all_types = APIConnector.get_all_object_types()
             for object_type in list_of_objects_to_load:
                 if object_type not in all_types:
-                    raise pylo.PyloEx("Unknown object type '{}'".format(object_type))
+                    raise PyloEx("Unknown object type '{}'".format(object_type))
                 object_to_load[object_type] = True
         else:
-            object_to_load = pylo.APIConnector.get_all_object_types()
+            object_to_load = APIConnector.get_all_object_types()
 
         if self.pce_version is None:
-            raise pylo.PyloEx('Organization has no "version" specified')
+            raise PyloEx('Organization has no "version" specified')
 
         if 'labels' in object_to_load:
             if 'labels' not in data:
@@ -158,7 +168,7 @@ class Organization:
                 raise Exception("'rulesets' was not found in json data")
             self.RulesetStore.load_rulesets_from_json(data['rulesets'])
 
-    def load_from_api(self, con: pylo.APIConnector, include_deleted_workloads=False, list_of_objects_to_load: Optional[List[str]] = None):
+    def load_from_api(self, con: APIConnector, include_deleted_workloads=False, list_of_objects_to_load: Optional[List[str]] = None):
         self.pce_version = con.getSoftwareVersion()
         return self.load_from_json(self.get_config_from_api(con, include_deleted_workloads=include_deleted_workloads,
                                                             list_of_objects_to_load=list_of_objects_to_load))
@@ -166,11 +176,11 @@ class Organization:
     @staticmethod
     def create_fake_empty_config():
         data = {}
-        for object_type in pylo.APIConnector.get_all_object_types().values():
+        for object_type in APIConnector.get_all_object_types().values():
             data[object_type] = []
         return data
 
-    def get_config_from_api(self, con: pylo.APIConnector, include_deleted_workloads=False, list_of_objects_to_load: Optional[List[str]] = None):
+    def get_config_from_api(self, con: APIConnector, include_deleted_workloads=False, list_of_objects_to_load: Optional[List[str]] = None):
         self.connector = con
 
         return con.get_pce_objects(include_deleted_workloads=include_deleted_workloads, list_of_objects_to_load=list_of_objects_to_load)
@@ -200,5 +210,3 @@ class Organization:
             format(padding, self.RulesetStore.count_rulesets(), self.RulesetStore.count_rules())
 
         return stats
-
-

@@ -17,17 +17,21 @@ from .LabelCommon import LabelCommon
 from .Label import Label
 from .LabelGroup import LabelGroup
 from .LabelStore import LabelStore
-from .IPList import IPList, IPListStore
-from .AgentStore import AgentStore, VENAgent
+from .IPList import IPList
+from .IPListStore import IPListStore
+from .VENAgent import VENAgent
+from .VENAgentStore import VENAgentStore
 from .Workload import Workload, WorkloadInterface
 from .WorkloadStore import WorkloadStore
 from .VirtualService import VirtualService
 from .VirtualServiceStore import VirtualServiceStore
-from .Service import Service, ServiceStore, PortMap, ServiceEntry
+from .Service import Service, PortMap, ServiceEntry
+from .ServiceStore import ServiceStore
 from .Rule import Rule, RuleServiceContainer, RuleSecurityPrincipalContainer, DirectServiceInRule, RuleHostContainer
 from .Ruleset import Ruleset, RulesetScope, RulesetScopeEntry
 from .RulesetStore import RulesetStore
-from .SecurityPrincipal import SecurityPrincipal, SecurityPrincipalStore
+from .SecurityPrincipal import SecurityPrincipal
+from .SecurityPrincipalStore import SecurityPrincipalStore
 from .Organization import Organization
 from .Query import Query
 

@@ -18,7 +18,7 @@ def __main(args, org: pylo.Organization, **kwargs):
     print()
     print("**** Now parsing workloads and rules.... ****")
 
-    workloads_to_inspect = org.WorkloadStore.itemsByHRef.values()
+    workloads_to_inspect = org.WorkloadStore.items_by_href.values()
     global_count_concerned_workloads = 0
     global_concerned_rulesets = {}
     global_concerned_rules = {}
