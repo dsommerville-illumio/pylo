@@ -4,7 +4,7 @@ import os
 import re
 import time
 
-import Helpers
+from .constants import Protocol
 
 
 def nice_json(json_obj):
@@ -147,7 +147,7 @@ def hostname_from_fqdn(fqdn: str):
 def convert_protocol(protocol) -> int:
     if type(protocol) is str:
         if not protocol.isnumeric():
-            return Helpers.Protocol[protocol.upper()].value
+            return Protocol[protocol.upper()].value
     return int(protocol)
 
 __clocks_start = {}
