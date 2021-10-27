@@ -101,7 +101,7 @@ class ServiceEntry:
     process_name: str = None
     user_name: str = None
     service_name: str = None
-    windows_service_name = None
+    windows_service_name: str = None
 
     def is_tcp(self) -> bool:
         return self.protocol == pylo.TCP
