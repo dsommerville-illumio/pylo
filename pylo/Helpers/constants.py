@@ -1,5 +1,7 @@
 from enum import Enum
 
+LABEL_SEPARATOR = '|'
+
 ROLE_LABEL_TYPE = 0
 APP_LABEL_TYPE = 1
 ENV_LABEL_TYPE = 2

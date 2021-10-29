@@ -4,6 +4,10 @@ import datetime
 import getpass
 from typing import Optional, List
 
+from pylo.LabelGroup import LabelGroup
+
+from .Helpers import LABEL_SEPARATOR
+from .Label import Label
 from .LabelStore import LabelStore
 from .IPListStore import IPListStore
 from .WorkloadStore import WorkloadStore
@@ -31,6 +35,7 @@ class Organization:
         self.RulesetStore = RulesetStore(self)
         self.SecurityPrincipalStore = SecurityPrincipalStore(self)
         self.pce_version = None
+        self.label_resolution_cache = {}
 
     def load_from_cached_file(self, hostname: str, no_exception_if_file_does_not_exist=False) -> bool:
         # filename should be like 'cache_xxx.yyy.zzz.json'
@@ -131,12 +136,12 @@ class Organization:
         if 'labels' in object_to_load:
             if 'labels' not in data:
                 raise Exception("'labels' was not found in json data")
-            self.LabelStore.loadLabelsFromJson(data['labels'])
+            self.LabelStore.load_labels_from_json(data['labels'])
 
         if 'labelgroups' in object_to_load:
             if 'labelgroups' not in data:
                 raise Exception("'labelgroups' was not found in json data")
-            self.LabelStore.loadLabelGroupsFromJson(data['labelgroups'])
+            self.LabelStore.load_label_groups_from_json(data['labelgroups'])
 
         if 'iplists' in object_to_load:
             if 'iplists' not in data:
@@ -210,3 +215,44 @@ class Organization:
             format(padding, self.RulesetStore.count_rulesets(), self.RulesetStore.count_rules())
 
         return stats
+
+    def get_workloads_by_label_scope(self, role: Label, app: Label, env: Label, loc: Label):
+        if self.label_resolution_cache is None:
+            self._generate_label_resolution_cache()
+
+        group_name = ''
+        for label in [role, app, env, loc]:
+            group_name += label.name if label else self.LabelStore.CACHE_LABEL_ALL_STRING
+        return self.label_resolution_cache[group_name]
+
+    def _generate_label_resolution_cache(self):
+        from itertools import product
+        self.label_resolution_cache = {}
+
+        def label_cartesian_product():
+            # generate the cartesian product of all label names for all types
+            for item in product(*[list(label_map.keys()) for label_map in self.LabelStore.labels.values()]):
+                yield LABEL_SEPARATOR.join(item)
+
+        for group_name in label_cartesian_product():
+            self.label_resolution_cache[group_name] = []
+
+        masks = product([True, False], repeat=4)
+
+        for workload in self.WorkloadStore.items_by_href.values():
+            if workload.deleted:
+                continue
+
+            workload_labels = [workload.role_label, workload.app_label, workload.env_label, workload.loc_label]
+            already_processed = {}
+
+            for mask in masks:
+                for i, label in enumerate(workload_labels):
+                    group_name = ''
+                    if label and mask[i]:
+                        group_name += label.name + LABEL_SEPARATOR
+                    else:
+                        group_name += self.LabelStore.CACHE_LABEL_ALL_STRING + LABEL_SEPARATOR
+                if group_name not in already_processed:
+                    self.label_resolution_cache[group_name].append(workload)
+                already_processed[group_name] = True

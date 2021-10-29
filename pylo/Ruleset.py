@@ -66,7 +66,7 @@ class RulesetScopeEntry:
             elif label.type_is_application():
                 self.app_label = label
             else:
-                raise PyloEx("Unsupported label type '{}' named '{}' in scope of ruleset '{}'/'{}'".format(label.type_string(),
+                raise PyloEx("Unsupported label type '{}' named '{}' in scope of ruleset '{}'/'{}'".format(label.label_type.name,
                                                                                                                 label.name,
                                                                                                                 self.owner.owner.href,
                                                                                                                 self.owner.owner.name))

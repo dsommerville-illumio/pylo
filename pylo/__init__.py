@@ -13,7 +13,6 @@ from .SoftwareVersion import SoftwareVersion
 from .IPMap import IP4Map
 from .ReferenceTracker import ReferenceTracker, Referencer, Pathable
 from .APIConnector import APIConnector
-from .LabelCommon import LabelCommon
 from .Label import Label
 from .LabelGroup import LabelGroup
 from .LabelStore import LabelStore

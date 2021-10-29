@@ -95,44 +95,22 @@ file_clean(csv_iplists_file)
 
 class ScopeMatrix:
     def __init__(self):
-        self.rol_labels = {None: None}  # type: Dict[pylo.Label,pylo.Label]
-        self.app_labels = {None: None}  # type: Dict[pylo.Label,pylo.Label]
-        self.env_labels = {None: None}  # type: Dict[pylo.Label,pylo.Label]
-        self.loc_labels = {None: None}  # type: Dict[pylo.Label,pylo.Label]
-
-        self.rol_labels_by_string = {}  # type: Dict[str,pylo.Label]
-        self.app_labels_by_string = {}  # type: Dict[str,pylo.Label]
-        self.env_labels_by_string = {}  # type: Dict[str,pylo.Label]
-        self.loc_labels_by_string = {}  # type: Dict[str,pylo.Label]
+        self.labels = {
+            pylo.LabelType.ROLE: set(),
+            pylo.LabelType.APP: set(),
+            pylo.LabelType.ENV: set(),
+            pylo.LabelType.LOC: set()
+        }
 
     def is_empty(self):
-        if None in self.rol_labels and None in self.app_labels and None in self.env_labels and None in self.loc_labels:
-            return True
-        return False
+        from functools import reduce
+        return reduce(lambda x, y: bool(x) or bool(y), self.labels.values())
 
     def add_label(self, label: pylo.Label):
-        if label.type_is_role():
-            if None in self.rol_labels:
-                self.rol_labels.pop(None)
-            self.rol_labels[label] = label
-        elif label.type_is_application():
-            if None in self.app_labels:
-                self.app_labels.pop(None)
-            self.app_labels[label] = label
-        elif label.type_is_environment():
-            if None in self.env_labels:
-                self.env_labels.pop(None)
-            self.env_labels[label] = label
-        elif label.type_is_location():
-            if None in self.loc_labels:
-                self.loc_labels.pop(None)
-            self.loc_labels[label] = label
-        else:
-            raise pylo.PyloEx("Unsupported Label type")
+        self.labels[label.label_type].add(label)
 
     def calculate_scopes_with_filter(self, scope: pylo.RulesetScopeEntry):
         result_scopes = []
-
         for local_scope in self.generate_scopes():
             if scope.app_label is not None:
                 if local_scope['app'] is None:
@@ -153,106 +131,22 @@ class ScopeMatrix:
                     raise pylo.PyloEx("Unexpected case where Scope LOC is specified but Rule has LOC defined as well")
 
             result_scopes.append(local_scope)
-
         return result_scopes
 
     def generate_scopes(self):
         scopes = []
-
-        roles = list(self.rol_labels.keys())
-        for role in roles:
-            apps = list(self.app_labels.keys())
-            for app in apps:
-                envs = list(self.env_labels.keys())
-                for env in envs:
-                    locs = list(self.loc_labels.keys())
-                    for loc in locs:
+        for role in self.labels[pylo.LabelType.ROLE]:
+            for app in self.labels[pylo.LabelType.APP]:
+                for env in self.labels[pylo.LabelType.ENV]:
+                    for loc in self.labels[pylo.LabelType.LOC]:
                         scopes.append({'role': role, 'app': app, 'env': env, 'loc': loc})
-
         return scopes
-
-    def generate_scopes_string(self, separator='_'):
-        scopes = []
-
-        roles = list(self.rol_labels.keys())
-        for role in roles:
-            role_name = 'R-All'
-            if role is not None:
-                role_name = role.name
-            apps = list(self.app_labels.keys())
-
-            for app in apps:
-                app_name = 'A-All'
-                if app is not None:
-                    app_name = app.name
-                envs = list(self.env_labels.keys())
-
-                for env in envs:
-                    env_name = 'E-All'
-                    if env is not None:
-                        env_name = env.name
-                    locs = list(self.loc_labels.keys())
-
-                    for loc in locs:
-                        loc_name = 'L-All'
-                        if loc is not None:
-                            loc_name = loc.name
-                        scopes.append(role_name + separator + app_name + separator + env_name + separator + loc_name)
-
-
-        return scopes
-
-    def generate_group_strings(self):
-        groups = []
-
-        all_string = '-All-'
-
-        roles = list(self.rol_labels_by_string.keys())
-        if len(roles) == 0:
-            roles.append(all_string)
-        for role in roles:
-            apps = list(self.app_labels_by_string.keys())
-            if len(apps) == 0:
-                apps.append(all_string)
-            for app in apps:
-                envs = list(self.env_labels_by_string.keys())
-                if len(envs) == 0:
-                    envs.append(all_string)
-                for env in envs:
-                    locs = list(self.loc_labels_by_string.keys())
-                    if len(locs) == 0:
-                        locs.append(all_string)
-                    for loc in locs:
-                        group_name = role + '|' + app + '|' + env + '|' + loc
-                        groups.append(group_name)
-
-        return groups
-
 
 def label_tuple_to_group_name(role: pylo.Label, app: pylo.Label, env: pylo.Label, loc: pylo.Label):
-    if role is None:
-        string = 'R-All_'
-    else:
-        string = role.name + '_'
-
-    if app is None:
-        string += 'A-All_'
-    else:
-        string += app.name + '_'
-
-    if env is None:
-            string += 'E-All_'
-    else:
-        string += env.name + '_'
-
-    if loc is None:
-        string += 'L-All'
-    else:
-        string += loc.name
-
-
-    return string
-
+    group_name = ''
+    for label, prefix in {role: 'R', app: 'A', env: 'E', loc: 'L'}:
+        group_name += '{}_'.format(label.name) if label else '{}-All_'.format(prefix)
+    return group_name
 
 org = pylo.Organization(1)
 
@@ -613,7 +507,7 @@ csv_groups_header = ['name', 'members']
 for group_name, label_set in resolved_labels_groups_to_include.items():
     members_json = []
     members_name = []
-    workloads = org.LabelStore.get_workloads_by_label_scope(label_set['role'], label_set['app'], label_set['env'], label_set['loc'])
+    workloads = org.get_workloads_by_label_scope(label_set['role'], label_set['app'], label_set['env'], label_set['loc'])
 
     for workload in workloads:
         members_json.append({'type': 'workload', 'name': workload.get_name(), 'href': workload.href})

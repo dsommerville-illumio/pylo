@@ -203,20 +203,20 @@ class InboundRuleToCreate:
         self._provider_labels = []
         self._services = []
 
-        self.src_role_label = org.LabelStore.find_label_by_name_and_type(data['src_role'], pylo.ROLE_LABEL_TYPE)
+        self.src_role_label = org.LabelStore.find_label_by_name_and_type(data['src_role'], pylo.LabelType.ROLE)
         if self.src_role_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['src_role'], data))
-        self.src_app_label = org.LabelStore.find_label_by_name_and_type(data['src_application'], pylo.APP_LABEL_TYPE)
+        self.src_app_label = org.LabelStore.find_label_by_name_and_type(data['src_application'], pylo.LabelType.APP)
         if self.src_app_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['src_application'], data))
-        self.src_env_label = org.LabelStore.find_label_by_name_and_type(data['src_environment'], pylo.ENV_LABEL_TYPE)
+        self.src_env_label = org.LabelStore.find_label_by_name_and_type(data['src_environment'], pylo.LabelType.ENV)
         if self. src_env_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['src_environment'], data))
-        self.src_loc_label = org.LabelStore.find_label_by_name_and_type(data['src_location'], pylo.LOC_LABEL_TYPE)
+        self.src_loc_label = org.LabelStore.find_label_by_name_and_type(data['src_location'], pylo.LabelType.LOC)
         if self.src_loc_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['src_location'], data))
 
-        self.dst_role_label = org.LabelStore.find_label_by_name_and_type(data['dst_role'], pylo.ROLE_LABEL_TYPE)
+        self.dst_role_label = org.LabelStore.find_label_by_name_and_type(data['dst_role'], pylo.LabelType.ROLE)
         if self.dst_role_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['dst_role'], data))
 
@@ -284,20 +284,20 @@ class OutboundRuleToCreate:
         self._provider_labels = []
         self._services = []
 
-        self.dst_role_label = org.LabelStore.find_label_by_name_and_type(data['dst_role'], pylo.ROLE_LABEL_TYPE)
+        self.dst_role_label = org.LabelStore.find_label_by_name_and_type(data['dst_role'], pylo.LabelType.ROLE)
         if self.dst_role_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['dst_role'], data))
-        self.dst_app_label = org.LabelStore.find_label_by_name_and_type(data['dst_application'], pylo.APP_LABEL_TYPE)
+        self.dst_app_label = org.LabelStore.find_label_by_name_and_type(data['dst_application'], pylo.LabelType.APP)
         if self.dst_app_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['dst_application'], data))
-        self.dst_env_label = org.LabelStore.find_label_by_name_and_type(data['dst_environment'], pylo.ENV_LABEL_TYPE)
+        self.dst_env_label = org.LabelStore.find_label_by_name_and_type(data['dst_environment'], pylo.LabelType.ENV)
         if self. dst_env_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['dst_environment'], data))
-        self.dst_loc_label = org.LabelStore.find_label_by_name_and_type(data['dst_location'], pylo.LOC_LABEL_TYPE)
+        self.dst_loc_label = org.LabelStore.find_label_by_name_and_type(data['dst_location'], pylo.LabelType.LOC)
         if self.dst_loc_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['dst_location'], data))
 
-        self.src_role_label = org.LabelStore.find_label_by_name_and_type(data['src_role'], pylo.ROLE_LABEL_TYPE)
+        self.src_role_label = org.LabelStore.find_label_by_name_and_type(data['src_role'], pylo.LabelType.ROLE)
         if self.src_role_label is None:
             raise pylo.PyloEx("Cannot find label named '{}' for the following rule record: {}".format(data['src_role'], data))
 

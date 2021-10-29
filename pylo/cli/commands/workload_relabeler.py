@@ -199,7 +199,7 @@ def __main(args, org: pylo.Organization, **kwargs):
         print("   * Environment Labels specified")
         for raw_label_name in args['filter_env_label'].split(','):
             print("     - label named '{}'".format(raw_label_name), end='', flush=True)
-            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.ENV_LABEL_TYPE)
+            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.LabelType.ENV)
             if label is None:
                 print("NOT FOUND!")
                 raise pylo.PyloEx("Cannot find label named '{}'".format(raw_label_name))
@@ -212,7 +212,7 @@ def __main(args, org: pylo.Organization, **kwargs):
         print("   * Location Labels specified")
         for raw_label_name in args['filter_loc_label'].split(','):
             print("     - label named '{}' ".format(raw_label_name), end='', flush=True)
-            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.LOC_LABEL_TYPE)
+            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.LabelType.LOC)
             if label is None:
                 print("NOT FOUND!")
                 raise pylo.PyloEx("Cannot find label named '{}'".format(raw_label_name))
@@ -225,7 +225,7 @@ def __main(args, org: pylo.Organization, **kwargs):
         print("   * Application Labels specified")
         for raw_label_name in args['filter_app_label'].split(','):
             print("     - label named '{}' ".format(raw_label_name), end='', flush=True)
-            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.APP_LABEL_TYPE)
+            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.LabelType.APP)
             if label is None:
                 print(" NOT FOUND!")
                 raise pylo.PyloEx("Cannot find label named '{}'".format(raw_label_name))
@@ -238,7 +238,7 @@ def __main(args, org: pylo.Organization, **kwargs):
         print("   * Role Labels specified")
         for raw_label_name in args['filter_role_label'].split(','):
             print("     - label named '{}' ".format(raw_label_name), end='', flush=True)
-            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.ROLE_LABEL_TYPE)
+            label = org.LabelStore.find_label_by_name_and_type(raw_label_name, pylo.LabelType.ROLE)
             if label is None:
                 print("NOT FOUND!")
                 raise pylo.PyloEx("Cannot find label named '{}'".format(raw_label_name))
@@ -369,28 +369,30 @@ def __main(args, org: pylo.Organization, **kwargs):
 
         csv_object = workloads_to_relabel_match[workload]
 
-        def process_label(label_type: str) -> bool:
+        def process_label(label_type: pylo.LabelType) -> bool:
             change_needed = False
 
-            if csv_object[label_type] is not None and len(csv_object[label_type]) > 0:
-                label_found = org.LabelStore.find_label_by_name_lowercase_and_type(csv_object[label_type], pylo.LabelStore.label_type_str_to_int(label_type))
+            label_type_name = label_type.name.lower()
+            label_name = csv_object[label_type_name]
+            if label_name is not None and len(label_name) > 0:
+                label_found = org.LabelStore.find_label_by_name_lowercase_and_type(label_name, label_type)
                 if label_found is None:
                     change_needed = True
-                    temp_label_name = '**{}**{}'.format(label_type, csv_object[label_type].lower())
-                    labels_to_be_created[temp_label_name] = {'name': csv_object[label_type], 'type': label_type}
+                    temp_label_name = '**{}**{}'.format(label_type_name, label_name.lower())
+                    labels_to_be_created[temp_label_name] = {'name': label_name, 'type': label_type_name}
                 else:
-                    if label_found is not workload.get_label_by_type_str(label_type):
+                    if label_found is not workload.get_label_by_type_str(label_type_name):
                         change_needed = True
             else:
-                if workload.get_label_by_type_str(label_type) is not None:
+                if workload.get_label_by_type_str(label_type_name) is not None:
                     change_needed = True
 
             return change_needed
 
-        workload_needs_label_change = process_label('role')
-        workload_needs_label_change = process_label('app') or workload_needs_label_change
-        workload_needs_label_change = process_label('env') or workload_needs_label_change
-        workload_needs_label_change = process_label('loc') or workload_needs_label_change
+        workload_needs_label_change = process_label(pylo.LabelType.ROLE)
+        workload_needs_label_change = process_label(pylo.LabelType.APP) or workload_needs_label_change
+        workload_needs_label_change = process_label(pylo.LabelType.ENV) or workload_needs_label_change
+        workload_needs_label_change = process_label(pylo.LabelType.LOC) or workload_needs_label_change
 
         if not workload_needs_label_change:
             count_workloads_with_right_labels += 1
@@ -431,24 +433,26 @@ def __main(args, org: pylo.Organization, **kwargs):
         workloads_list_changed_labels_for_report[workload] = changed_labels
         new_workload['labels'] = []
 
-        def process_label(label_type: str):
-            if data[label_type] is not None and len(data[label_type]) > 0:
+        def process_label(label_type: pylo.LabelType):
+            label_type_name = label_type.name.lower()
+            label_name = data[label_type_name]
+            if label_name is not None and len(label_name) > 0:
                 # print(data)
-                found_label = org.LabelStore.find_label_by_name_lowercase_and_type(data[label_type], pylo.LabelStore.label_type_str_to_int(label_type))
+                found_label = org.LabelStore.find_label_by_name_lowercase_and_type(label_name, label_type)
                 if found_label is None:
-                    raise pylo.PyloEx('Cannot find a Label named "{}" in the PCE for CSV line #{}'.format(data[label_type], data['*line*']))
-                workload_found_label = workload.get_label_by_type_str(label_type)
+                    raise pylo.PyloEx('Cannot find a Label named "{}" in the PCE for CSV line #{}'.format(label_name, data['*line*']))
+                workload_found_label = workload.get_label_by_type_str(label_type_name)
                 if workload_found_label is not found_label:
                     new_workload['labels'].append({'href': found_label.href})
-                    changed_labels[label_type] = {'name': found_label.name, 'href': found_label.href}
+                    changed_labels[label_type_name] = {'name': found_label.name, 'href': found_label.href}
                 else:
                     if workload_found_label is not None:
                         new_workload['labels'].append({'href': workload_found_label.href})
 
-        process_label('role')
-        process_label('app')
-        process_label('env')
-        process_label('loc')
+        process_label(pylo.LabelType.ROLE)
+        process_label(pylo.LabelType.APP)
+        process_label(pylo.LabelType.ENV)
+        process_label(pylo.LabelType.LOC)
 
     print("  * DONE")
     # </editor-fold>

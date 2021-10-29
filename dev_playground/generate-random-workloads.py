@@ -37,7 +37,7 @@ baseNumber = random.randint(0, 1000000)
 
 print("Downloading labels infos from PCE...")
 workloads_json = connector.objects_label_get()
-target.LabelStore.loadLabelsFromJson(workloads_json)
+target.LabelStore.load_labels_from_json(workloads_json)
 print("done!")
 
 print("Downloading workloads infos from PCE...")
@@ -54,10 +54,10 @@ for i in range(0, workloadsToCreateQuantity):
     workloadObject['name'] = wkl_hostname
     workloadObject['hostname'] = wkl_hostname
 
-    loc_label = list(target.LabelStore.locationLabels.values())[random.randint(0, target.LabelStore.count_location_labels()-1)]
-    env_label = list(target.LabelStore.environmentLabels.values())[random.randint(0, target.LabelStore.count_environment_labels()-1)]
-    app_label = list(target.LabelStore.applicationLabels.values())[random.randint(0, target.LabelStore.count_application_labels()-1)]
-    role_label = list(target.LabelStore.roleLabels.values())[random.randint(0, target.LabelStore.count_role_labels()-1)]
+    loc_label = list(target.LabelStore.location_labels.values())[random.randint(0, target.LabelStore.count_location_labels()-1)]
+    env_label = list(target.LabelStore.environment_labels.values())[random.randint(0, target.LabelStore.count_environment_labels()-1)]
+    app_label = list(target.LabelStore.application_labels.values())[random.randint(0, target.LabelStore.count_application_labels()-1)]
+    role_label = list(target.LabelStore.role_labels.values())[random.randint(0, target.LabelStore.count_role_labels()-1)]
 
     print("    Location label will be: " + loc_label.name)
     print("    Environment label will be: " + env_label.name)

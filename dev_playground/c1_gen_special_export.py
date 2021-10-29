@@ -154,7 +154,7 @@ print("")
 print(" - Looking for APP label '{}' in PCE database... ".format(args['app']), end='')
 app_label: Optional[pylo.Label] = None
 if args['app'] is not None:
-    app_label = org.LabelStore.find_label_by_name_and_type(args['app'], pylo.APP_LABEL_TYPE)
+    app_label = org.LabelStore.find_label_by_name_and_type(args['app'], pylo.LabelType.APP)
     if app_label is None:
         pylo.log.error("NOT FOUND!")
         exit(1)
@@ -165,7 +165,7 @@ else:
 print(" - Looking for ENV label '{}' in PCE database... ".format(args['env']), end='')
 env_label: Optional[pylo.Label] = None
 if args['env'] is not None:
-    env_label = org.LabelStore.find_label_by_name_and_type(args['env'], pylo.ENV_LABEL_TYPE)
+    env_label = org.LabelStore.find_label_by_name_and_type(args['env'], pylo.LabelType.ENV)
     if env_label is None:
         pylo.log.error("NOT FOUND!")
         exit(1)
@@ -176,7 +176,7 @@ else:
 print(" - Looking for LOC label '{}' in PCE database... ".format(args['loc']), end='')
 loc_label: Optional[pylo.Label] = None
 if args['loc'] is not None:
-    loc_label = org.LabelStore.find_label_by_name_and_type(args['loc'], pylo.LOC_LABEL_TYPE)
+    loc_label = org.LabelStore.find_label_by_name_and_type(args['loc'], pylo.LabelType.LOC)
     if loc_label is None:
         pylo.log.error("NOT FOUND!")
         exit(1)

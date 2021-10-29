@@ -1,22 +1,11 @@
 import sys
-
-from pylo import log
-import logging
-#log.setLevel(logging.DEBUG)
-
 sys.path.append('..')
 
-import argparse
 import pylo
-
-
-
 
 #originHostname='ilo-amer-poc.xmp.net.intra'
 originHostname='10.107.3.2'
 targetHostname='ilo-emea-poc.xmp.net.intra'
-
-
 
 origin = pylo.Organization(1)
 target = pylo.Organization(1)
@@ -34,13 +23,13 @@ print("Statistics for Origin PCE %s:\n%s" % (originHostname, origin.stats_to_str
 print("Statistics for Target PCE %s:\n%s" % (targetHostname, target.stats_to_str()))
 
 
-labelsToImport = []  # type: List[pylo.Label]
-labelsInConflict = []  # type: List[pylo.Label]
+labelsToImport = []
+labelsInConflict = []
 
 for label in origin.LabelStore.items_by_href.values():
     labelName = label.name
 
-    targetLabelFind = target.LabelStore.find_label_by_name_and_type(labelName, label.type())
+    targetLabelFind = target.LabelStore.find_label_by_name_and_type(labelName, label.label_type)
     if targetLabelFind is not None:
         labelsInConflict.append(label)
     else:
@@ -64,7 +53,7 @@ for label in labelsToImport.copy():
     msg = label.name
     labelLowerCap = label.name.lower()
 
-    lowerCapConflicts = target.LabelStore.find_label_multi_by_name_lowercase_and_type(labelLowerCap, label.type())
+    lowerCapConflicts = target.LabelStore.find_label_multi_by_name_lowercase_and_type(labelLowerCap, label.label_type)
 
     if len(lowerCapConflicts) > 0:
         for lowerCapLabel in lowerCapConflicts:
@@ -84,14 +73,8 @@ if len(labelsWithCaseMismatch) > 0:
 print("** Now importing {} labels into PCE '{}'".format(len(labelsToImport), targetHostname))
 
 for label in labelsToImport:
-    print(" - Processing label '%s' with type %s" % (label.name, label.type_string()) )
-    target.connector.objects_label_create(label.name, label.type_string())
+    print(" - Processing label '%s' with type %s" % (label.name, label.label_type.name) )
+    target.connector.objects_label_create(label.name, label.label_type.name)
     print("    + CREATED!")
 
 print("\n*****  IMPORT DONE!  *****\n")
-
-
-
-
-
-

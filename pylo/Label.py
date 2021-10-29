@@ -1,22 +1,26 @@
-from .LabelCommon import LabelCommon
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from typing import Union
+
+from .Exception import PyloEx
+from .Helpers import LOC_LABEL_TYPE, ENV_LABEL_TYPE, APP_LABEL_TYPE, ROLE_LABEL_TYPE, LabelType
 from .ReferenceTracker import ReferenceTracker
 
 
-class Label(ReferenceTracker, LabelCommon):
-    def __init__(self, name, href, ltype):
+@dataclass
+class LabelCommon(ABC, ReferenceTracker):
+    name: str
+    href: str
+    label_type: LabelType
+
+    def __post_init__(self):
         ReferenceTracker.__init__(self)
-        LabelCommon.__init__(self, name, href, ltype)
 
-    def is_group(self) -> bool:
-        return False
+    @abstractmethod
+    def get_api_reference_json(self) -> dict:
+        pass
 
-    def is_label(self) -> bool:
-        return True
 
-    def reference_obj(self):
-        return {"href": self.href,
-                "value": self.name,
-                "key": self.type_to_short_string()}
-
+class Label(LabelCommon):
     def get_api_reference_json(self):
         return {'label': {'href': self.href}}
