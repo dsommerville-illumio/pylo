@@ -1,13 +1,13 @@
 from dataclasses import dataclass, field
 from typing import Dict
 
-from .Exception import PyloEx
-from .Label import Label, LabelCommon
+from pylo.Exception import PyloEx
+from .label import Label
 
 
 @dataclass
-class LabelGroup(LabelCommon):
-    members: Dict[str, LabelCommon] = field(default_factory=dict)
+class LabelGroup(Label):
+    members: Dict[str, Label] = field(default_factory=dict)
 
     def expand_nested_to_array(self):
         results = {}
@@ -23,3 +23,5 @@ class LabelGroup(LabelCommon):
 
     def get_api_reference_json(self) -> Dict:
         return {'label_group': {'href': self.href}}
+
+    __hash__ = Label.__hash__
