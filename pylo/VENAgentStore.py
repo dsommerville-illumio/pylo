@@ -2,7 +2,6 @@ from typing import Dict
 
 from .Exception import PyloEx
 from .VENAgent import VENAgent
-from .Workload import Workload
 
 
 class VENAgentStore:
@@ -17,12 +16,12 @@ class VENAgentStore:
 
         return find_object
 
-    def create_ven_agent_from_workload_record(self, workload: Workload, json_data) -> VENAgent:
+    def create_ven_agent_from_workload_record(self, json_data) -> VENAgent:
         href = json_data.get('href')
         if href is None:
-            raise PyloEx("Cannot extract Agent href from workload '{}'".format(workload.href))
+            raise PyloEx("Failed to extract Agent href from data:\n{}".format(json_data))
 
-        agent = VENAgent(href, workload)
+        agent = VENAgent(href)
         agent.load_from_json(json_data)
 
         self.items_by_href[href] = agent

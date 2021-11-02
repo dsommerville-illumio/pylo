@@ -7,16 +7,13 @@ from .tmp import log
 
 
 class ServiceStore(Referencer):
-    items_by_name: Dict[str, Service]
-    items_by_href: Dict[str, Service]
 
-    def __init__(self, owner):
-        super().__init__(self)
-        self.owner = owner
+    def __init__(self):
+        super().__init__()
         self.items_by_href = {}
         self.items_by_name = {}
 
-        self.special_allservices = Service('All Services', '/api/v1/orgs/1/sec_policy/draft/services/1', self)
+        self.special_allservices = Service('All Services', '/api/v1/orgs/1/sec_policy/draft/services/1')
 
     def load_services_from_json(self, json_list):
         for json_item in json_list:
@@ -25,7 +22,7 @@ class ServiceStore(Referencer):
             new_item_name = json_item['name']
             new_item_href = json_item['href']
 
-            new_item = Service(new_item_name, new_item_href, self)
+            new_item = Service(new_item_name, new_item_href)
             new_item.load_from_json(json_item)
 
             if new_item_href in self.items_by_href:

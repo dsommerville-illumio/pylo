@@ -21,7 +21,7 @@ class VirtualServiceStore:
             new_item_name = json_item['name']
             new_item_href = json_item['href']
 
-            new_item = VirtualService(new_item_name, new_item_href, self)
+            new_item = VirtualService(new_item_name, new_item_href)
             new_item.load_from_json(json_item)
 
             if new_item_href in self.items_by_href:
@@ -43,7 +43,7 @@ class VirtualServiceStore:
         if find_object is not None:
             return find_object
 
-        new_tmp_item = VirtualService(tmp_name, href, self)
+        new_tmp_item = VirtualService(tmp_name, href)
         new_tmp_item.deleted = True
         new_tmp_item.temporary = True
 

@@ -25,7 +25,7 @@ class IPListStore:
             new_iplist_href = json_item['href']
             new_iplist_desc = json_item.get('description')
 
-            new_iplist = IPList(new_iplist_name, new_iplist_href, self, new_iplist_desc)
+            new_iplist = IPList(new_iplist_name, new_iplist_href, new_iplist_desc)
             new_iplist.load_from_json(json_item)
 
             if new_iplist_href in self.items_by_href:

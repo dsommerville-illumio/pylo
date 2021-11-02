@@ -7,15 +7,14 @@ sys.path.append(vendor_dir)
 
 from .tmp import *
 from .Helpers import *
+from .stores import *
+from .policyobjects import *
 
 from .Exception import PyloEx, PyloApiEx, PyloApiTooManyRequestsEx, PyloApiUnexpectedSyntax
 from .SoftwareVersion import SoftwareVersion
 from .IPMap import IP4Map
 from .ReferenceTracker import ReferenceTracker, Referencer, Pathable
 from .APIConnector import APIConnector
-from .Label import Label
-from .LabelGroup import LabelGroup
-from .LabelStore import LabelStore
 from .IPList import IPList
 from .IPListStore import IPListStore
 from .VENAgent import VENAgent

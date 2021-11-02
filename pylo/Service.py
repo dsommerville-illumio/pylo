@@ -142,7 +142,7 @@ class ServiceEntry:
 class Service(ReferenceTracker):
 
     def __init__(self, name: str, href: str):
-        super().__init__(self)
+        super().__init__()
 
         self.name = name
         self.href = href

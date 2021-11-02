@@ -7,7 +7,7 @@ from .ReferenceTracker import ReferenceTracker
 class IPList(ReferenceTracker):
 
     def __init__(self, name: str, href: str, description=None):
-        super().__init__(self)
+        super().__init__()
         self.name = name
         self.href = href
         self.description = description

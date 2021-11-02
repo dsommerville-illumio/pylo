@@ -9,36 +9,38 @@ class SecurityPrincipalStore:
         self.items_by_href = {}
         self.items_by_name = {}
 
-    def load_principals_from_json(self, json_list):
+    def load_from_json(self, json_list):
         for json_item in json_list:
             if 'name' not in json_item or 'href' not in json_item:
                 raise PyloEx("Cannot find 'value'/name or href for SecurityPrincipal in JSON:\n" + nice_json(json_item))
 
-            new_item_name = json_item['name']
-            new_item_href = json_item['href']
+            name = json_item['name']
+            href = json_item['href']
+            sid = json_item['sid']
+            deleted = json_item['deleted']
 
             # SecurityPrincipals's name is None when it's provided by VEN through its hostname until it's manually overwritten
             # (eventually) by someone. In such a case, you need to use hostname instead
-            if new_item_name is None:
+            if name is None:
                 if 'hostname' not in json_item:
                     raise PyloEx("Cannot find 'value'/hostname in JSON:\n" + nice_json(json_item))
-                new_item_name = json_item['hostname']
+                name = json_item['hostname']
 
-            new_item = SecurityPrincipal(new_item_name, new_item_href, self)
-            new_item.load_from_json(json_item)
 
-            if new_item_href in self.items_by_href:
-                raise PyloEx("A SecurityPrincipal with href '%s' already exists in the table", new_item_href)
+            if href in self.items_by_href:
+                raise PyloEx("A SecurityPrincipal with href '%s' already exists in the table", href)
 
-            if new_item_name in self.items_by_name:
+            if name in self.items_by_name:
                 raise PyloEx(
                     "A SecurityPrincipal with name '%s' already exists in the table. This UID:%s vs other UID:%s" % (
-                        new_item_name, new_item_href, self.items_by_name[new_item_name].href))
+                        name, href, self.items_by_name[name].href))
 
-            self.items_by_href[new_item_href] = new_item
-            self.items_by_name[new_item_name] = new_item
+            new_item = SecurityPrincipal(name=name, href=href, sid=sid, deleted=deleted)
 
-            log.debug("Found SecurityPrincipal '%s' with href '%s'", new_item_name, new_item_href)
+            self.items_by_href[href] = new_item
+            self.items_by_name[name] = new_item
+
+            log.debug("Found SecurityPrincipal '%s' with href '%s'", name, href)
 
     def find_by_href_or_die(self, href: str):
 

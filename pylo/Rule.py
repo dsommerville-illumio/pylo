@@ -1,17 +1,22 @@
 from typing import Optional, List, Union, Dict, Any
 
+from .APIConnector import APIConnector
 from .Exception import PyloEx
 from .Helpers import nice_json, string_list_to_text
 from .IPList import IPList
-from .Label import Label
-from .LabelGroup import LabelGroup
+from .IPListStore import IPListStore
+from .policyobjects import Label, LabelGroup
+from .stores import LabelStore
 from .ReferenceTracker import Referencer
-from .Ruleset import Ruleset
 from .SecurityPrincipal import SecurityPrincipal
+from .SecurityPrincipalStore import SecurityPrincipalStore
 from .Service import Service
+from .ServiceStore import ServiceStore
 from .tmp import find_connector_or_die
 from .Workload import Workload
+from .WorkloadStore import WorkloadStore
 from .VirtualService import VirtualService
+from .VirtualServiceStore import VirtualServiceStore
 
 
 class RuleApiUpdateStack:
@@ -33,13 +38,12 @@ class RuleApiUpdateStack:
 
 class Rule:
 
-    def __init__(self, owner: Ruleset):
-        self.owner: Ruleset = owner
+    def __init__(self):
         self.description: Optional[str] = None
-        self.services: RuleServiceContainer = RuleServiceContainer(self)
-        self.providers: RuleHostContainer = RuleHostContainer(self, 'providers')
-        self.consumers: RuleHostContainer = RuleHostContainer(self, 'consumers')
-        self.consuming_principals: RuleSecurityPrincipalContainer = RuleSecurityPrincipalContainer(self)
+        self.services: RuleServiceContainer = RuleServiceContainer()
+        self.providers: RuleHostContainer = RuleHostContainer('providers')
+        self.consumers: RuleHostContainer = RuleHostContainer('consumers')
+        self.consuming_principals: RuleSecurityPrincipalContainer = RuleSecurityPrincipalContainer()
         self.href: Optional[str] = None
         self.enabled: bool = True
         self.secure_connect: bool = False
@@ -50,7 +54,8 @@ class Rule:
         self.raw_json: Optional[Dict[str, Any]] = None
         self.batch_update_stack: Optional[RuleApiUpdateStack] = None
 
-    def load_from_json(self, data):
+    def load_from_json(self, data, service_store: ServiceStore, workload_store: WorkloadStore, label_store: LabelStore,
+                    virtual_service_store: VirtualServiceStore, iplist_store: IPListStore, security_principal_store: SecurityPrincipalStore):
         self.raw_json = data
 
         self.href = data['href']
@@ -59,7 +64,7 @@ class Rule:
 
         services = data.get('ingress_services')
         if services is not None:
-            self.services.load_from_json(services)
+            self.services.load_from_json(services, service_store)
 
         enabled = data.get('enabled')
         if enabled is not None:
@@ -81,9 +86,9 @@ class Rule:
         if unscoped_consumers is not None:
             self.unscoped_consumers = unscoped_consumers
 
-        self.providers.load_from_json(data['providers'])
-        self.consumers.load_from_json(data['consumers'])
-        self.consuming_principals.load_from_json(data['consuming_security_principals'])
+        self.providers.load_from_json(data['providers'], workload_store, label_store, virtual_service_store, iplist_store)
+        self.consumers.load_from_json(data['consumers'], workload_store, label_store, virtual_service_store, iplist_store)
+        self.consuming_principals.load_from_json(data['consuming_security_principals'], security_principal_store)
 
     def is_extra_scope(self):
         return self.unscoped_consumers
@@ -91,10 +96,10 @@ class Rule:
     def is_intra_scope(self):
         return not self.unscoped_consumers
 
-    def api_set_description(self, new_description: str):
+    def api_set_description(self, new_description: str, connector: APIConnector):
         data = {'description': new_description}
         if self.batch_update_stack is None:
-            self.owner.owner.owner.connector.objects_rule_update(self.href, update_data=data)
+            connector.objects_rule_update(self.href, update_data=data)
 
         self.raw_json.update(data)
         self.description = new_description
@@ -106,14 +111,13 @@ class Rule:
         """
         self.batch_update_stack = RuleApiUpdateStack()
 
-    def api_stacked_updates_push(self):
+    def api_stacked_updates_push(self, connector: APIConnector):
         """
         Push all stacked changed to API and turns off 'updates stacking' mode
         """
         if self.batch_update_stack is None:
             raise PyloEx("Workload was not in 'update stacking' mode")
 
-        connector = find_connector_or_die(self.owner)
         connector.objects_rule_update(self.href, self.batch_update_stack.get_payload_and_reset())
         self.batch_update_stack = None
 
@@ -128,16 +132,14 @@ class Rule:
 
 
 class RuleSecurityPrincipalContainer(Referencer):
-    def __init__(self, owner: 'Rule'):
-        Referencer.__init__(self)
-        self.owner = owner
+    def __init__(self):
+        super().__init__()
         self._items: Dict[SecurityPrincipal, SecurityPrincipal] = {}  # type:
 
-    def load_from_json(self, data):
-        ss_store = self.owner.owner.owner.owner.SecurityPrincipalStore  # make it a local variable for fast lookups
+    def load_from_json(self, data, security_principal_store: SecurityPrincipalStore):
         for item_data in data:
             wanted_href = item_data['href']
-            found_object = ss_store.find_by_href_or_die(wanted_href)
+            found_object = security_principal_store.find_by_href_or_die(wanted_href)
             found_object.add_reference(self)
             self._items[found_object] = found_object
 
@@ -243,27 +245,24 @@ class DirectServiceInRule:
 
 
 class RuleServiceContainer(Referencer):
-    def __init__(self, owner: 'Rule'):
-        Referencer.__init__(self)
-        self.owner = owner
+    def __init__(self):
+        super().__init__()
         self._items: Dict[Service, Service] = {}
         self._direct_services: List[DirectServiceInRule] = []
 
-    def load_from_json_legacy_single(self, data):
+    def load_from_json_legacy_single(self, data, service_store: ServiceStore):
         href = data.get('href')
         if href is None:
             raise Exception('Cannot find service HREF')
 
-        find_service = self.owner.owner.owner.owner.ServiceStore.items_by_href.get(href)
+        find_service = service_store.items_by_href.get(href)
         if find_service is None:
-            raise Exception('Cannot find Service with HREF %s in Rule %s'.format(href, self.owner.href))
+            raise Exception('Cannot find Service with HREF %s in Rule'.format(href))
 
         self._items[find_service] = find_service
         find_service.add_reference(self)
 
-    def load_from_json(self, data_list):
-        ss_store = self.owner.owner.owner.owner.ServiceStore  # make it a local variable for fast lookups
-
+    def load_from_json(self, data_list, service_store):
         for data in data_list:
             # print(data)
             href = data.get('href')
@@ -281,9 +280,9 @@ class RuleServiceContainer(Referencer):
 
                 continue
 
-            find_service = ss_store.items_by_href.get(href)
+            find_service = service_store.items_by_href.get(href)
             if find_service is None:
-                raise Exception('Cannot find Service with HREF %s in Rule %s'.format(href, self.owner.href))
+                raise Exception('Cannot find Service with HREF %s in Rule'.format(href))
 
             self._items[find_service] = find_service
             find_service.add_reference(self)
@@ -340,26 +339,24 @@ class RuleServiceContainer(Referencer):
 
         return data
 
-    def api_sync(self):
+    def api_sync(self, rule: Rule, connector: APIConnector):
         """
         Synchronize a Rule's services after some changes were made
         """
-        connector = find_connector_or_die(self)
         data = self.get_api_json_payload()
         data = {'ingress_services': data}
 
-        if self.owner.batch_update_stack is None:
-            connector.objects_rule_update(self.owner.href, update_data=data)
+        if rule.batch_update_stack is None:
+            connector.objects_rule_update(rule.href, update_data=data)
         else:
-            self.owner.batch_update_stack.add_payload(data)
+            rule.batch_update_stack.add_payload(data)
 
-        self.owner.raw_json.update(data)
+        rule.raw_json.update(data)
 
 
 class RuleHostContainer(Referencer):
-    def __init__(self, owner: 'Rule', name: str):
-        Referencer.__init__(self)
-        self.owner = owner
+    def __init__(self, name: str):
+        super().__init__()
         self._items: Dict[
             Union[Label, LabelGroup, Workload, VirtualService],
             Union[Label, LabelGroup, Workload, VirtualService]
@@ -367,18 +364,14 @@ class RuleHostContainer(Referencer):
         self.name = name
         self._hasAllWorkloads = False
 
-    def load_from_json(self, data):
+    def load_from_json(self, data, workload_store: WorkloadStore, label_store: LabelStore,
+                    virtual_service_store: VirtualServiceStore, iplist_store: IPListStore):
         """
         Parse from a JSON payload.
         *For developers only*
 
         :param data: JSON payload to parse
         """
-        workload_store = self.owner.owner.owner.owner.WorkloadStore  # make it a local variable for fast lookups
-        label_store = self.owner.owner.owner.owner.LabelStore  # make it a local variable for fast lookups
-        virtual_service_store = self.owner.owner.owner.owner.VirtualServiceStore  # make it a local variable for fast lookups
-        iplist_store = self.owner.owner.owner.owner.IPListStore  # make it a local variable for fast lookups
-
         for host_data in data:
             find_object = None
             if 'label' in host_data:
@@ -387,21 +380,21 @@ class RuleHostContainer(Referencer):
                     PyloEx('Cannot find object HREF ', host_data)
                 find_object = label_store.items_by_href.get(href)
                 if find_object is None:
-                    raise Exception('Cannot find Label with HREF {} in Rule {}'.format(href, self.owner.href))
+                    raise Exception('Cannot find Label with HREF {} in Rule'.format(href))
             elif 'label_group' in host_data:
                 href = host_data['label_group'].get('href')
                 if href is None:
                     raise PyloEx('Cannot find object HREF ', host_data)
                 find_object = label_store.items_by_href.get(href)
                 if find_object is None:
-                    raise Exception('Cannot find LabelGroup with HREF {} in Rule {}'.format(href, self.owner.href))
+                    raise Exception('Cannot find LabelGroup with HREF {} in Rule'.format(href))
             elif 'ip_list' in host_data:
                 href = host_data['ip_list'].get('href')
                 if href is None:
                     raise PyloEx('Cannot find object HREF ', host_data)
                 find_object = iplist_store.items_by_href.get(href)
                 if find_object is None:
-                    raise Exception('Cannot find IPList with HREF {} in Rule {}'.format(href, self.owner.href))
+                    raise Exception('Cannot find IPList with HREF {} in Rule'.format(href))
             elif 'workload' in host_data:
                 href = host_data['workload'].get('href')
                 if href is None:
@@ -419,7 +412,7 @@ class RuleHostContainer(Referencer):
                 find_object = virtual_service_store.items_by_href.get(href)
                 if find_object is None:
                     # raise Exception("Cannot find VirtualService with HREF {} in Rule {}. JSON:\n {}".format(href, self.owner.href, nice_json(host_data)))
-                    find_object = self.owner.owner.owner.owner.VirtualServiceStore.find_by_href_or_create_tmp(href, 'tmp-deleted-wkl-'+href)
+                    find_object = virtual_service_store.find_by_href_or_create_tmp(href, 'tmp-deleted-wkl-'+href)
             elif 'actors' in host_data:
                 actor_value = host_data['actors']
                 if actor_value is not None and actor_value == 'ams':

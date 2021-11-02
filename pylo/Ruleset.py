@@ -1,14 +1,20 @@
 import re
-from typing import Optional, List, Union, Dict, Set
+from typing import List, Union, Dict, Set
 
+from .APIConnector import APIConnector
+from .Helpers import LabelType
 from .Exception import PyloEx
 from .Helpers import nice_json
 from .IPList import IPList
-from .Label import Label
-from .LabelGroup import LabelGroup
+from .IPListStore import IPListStore
+from .policyobjects import Label, LabelGroup
 from .Rule import Rule, DirectServiceInRule
+from .SecurityPrincipalStore import SecurityPrincipalStore
 from .Service import Service
-from .tmp import find_connector_or_die
+from .ServiceStore import ServiceStore
+from .stores import LabelStore
+from .VirtualServiceStore import VirtualServiceStore
+from .WorkloadStore import WorkloadStore
 
 ruleset_id_extraction_regex = re.compile(r"^/orgs/([0-9]+)/sec_policy/([0-9]+)?(draft)?/rule_sets/(?P<id>[0-9]+)$")
 
@@ -18,36 +24,27 @@ class RulesetScope:
     def __init__(self):
         self.scope_entries: Set[RulesetScopeEntry] = set()
 
-    def load_from_json(self, data):
+    def load_from_json(self, data, label_store: LabelStore):
         for scope_json in data:
-            scope_entry = RulesetScopeEntry(self)
-            scope_entry.load_from_json(scope_json)
+            scope_entry = RulesetScopeEntry()
+            scope_entry.load_from_json(scope_json, label_store)
             self.scope_entries.add(scope_entry)
 
     def get_all_scopes_str(self, label_separator='|', scope_separator="\n", use_href: bool = False):
-        result = ''
-        for scope in self.scope_entries:
-            if len(result) < 1:
-                result += scope.to_string(label_separator,use_href=use_href)
-            else:
-                result += scope_separator
-                result += scope.to_string(label_separator,use_href=use_href)
-
-        return result
+        return scope_separator.join([scope.to_string(label_separator, use_href=use_href) for scope in self.scope_entries])
 
 
 class RulesetScopeEntry:
 
-    def __init__(self, owner: 'RulesetScope'):
-        self.owner: RulesetScope = owner
-        self.loc_label = None
-        self.env_label = None
-        self.app_label = None
+    def __init__(self):
+        self.labels: Dict[LabelType, Label] = {
+            LabelType.APP: None,
+            LabelType.ENV: None,
+            LabelType.LOC: None
+        }
 
-    def load_from_json(self, data):
+    def load_from_json(self, data, label_store: LabelStore):
         self.loc_label = None
-        #log.error(nice_json(data))
-        l_store = self.owner.owner.owner.owner.LabelStore
         for label_json in data:
             label_entry = label_json.get('label')
             if label_entry is None:
@@ -58,65 +55,27 @@ class RulesetScopeEntry:
             if href_entry is None:
                 raise PyloEx("Cannot find 'href' entry in scope: {}".format(nice_json(data)))
 
-            label = l_store.find_by_href_or_die(href_entry)
-            if label.type_is_location():
-                self.loc_label = label
-            elif label.type_is_environment():
-                self.env_label = label
-            elif label.type_is_application():
-                self.app_label = label
-            else:
-                raise PyloEx("Unsupported label type '{}' named '{}' in scope of ruleset '{}'/'{}'".format(label.label_type.name,
-                                                                                                                label.name,
-                                                                                                                self.owner.owner.href,
-                                                                                                                self.owner.owner.name))
+            label = label_store.find_by_href_or_die(href_entry)
+            self.labels[label.label_type] = label
 
     def to_string(self, label_separator = '|', use_href=False):
-        string = 'All' + label_separator
-        if self.app_label is not None:
-            if use_href:
-                string = self.app_label.href + label_separator
-            else:
-                string = self.app_label.name + label_separator
-
-        if self.env_label is None:
-            string += 'All' + label_separator
-        else:
-            if use_href:
-                string += self.env_label.href + label_separator
-            else:
-                string += self.env_label.name + label_separator
-
-        if self.loc_label is None:
-            string += 'All'
-        else:
-            if use_href:
-                string += self.loc_label.href
-            else:
-                string += self.loc_label.name
-
-        return string
+        return label_separator.join(['All' if not label else label.href if use_href else label.name for label in self.labels])
 
     def is_all_all_all(self):
-        if self.app_label is None and self.env_label is None and self.loc_label is None:
-            return True
-        return False
+        return self.labels[LabelType.APP] is None and self.labels[LabelType.ENV] is None and self.labels[LabelType.LOC] is None
 
 
 class Ruleset:
 
-    name: str
-    href: Optional[str]
-    description: str
-
     def __init__(self):
-        self.href = None
+        self.href = ''
         self.name = ''
         self.description = ''
-        self.scopes = RulesetScope(self)
+        self.scopes = RulesetScope()
         self.rules_by_href: Dict[str, Rule] = {}
 
-    def load_from_json(self, data):
+    def load_from_json(self, data: dict, service_store: ServiceStore, workload_store: WorkloadStore, label_store: LabelStore,
+                    virtual_service_store: VirtualServiceStore, iplist_store: IPListStore, security_principal_store: SecurityPrincipalStore):
         if 'name' not in data:
             raise PyloEx("Cannot find Ruleset name in JSON data: \n" + nice_json(data))
         self.name = data['name']
@@ -128,23 +87,21 @@ class Ruleset:
         if 'scopes' not in data:
             raise PyloEx("Cannot find Ruleset scope in JSON data: \n" + nice_json(data))
 
-        self.description = data.get('description')
-        if self.description is None:
-            self.description = ''
-
-        self.scopes.load_from_json(data['scopes'])
+        self.description = data.get('description', '')
+        self.scopes.load_from_json(data['scopes'], label_store)
 
         if 'rules' in data:
             for rule_data in data['rules']:
-                self.load_single_rule_from_json(rule_data)
+                self.load_single_rule_from_json(rule_data, service_store, workload_store, label_store, virtual_service_store, iplist_store, security_principal_store)
 
-    def load_single_rule_from_json(self, rule_data) -> 'Rule':
-        new_rule = Rule(self)
-        new_rule.load_from_json(rule_data)
+    def load_single_rule_from_json(self, rule_data, service_store: ServiceStore, workload_store: WorkloadStore, label_store: LabelStore,
+                    virtual_service_store: VirtualServiceStore, iplist_store: IPListStore, security_principal_store: SecurityPrincipalStore) -> Rule:
+        new_rule = Rule()
+        new_rule.load_from_json(rule_data, service_store, workload_store, label_store, virtual_service_store, iplist_store, security_principal_store)
         self.rules_by_href[new_rule.href] = new_rule
         return new_rule
 
-    def api_delete_rule(self, rule: Union[str, 'Rule']):
+    def api_delete_rule(self, rule: Union[str, Rule], connector: APIConnector):
         """
 
         :param rule: should be href string or a Rule object
@@ -157,29 +114,28 @@ class Ruleset:
         if find_object is None:
             raise PyloEx("Cannot delete a Rule with href={} which is not part of ruleset {}/{}".format(href, self.name, self.href))
 
-        self.owner.owner.connector.objects_rule_delete(href)
+        connector.objects_rule_delete(href)
         del self.rules_by_href[href]
 
     def api_create_rule(self, intra_scope: bool,
                         consumers: List[Union[IPList, Label, LabelGroup, Dict]],
                         providers: List[Union[IPList, Label, LabelGroup, Dict]],
                         services: List[Union[Service, DirectServiceInRule, Dict]],
+                        connector: APIConnector,
                         description='', machine_auth=False, secure_connect=False, enabled=True,
                         stateless=False, consuming_security_principals=[],
                         resolve_consumers_as_virtual_services=True, resolve_consumers_as_workloads=True,
-                        resolve_providers_as_virtual_services=True, resolve_providers_as_workloads=True) -> 'Rule':
-
-        new_rule_json = self.owner.owner.connector.objects_rule_create(
+                        resolve_providers_as_virtual_services=True, resolve_providers_as_workloads=True) -> Rule:
+        new_rule_json = connector.objects_rule_create(
             intra_scope=intra_scope, ruleset_href=self.href,
             consumers=consumers, providers=providers, services=services,
             description=description, machine_auth=machine_auth, secure_connect=secure_connect, enabled=enabled,
             stateless=stateless, consuming_security_principals=consuming_security_principals,
-            resolve_consumers_as_virtual_services=resolve_providers_as_virtual_services,
+            resolve_consumers_as_virtual_services=resolve_consumers_as_virtual_services,
             resolve_consumers_as_workloads=resolve_consumers_as_workloads,
             resolve_providers_as_virtual_services=resolve_providers_as_virtual_services,
             resolve_providers_as_workloads=resolve_providers_as_workloads
         )
-
         return self.load_single_rule_from_json(new_rule_json)
 
     def count_rules(self):
@@ -192,24 +148,18 @@ class Ruleset:
 
         return match.group("id")
 
-    def get_ruleset_url(self, pce_hostname: str = None, pce_port: int = None):
-        if pce_hostname is None or pce_port is None:
-            connector = find_connector_or_die(self)
-            if pce_hostname is None:
-                pce_hostname = connector.hostname
-            if pce_port is None:
-                pce_port = connector.port
+    def get_ruleset_url(self, connector: APIConnector, pce_hostname: str = None, pce_port: int = None):
+        if pce_hostname is None:
+            pce_hostname = connector.hostname
+        if pce_port is None:
+            pce_port = connector.port
 
         return 'https://{}:{}/#/rulesets/{}/draft/rules/'.format(pce_hostname, pce_port, self.extract_id_from_href())
 
-    def api_set_name(self, new_name: str):
-        find_collision = self.owner.find_ruleset_by_name(new_name)
-        if find_collision is not self:
-            raise PyloEx("A Ruleset with name '{}' already exists".format(new_name))
-
-        self.owner.owner.connector.objects_ruleset_update(self.href, update_data={'name': new_name})
+    def api_set_name(self, new_name: str, connector: APIConnector):
+        connector.objects_ruleset_update(self.href, update_data={'name': new_name})
         self.name = new_name
 
-    def api_set_description(self, new_description: str):
-        self.owner.owner.connector.objects_ruleset_update(self.href, update_data={'description': new_description})
+    def api_set_description(self, new_description: str, connector: APIConnector):
+        connector.objects_ruleset_update(self.href, update_data={'description': new_description})
         self.description = new_description

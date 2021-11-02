@@ -4,11 +4,9 @@ import datetime
 import getpass
 from typing import Optional, List
 
-from pylo.LabelGroup import LabelGroup
-
 from .Helpers import LABEL_SEPARATOR
-from .Label import Label
-from .LabelStore import LabelStore
+from .policyobjects import Label
+from .stores import LabelStore
 from .IPListStore import IPListStore
 from .WorkloadStore import WorkloadStore
 from .VirtualServiceStore import VirtualServiceStore
@@ -26,14 +24,14 @@ class Organization:
     def __init__(self, org_id):
         self.id: int = org_id
         self.connector = None
-        self.LabelStore = LabelStore(self)
-        self.IPListStore = IPListStore(self)
-        self.WorkloadStore = WorkloadStore(self)
-        self.VirtualServiceStore = VirtualServiceStore(self)
-        self.VENAgentStore = VENAgentStore(self)
-        self.ServiceStore = ServiceStore(self)
-        self.RulesetStore = RulesetStore(self)
-        self.SecurityPrincipalStore = SecurityPrincipalStore(self)
+        self.LabelStore = LabelStore()
+        self.IPListStore = IPListStore()
+        self.WorkloadStore = WorkloadStore()
+        self.VirtualServiceStore = VirtualServiceStore()
+        self.VENAgentStore = VENAgentStore()
+        self.ServiceStore = ServiceStore()
+        self.RulesetStore = RulesetStore()
+        self.SecurityPrincipalStore = SecurityPrincipalStore()
         self.pce_version = None
         self.label_resolution_cache = {}
 
@@ -118,30 +116,29 @@ class Organization:
 
         self.load_from_api(connector, include_deleted_workloads=include_deleted_workloads, list_of_objects_to_load=list_of_objects_to_load)
 
-    def load_from_json(self, data,  list_of_objects_to_load: Optional[List[str]] = None):
+    def load_from_json(self, data,  list_of_objects_to_load: List[str] = None):
+        if self.pce_version is None:
+            raise PyloEx('Organization has no "version" specified')
 
         object_to_load = {}
+        all_types = APIConnector.get_all_object_types()
         if list_of_objects_to_load is not None:
-            all_types = APIConnector.get_all_object_types()
             for object_type in list_of_objects_to_load:
                 if object_type not in all_types:
                     raise PyloEx("Unknown object type '{}'".format(object_type))
                 object_to_load[object_type] = True
         else:
-            object_to_load = APIConnector.get_all_object_types()
-
-        if self.pce_version is None:
-            raise PyloEx('Organization has no "version" specified')
+            object_to_load = all_types
 
         if 'labels' in object_to_load:
             if 'labels' not in data:
                 raise Exception("'labels' was not found in json data")
-            self.LabelStore.load_labels_from_json(data['labels'])
+            self.LabelStore.load_from_json(data['labels'])
 
         if 'labelgroups' in object_to_load:
             if 'labelgroups' not in data:
                 raise Exception("'labelgroups' was not found in json data")
-            self.LabelStore.load_label_groups_from_json(data['labelgroups'])
+            self.LabelStore.load_from_json(data['labelgroups'])
 
         if 'iplists' in object_to_load:
             if 'iplists' not in data:
@@ -156,7 +153,7 @@ class Organization:
         if 'workloads' in object_to_load:
             if 'workloads' not in data:
                 raise Exception("'workloads' was not found in json data")
-            self.WorkloadStore.load_workloads_from_json(data['workloads'])
+            self.WorkloadStore.load_workloads_from_json(data['workloads'], self.LabelStore, self.VENAgentStore)
 
         if 'virtual_services' in object_to_load:
             if 'virtual_services' not in data:
@@ -166,12 +163,13 @@ class Organization:
         if 'security_principals' in object_to_load:
             if 'security_principals' not in data:
                 raise Exception("'security_principals' was not found in json data")
-            self.SecurityPrincipalStore.load_principals_from_json(data['security_principals'])
+            self.SecurityPrincipalStore.load_from_json(data['security_principals'])
 
         if 'rulesets' in object_to_load:
             if 'rulesets' not in data:
                 raise Exception("'rulesets' was not found in json data")
-            self.RulesetStore.load_rulesets_from_json(data['rulesets'])
+            self.RulesetStore.load_rulesets_from_json(data['rulesets'], self.ServiceStore, self.WorkloadStore,
+                self.LabelStore, self.VirtualServiceStore, self.IPListStore, self.SecurityPrincipalStore)
 
     def load_from_api(self, con: APIConnector, include_deleted_workloads=False, list_of_objects_to_load: Optional[List[str]] = None):
         self.pce_version = con.getSoftwareVersion()

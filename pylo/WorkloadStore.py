@@ -1,8 +1,11 @@
 from typing import Optional, List, Dict
 
+from .stores import LabelStore
+from .VENAgentStore import VENAgentStore
+
 from .Exception import PyloEx
 from .Helpers import nice_json
-from .Label import Label
+from .policyobjects import Label
 from .tmp import log
 from .Workload import Workload
 
@@ -12,7 +15,7 @@ class WorkloadStore:
     def __init__(self):
         self.items_by_href: Dict[str, Workload] = {}
 
-    def load_workloads_from_json(self, json_list):
+    def load_workloads_from_json(self, json_list, label_store: LabelStore, ven_agent_store: VENAgentStore):
         for json_item in json_list:
             if 'name' not in json_item or 'href' not in json_item:
                 raise PyloEx("Cannot find 'value'/name or href for Workload in JSON:\n" + nice_json(json_item))
@@ -27,8 +30,8 @@ class WorkloadStore:
                     raise PyloEx("Cannot find 'value'/hostname in JSON:\n" + nice_json(json_item))
                 new_item_name = json_item['hostname']
 
-            new_item = Workload(new_item_name, new_item_href, self)
-            new_item.load_from_json(json_item)
+            new_item = Workload(new_item_name, new_item_href)
+            new_item.load_from_json(json_item, label_store, ven_agent_store)
 
             if new_item_href in self.items_by_href:
                 raise PyloEx("A Workload with href '%s' already exists in the table", new_item_href)
@@ -63,7 +66,7 @@ class WorkloadStore:
         if find_object is not None:
             return find_object
 
-        new_tmp_item = Workload(tmp_wkl_name, href, self)
+        new_tmp_item = Workload(tmp_wkl_name, href)
         new_tmp_item.deleted = True
         new_tmp_item.temporary = True
 
@@ -236,5 +239,3 @@ class WorkloadStore:
                 count += 1
 
         return count
-
-

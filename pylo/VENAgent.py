@@ -4,16 +4,13 @@ from .Exception import PyloEx
 from .ReferenceTracker import ReferenceTracker
 from .SoftwareVersion import SoftwareVersion
 from .tmp import log
-from .Workload import Workload
 
 
 class VENAgent(ReferenceTracker):
 
-    def __init__(self, href: str, owner, workload: Workload = None):
-        super().__init__(self)
+    def __init__(self, href: str):
+        super().__init__()
         self.href = href
-        self.owner = owner
-        self.workload = workload
 
         self.software_version = None
         self._last_heartbeat = None
@@ -49,11 +46,10 @@ class VENAgent(ReferenceTracker):
             raise PyloEx("Cannot find VENAgent version from '{}'".format(self.href))
         self.software_version = SoftwareVersion(version_string)
         if self.software_version.is_unknown:
-            log.warn("Agent {} from Workload {}/{} has unknown software version: {}".format(
+            log.warn("Agent {} has unknown software version: {}".format(
                 self.href,
-                self.workload.get_name(),
-                self.workload.href,
-                self.software_version.version_string))
+                self.software_version.version_string)
+            )
 
         self._status_security_policy_sync_state = status_json.get('security_policy_sync_state')
 

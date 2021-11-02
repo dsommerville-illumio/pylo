@@ -3,17 +3,16 @@ import time
 import os
 import getpass
 
-try:
-    import requests as requests
-except ImportError:
-    import pylo.vendors.requests as requests
-
 from threading import Thread
 from queue import Queue
 from datetime import datetime, timedelta
+from typing import Union, Dict, Any, List, Optional
+
+try:
+    import requests
+except ImportError:
+    import pylo.vendors.requests as requests
 import pylo
-from pylo import log
-from typing import Union, Dict, Any, List, Optional, Tuple
 
 
 requests.packages.urllib3.disable_warnings()
@@ -136,49 +135,23 @@ class APIConnector:
 
         return url
 
-    def do_get_call(self, path, json_arguments=None, include_org_id=True, json_output_expected=True, async_call=False, params=None, skip_product_version_check=False,
-                    retry_count_if_api_call_limit_reached=default_retry_count_if_api_call_limit_reached,
-                    retry_wait_time_if_api_call_limit_reached=default_retry_wait_time_if_api_call_limit_reached,
-                    return_headers: bool = False):
+    def do_get_call(self, path, **kwargs):
+        return self._doCall('GET', path, **kwargs)
 
-        return self._doCall('GET', path, json_arguments=json_arguments, include_org_id=include_org_id,
-                            json_output_expected=json_output_expected, async_call=async_call, skip_product_version_check=skip_product_version_check, params=params,
-                            retry_count_if_api_call_limit_reached=retry_count_if_api_call_limit_reached,
-                            retry_wait_time_if_api_call_limit_reached=retry_wait_time_if_api_call_limit_reached,
-                            return_headers=return_headers)
+    def do_post_call(self, path, **kwargs):
+        return self._doCall('POST', path, **kwargs)
 
-    def do_post_call(self, path, json_arguments=None, include_org_id=True, json_output_expected=True, async_call=False,
-                     retry_count_if_api_call_limit_reached=default_retry_count_if_api_call_limit_reached,
-                     retry_wait_time_if_api_call_limit_reached=default_retry_wait_time_if_api_call_limit_reached):
+    def do_put_call(self, path, **kwargs):
+        return self._doCall('PUT', path, **kwargs)
 
-        return self._doCall('POST', path, json_arguments=json_arguments, include_org_id=include_org_id,
-                            json_output_expected=json_output_expected, async_call=async_call,
-                            retry_count_if_api_call_limit_reached=retry_count_if_api_call_limit_reached,
-                            retry_wait_time_if_api_call_limit_reached=retry_wait_time_if_api_call_limit_reached)
-
-    def do_put_call(self, path, json_arguments=None, include_org_id=True, json_output_expected=True, async_call=False,
-                    retry_count_if_api_call_limit_reached=default_retry_count_if_api_call_limit_reached,
-                    retry_wait_time_if_api_call_limit_reached=default_retry_wait_time_if_api_call_limit_reached):
-
-        return self._doCall('PUT', path, json_arguments=json_arguments, include_org_id=include_org_id,
-                            json_output_expected=json_output_expected, async_call=async_call,
-                            retry_count_if_api_call_limit_reached=retry_count_if_api_call_limit_reached,
-                            retry_wait_time_if_api_call_limit_reached=retry_wait_time_if_api_call_limit_reached)
-
-    def do_delete_call(self, path, json_arguments = None, include_org_id=True, json_output_expected=True, async_call=False,
-                       retry_count_if_api_call_limit_reached=default_retry_count_if_api_call_limit_reached,
-                       retry_wait_time_if_api_call_limit_reached=default_retry_wait_time_if_api_call_limit_reached):
-
-        return self._doCall('DELETE', path, json_arguments=json_arguments, include_org_id=include_org_id,
-                            json_output_expected=json_output_expected, async_call=async_call,
-                            retry_count_if_api_call_limit_reached=retry_count_if_api_call_limit_reached,
-                            retry_wait_time_if_api_call_limit_reached=retry_wait_time_if_api_call_limit_reached)
+    def do_delete_call(self, path, **kwargs):
+        return self._doCall('DELETE', path, **kwargs)
 
     def _doCall(self, method, path, json_arguments=None, include_org_id=True, json_output_expected=True, async_call=False,
                 skip_product_version_check=False, params=None,
                 retry_count_if_api_call_limit_reached=default_retry_count_if_api_call_limit_reached,
                 retry_wait_time_if_api_call_limit_reached=default_retry_wait_time_if_api_call_limit_reached,
-                return_headers: bool = False):
+                return_headers=False):
 
         if self.version is None and not skip_product_version_check:
             self.collect_pce_infos()
@@ -195,7 +168,7 @@ class APIConnector:
 
         while True:
 
-            log.info("Request URL: " + url)
+            pylo.log.info("Request URL: " + url)
 
             try:
                 req = self._cached_session.request(method, url, headers=headers, auth=(self.api_user, self.api_key),
@@ -205,11 +178,11 @@ class APIConnector:
 
 
             answerSize = len(req.content) / 1024
-            log.info("URL downloaded (size "+str( int(answerSize) )+"KB) Reply headers:\n" +
+            pylo.log.info("URL downloaded (size "+str( int(answerSize) )+"KB) Reply headers:\n" +
                      "HTTP " + method + " " + url + " STATUS " + str(req.status_code) + " " + req.reason)
-            log.info(req.headers)
-            # log.info("Request Body:" + pylo.nice_json(json_arguments))
-            # log.info("Request returned code "+ str(req.status_code) + ". Raw output:\n" + req.text[0:2000])
+            pylo.log.info(req.headers)
+            pylo.log.debug("Request Body:" + pylo.nice_json(json_arguments))
+            pylo.log.debug("Request returned code "+ str(req.status_code) + ". Raw output:\n" + req.text[0:2000])
 
             if async_call:
                 if method == 'GET' and req.status_code != 202:
@@ -230,7 +203,7 @@ class APIConnector:
                 retryLoopTimes = 0
 
                 while True:
-                    log.info("Sleeping " + str(retryInterval) + " seconds before polling for job status, elapsed " + str(retryInterval*retryLoopTimes) + " seconds so far" )
+                    pylo.log.info("Sleeping " + str(retryInterval) + " seconds before polling for job status, elapsed " + str(retryInterval*retryLoopTimes) + " seconds so far" )
                     retryLoopTimes += 1
                     time.sleep(retryInterval)
                     jobPoll = self.do_get_call(jobLocation, include_org_id=False)
@@ -253,20 +226,17 @@ class APIConnector:
                         resultHref = jobPoll['result']['href']
                         break
 
-                    log.info("Job status is " + jobPollStatus)
+                    pylo.log.info("Job status is " + jobPollStatus)
 
-                log.info("Job is done, we will now download the resulting dataset")
+                pylo.log.info("Job is done, we will now download the resulting dataset")
                 dataset = self.do_get_call(resultHref, include_org_id=False)
 
                 return dataset
 
-            if method == 'GET' and req.status_code != 200 \
-                    or\
-                    method == 'POST' and req.status_code != 201 and req.status_code != 204 and req.status_code != 200 \
-                    or\
-                    method == 'DELETE' and req.status_code != 204 \
-                    or \
-                    method == 'PUT' and req.status_code != 204 and req.status_code != 200:
+            if ((method == 'GET' and req.status_code != 200)
+                or (method == 'POST' and req.status_code != 201 and req.status_code != 204 and req.status_code != 200)
+                or (method == 'DELETE' and req.status_code != 204)
+                or (method == 'PUT' and req.status_code != 204 and req.status_code != 200)):
 
                 if req.status_code == 429:  # too many requests sent in short amount of time? [{"token":"too_many_requests_error", ....}]
                     jout = req.json()
@@ -277,7 +247,7 @@ class APIConnector:
                                     raise pylo.PyloApiTooManyRequestsEx('API has hit DOS protection limit (X calls per minute)', jout)
 
                                 retry_count_if_api_call_limit_reached = retry_count_if_api_call_limit_reached - 1
-                                log.info("API has returned 'too_many_requests_error', we will sleep for {} seconds and retry {} more times".format(retry_wait_time_if_api_call_limit_reached,
+                                pylo.log.info("API has returned 'too_many_requests_error', we will sleep for {} seconds and retry {} more times".format(retry_wait_time_if_api_call_limit_reached,
                                                                                                                                                    retry_count_if_api_call_limit_reached))
                                 time.sleep(retry_wait_time_if_api_call_limit_reached)
                                 continue
@@ -290,14 +260,14 @@ class APIConnector:
                 return req.headers
 
             if json_output_expected:
-                log.info("Parsing API answer to JSON (with a size of " + str( int(answerSize) ) + "KB)")
+                pylo.log.info("Parsing API answer to JSON (with a size of " + str( int(answerSize) ) + "KB)")
                 jout = req.json()
-                log.info("Done!")
+                pylo.log.info("Done!")
                 if answerSize < 5:
-                    log.info("Resulting JSON object:")
-                    log.info(json.dumps(jout, indent=2, sort_keys=True))
+                    pylo.log.info("Resulting JSON object:")
+                    pylo.log.info(json.dumps(jout, indent=2, sort_keys=True))
                 else:
-                    log.info("Answer is too large to be printed")
+                    pylo.log.info("Answer is too large to be printed")
                 return jout
 
             return req.text
@@ -447,15 +417,10 @@ class APIConnector:
     def policy_check(self, protocol, port=None, src_ip=None, src_href=None, dst_ip=None, dst_href=None,
                      retry_count_if_api_call_limit_reached=default_retry_count_if_api_call_limit_reached,
                      retry_wait_time_if_api_call_limit_reached=default_retry_wait_time_if_api_call_limit_reached):
-
-        if type(port) is str:
-            lower = protocol.lower()
-            if lower == 'udp':
-                protocol = 17
-            elif lower == 'tcp':
-                protocol = 6
-            else:
-                raise pylo.PyloEx("Unsupported protocol '{}'".format(protocol))
+        try:
+            protocol = pylo.convert_protocol(protocol)
+        except Exception as e:
+            raise pylo.PyloEx("Unsupported protocol name '{}'".format(protocol)) from e
 
         if src_ip is None and src_href is None:
             raise pylo.PyloEx('src_ip and src_href cannot be both null')
@@ -582,10 +547,6 @@ class APIConnector:
         return self.do_put_call(path=path, json_arguments=json_object)
 
     def objects_workload_delete(self, href):
-        """
-
-        :type href: str|pylo.Workload
-        """
         path = href
         if type(href) is pylo.Workload:
             path = href.href
@@ -653,7 +614,7 @@ class APIConnector:
             if len(agents_to_unpair) > 0:
                 self._unpair_agents(agents_to_unpair)
 
-        def _unpair_agents(self, workloads_hrefs: [str]):
+        def _unpair_agents(self, workloads_hrefs: List[str]):
             for href in workloads_hrefs:
                 retryCount = 5
                 api_result = None
@@ -684,11 +645,6 @@ class APIConnector:
         return APIConnector.WorkloadMultiDeleteTracker(self)
 
     def objects_workload_delete_multi(self, href_or_workload_array):
-        """
-
-        :type href_or_workload_array: list[str]|list[pylo.Workload]
-        """
-
         if len(href_or_workload_array) < 1:
             return
 
@@ -702,18 +658,11 @@ class APIConnector:
             for href in href_or_workload_array:
                 json_data.append({"href": href.href})
 
-        # print(json_data)
-
         path = "/workloads/bulk_delete"
 
         return self.do_put_call(path=path, json_arguments=json_data, json_output_expected=True)
 
     def objects_workload_unpair_multi(self, href_or_workload_array):
-        """
-
-        :type href_or_workload_array: list[str]|list[pylo.Workload]
-        """
-
         if len(href_or_workload_array) < 1:
             return
 
@@ -726,11 +675,8 @@ class APIConnector:
             for href in href_or_workload_array:
                 json_data['workloads'].append({"href": href})
         else:
-            href: 'pylo.Workload'
             for href in href_or_workload_array:
                 json_data['workloads'].append({"href": href.href})
-
-        # print(json_data)
 
         path = "/workloads/unpair"
 
@@ -1323,13 +1269,12 @@ class APIConnector:
                             self.destination_workload_labels_href.append(label_data.get('href'))
 
                 service_json = data['service']
-                self.service_json = service_json
+                self.service_entry = pylo.ServiceEntry.create_from_json(service_json)
 
-                self.service_protocol = service_json['proto']
-                self.service_port = service_json.get('port')
-                self.process_name = service_json.get('process_name')
-                self.username = service_json.get('user_name')
-
+                self.service_protocol = self.service_entry.protocol
+                self.service_port = self.service_entry.port
+                self.process_name = self.service_entry.process_name
+                self.username = self.service_entry.user_name
 
                 self.first_detected = data['timestamp_range']['first_detected']
                 self.last_detected = data['timestamp_range']['last_detected']
@@ -1338,24 +1283,7 @@ class APIConnector:
 
 
             def service_to_str(self, protocol_first=True):
-                if protocol_first:
-                    if self.service_port is None or self.service_port == 0:
-                        return 'proto/{}'.format(self.service_protocol)
-
-                    if self.service_protocol == 17:
-                        return 'udp/{}'.format(self.service_port)
-
-                    if self.service_protocol == 6:
-                        return 'tcp/{}'.format(self.service_port)
-                else:
-                    if self.service_port is None or self.service_port == 0:
-                        return '{}/proto'.format(self.service_protocol)
-
-                    if self.service_protocol == 17:
-                        return '{}/udp'.format(self.service_port)
-
-                    if self.service_protocol == 6:
-                        return '{}/tcp'.format(self.service_port)
+                return self.service_entry.to_string_standard(protocol_first)
 
             def source_is_workload(self):
                 return self.source_workload_href is not None
@@ -1512,7 +1440,7 @@ class APIConnector:
                 for record in result:
                     service_json: Dict = record.service_json.copy()
                     service_json['protocol'] = service_json.pop('proto')
-                    if 'port' in service_json and service_json['protocol'] != 17 and service_json['protocol'] != 6:
+                    if 'port' in service_json and not pylo.Protocol.has_value(service_json['protocol']):
                         service_json.pop('port')
                     if 'user_name' in service_json:
                         service_json.pop('user_name')
@@ -1585,9 +1513,7 @@ class APIConnector:
                     for query_index in range(local_index, local_last_index+1):
                         query_data.append(global_query_data[query_index])
 
-                    # print(query_data)
                     res = self.owner.rule_coverage_query(query_data)
-                    # print(res)
 
                     edges = res.get('edges')
                     if edges is None:
@@ -1597,17 +1523,12 @@ class APIConnector:
                         raise pylo.PyloEx("rule_coverage has returned {} records while {} where requested".format(len(edges), len(query_data)))
 
                     for query_index in range(local_index, local_last_index+1):
-                        # print(local_index)
-                        # print(query_index)
-                        # print(len(edges))
                         response_data = edges[query_index-local_index]
-                        # print(response_data)
                         if type(response_data) is not list or len(response_data) != 1:
                             raise pylo.PyloEx("rule_coverage has return invalid data: {}\n against query: {}".format(pylo.nice_json(response_data),
                                                                                                                      pylo.nice_json(query_data[query_index])))
 
                         rule_list = response_data[0]
-                        #print(rule_list)
                         explorer_result = draft_reply_to_record_table[query_index]
                         if explorer_result.draft_mode_policy_decision_is_not_defined():
                             explorer_result.set_draft_mode_policy_decision_blocked(blocked=len(rule_list) < 1)
