@@ -1,4 +1,5 @@
 import re
+from collections import OrderedDict
 from typing import List, Union, Dict, Set
 
 from .APIConnector import APIConnector
@@ -37,11 +38,11 @@ class RulesetScope:
 class RulesetScopeEntry:
 
     def __init__(self):
-        self.labels: Dict[LabelType, Label] = {
+        self.labels: Dict[LabelType, Label] = OrderedDict({
             LabelType.APP: None,
             LabelType.ENV: None,
             LabelType.LOC: None
-        }
+        })
 
     def load_from_json(self, data, label_store: LabelStore):
         self.loc_label = None

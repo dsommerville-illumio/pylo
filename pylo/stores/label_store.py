@@ -1,7 +1,8 @@
 import random
+from collections import OrderedDict
 from dataclasses import dataclass
 from hashlib import md5
-from typing import Dict, List
+from typing import Dict, List, Union
 
 from pylo.APIConnector import APIConnector
 from pylo.Exception import PyloEx
@@ -14,16 +15,17 @@ from .store import Store
 
 @dataclass
 class LabelStore(Store):
-    CACHE_LABEL_ALL_STRING = '-All-'
     labels: Dict[int, Dict[str, Label]] = None
 
+    CACHE_LABEL_ALL_STRING = '-All-'
+
     def __post_init__(self):
-        self.labels = {
+        self.labels = OrderedDict({
             LabelType.ROLE: {self.CACHE_LABEL_ALL_STRING: None},
             LabelType.APP: {self.CACHE_LABEL_ALL_STRING: None},
             LabelType.ENV: {self.CACHE_LABEL_ALL_STRING: None},
             LabelType.LOC: {self.CACHE_LABEL_ALL_STRING: None}
-        }
+        })
 
     def load_from_json(self, json_list):
         for json_label in json_list:
@@ -48,9 +50,9 @@ class LabelStore(Store):
                     raise PyloEx('LabelGroup member has no HREF')
         return new_label
 
-    def create_label(self, name: str, label_type: str, href='', label_class=Label) -> Label:
+    def create_label(self, name: str, label_type: Union[str, LabelType], href='', label_class=Label) -> Label:
         href = href or '**fake-label-href**/{}'.format(md5(str(random.random()).encode('utf8')))
-        label_type = LabelType[label_type.upper()]
+        label_type = label_type if type(label_type) is LabelType else LabelType[label_type.upper()]
 
         if href in self.items_by_href:
             raise PyloEx("A Label with href '%s' already exists in the table", href)

@@ -1,16 +1,16 @@
+from collections import OrderedDict
 from dataclasses import dataclass, field
 from typing import Optional, List, Dict, Any
 
-from .stores import LabelStore
-from .VENAgentStore import VENAgentStore
 from .APIConnector import APIConnector
-
 from .Exception import PyloEx
 from .Helpers import LabelType, nice_json, string_list_to_text
 from .IPMap import IP4Map
 from .policyobjects import Label
 from .ReferenceTracker import Referencer, ReferenceTracker
+from .stores import LabelStore
 from .VENAgent import VENAgent
+from .VENAgentStore import VENAgentStore
 
 
 class WorkloadInterface:
@@ -61,12 +61,12 @@ class Workload(ReferenceTracker, Referencer):
     def __post_init__(self):
         Referencer.__init__(self)
         ReferenceTracker.__init__(self)
-        self.labels = {
+        self.labels = OrderedDict({
             LabelType.ROLE: None,
             LabelType.APP: None,
             LabelType.ENV: None,
             LabelType.LOC: None
-        }
+        })
 
     def load_from_json(self, data, label_store: LabelStore, ven_agent_store: VENAgentStore):
         """
