@@ -17,7 +17,7 @@ def pce_data():
     return pce_objects
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture
 def mock_pce(pce_data):
     org = pylo.Organization(49)
     org.pce_version = pylo.SoftwareVersion(pce_data['pce_version'])
