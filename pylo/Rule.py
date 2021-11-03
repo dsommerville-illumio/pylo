@@ -5,14 +5,11 @@ from .Exception import PyloEx
 from .Helpers import nice_json, string_list_to_text
 from .IPList import IPList
 from .IPListStore import IPListStore
-from .policyobjects import Label, LabelGroup
-from .stores import LabelStore
+from .policyobjects import Label, LabelGroup, SecurityPrincipal
+from .stores import LabelStore, SecurityPrincipalStore
 from .ReferenceTracker import Referencer
-from .SecurityPrincipal import SecurityPrincipal
-from .SecurityPrincipalStore import SecurityPrincipalStore
 from .Service import Service
 from .ServiceStore import ServiceStore
-from .tmp import find_connector_or_die
 from .Workload import Workload
 from .WorkloadStore import WorkloadStore
 from .VirtualService import VirtualService

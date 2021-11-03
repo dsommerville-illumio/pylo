@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 from pylo.Helpers import LabelType
-from .policy_object import PolicyObject
+from .policyobject import PolicyObject
 
 
 @dataclass

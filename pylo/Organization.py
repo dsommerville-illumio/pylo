@@ -6,14 +6,13 @@ from typing import Optional, List
 
 from .Helpers import LABEL_SEPARATOR
 from .policyobjects import Label
-from .stores import LabelStore
+from .stores import LabelStore, SecurityPrincipalStore
 from .IPListStore import IPListStore
 from .WorkloadStore import WorkloadStore
 from .VirtualServiceStore import VirtualServiceStore
 from .VENAgentStore import VENAgentStore
 from .ServiceStore import ServiceStore
 from .RulesetStore import RulesetStore
-from .SecurityPrincipalStore import SecurityPrincipalStore
 from .SoftwareVersion import SoftwareVersion
 from .Exception import PyloEx
 from .APIConnector import APIConnector
@@ -116,7 +115,7 @@ class Organization:
 
         self.load_from_api(connector, include_deleted_workloads=include_deleted_workloads, list_of_objects_to_load=list_of_objects_to_load)
 
-    def load_from_json(self, data,  list_of_objects_to_load: List[str] = None):
+    def load_from_json(self, data, list_of_objects_to_load: List[str] = None):
         if self.pce_version is None:
             raise PyloEx('Organization has no "version" specified')
 

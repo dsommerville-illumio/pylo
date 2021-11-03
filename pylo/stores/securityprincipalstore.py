@@ -1,13 +1,12 @@
-from .Exception import PyloEx
-from .Helpers import nice_json
-from .SecurityPrincipal import SecurityPrincipal
-from .tmp import log
+from pylo.policyobjects import SecurityPrincipal
+from pylo.Exception import PyloEx
+from pylo.Helpers import nice_json
+from pylo.tmp import log
+
+from .store import Store
 
 
-class SecurityPrincipalStore:
-    def __init__(self):
-        self.items_by_href = {}
-        self.items_by_name = {}
+class SecurityPrincipalStore(Store):
 
     def load_from_json(self, json_list):
         for json_item in json_list:
@@ -26,7 +25,6 @@ class SecurityPrincipalStore:
                     raise PyloEx("Cannot find 'value'/hostname in JSON:\n" + nice_json(json_item))
                 name = json_item['hostname']
 
-
             if href in self.items_by_href:
                 raise PyloEx("A SecurityPrincipal with href '%s' already exists in the table", href)
 
@@ -41,11 +39,3 @@ class SecurityPrincipalStore:
             self.items_by_name[name] = new_item
 
             log.debug("Found SecurityPrincipal '%s' with href '%s'", name, href)
-
-    def find_by_href_or_die(self, href: str):
-
-        find_object = self.items_by_href.get(href)
-        if find_object is None:
-            raise PyloEx("Workload with HREF '%s' was not found" % href)
-
-        return find_object

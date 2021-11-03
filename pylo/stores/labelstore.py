@@ -95,9 +95,6 @@ class LabelStore(Store):
     def count_role_labels(self):
         return len(self.labels[LabelType.ROLE])
 
-    def find_by_href_or_die(self, href: str) -> Label:
-        return self.items_by_href[href]
-
     def find_by_name(self, name: str, label_type: LabelType = None) -> Label:
         label_maps = [self.labels[label_type]] if label_type else self.labels.values()
         for label_map in label_maps:

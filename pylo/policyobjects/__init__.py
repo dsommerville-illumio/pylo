@@ -1,3 +1,4 @@
-from .policy_object import PolicyObject
+from .policyobject import PolicyObject
 from .label import Label
-from .label_group import LabelGroup
+from .labelgroup import LabelGroup
+from .securityprincipal import SecurityPrincipal

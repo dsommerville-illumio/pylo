@@ -7,9 +7,8 @@ from .IPListStore import IPListStore
 from .policyobjects import Label
 from .Rule import Rule
 from .Ruleset import Ruleset
-from .SecurityPrincipalStore import SecurityPrincipalStore
 from .ServiceStore import ServiceStore
-from .stores import LabelStore
+from .stores import LabelStore, SecurityPrincipalStore
 from .tmp import log
 from .VirtualServiceStore import VirtualServiceStore
 from .WorkloadStore import WorkloadStore

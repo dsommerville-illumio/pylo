@@ -10,10 +10,9 @@ from .IPList import IPList
 from .IPListStore import IPListStore
 from .policyobjects import Label, LabelGroup
 from .Rule import Rule, DirectServiceInRule
-from .SecurityPrincipalStore import SecurityPrincipalStore
 from .Service import Service
 from .ServiceStore import ServiceStore
-from .stores import LabelStore
+from .stores import LabelStore, SecurityPrincipalStore
 from .VirtualServiceStore import VirtualServiceStore
 from .WorkloadStore import WorkloadStore
 

@@ -1,2 +1,3 @@
 from .store import Store
-from .label_store import LabelStore
+from .labelstore import LabelStore
+from .securityprincipalstore import SecurityPrincipalStore
