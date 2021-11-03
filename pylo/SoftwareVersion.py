@@ -1,4 +1,5 @@
 import re
+from packaging import version
 
 from .Exception import PyloEx
 
@@ -18,6 +19,7 @@ class SoftwareVersion:
 
         if version_string.lower() == 'unknown':
             self.is_unknown = True
+            self.semantic_version = '0.0.0-0'
             return
 
         match = version_regex.match(version_string)
@@ -33,90 +35,22 @@ class SoftwareVersion:
             self.build = 0
         else:
             self.build = int(match.group("build"))
-
-    def is_greater_than(self, target_version: 'SoftwareVersion'):
-        if self.major > target_version.major:
-            return True
-        if target_version.major == self.major:
-            if self.middle > target_version.middle:
-                return True
-            if target_version.middle == self.middle:
-                if self.minor > target_version.minor:
-                    return True
-                if target_version.minor == self.minor:
-                    if self.build > target_version.build:
-                        return True
-
-        return False
-
-    def is_greater_or_equal_than(self, target_version: 'SoftwareVersion'):
-        if self.major > target_version.major:
-            return True
-        if target_version.major == self.major:
-            if self.middle > target_version.middle:
-                return True
-            if target_version.middle == self.middle:
-                if self.minor > target_version.minor:
-                    return True
-                if target_version.minor == self.minor:
-                    if self.build >= target_version.build:
-                        return True
-
-        return False
-
-    def is_lower_than(self, target_version: 'SoftwareVersion'):
-        if self.major < target_version.major:
-            return True
-        if target_version.major == self.major:
-            if self.middle < target_version.middle:
-                return True
-            if target_version.middle == self.middle:
-                if self.minor < target_version.minor:
-                    return True
-                if target_version.minor == self.minor:
-                    if self.build < target_version.build:
-                        return True
-        return False
-
-    def is_lower_or_equal_than(self, target_version: 'SoftwareVersion'):
-        if self.major < target_version.major:
-            return True
-        if target_version.major == self.major:
-            if self.middle < target_version.middle:
-                return True
-            if target_version.middle == self.middle:
-                if self.minor < target_version.minor:
-                    return True
-                if target_version.minor == self.minor:
-                    if self.build <= target_version.build:
-                        return True
-        return False
-
-    def equals(self, target_version: 'SoftwareVersion'):
-        if target_version.major == self.major and target_version.middle == self.middle and \
-                target_version.minor == self.minor and target_version.build == self.build:
-            return True
-        return False
+        self.semantic_version = '{}.{}.{}-{}'.format(self.major, self.middle, self.minor, self.build)
 
     def __lt__(self, other):
-        return self.is_lower_than(other)
+        return version.parse(self.semantic_version) < version.parse(other.semantic_version)
 
     def __le__(self, other):
-        return self.is_lower_or_equal_than(other)
+        return version.parse(self.semantic_version) <= version.parse(other.semantic_version)
 
     def __gt__(self, other):
-        return self.is_greater_than(other)
+        return version.parse(self.semantic_version) > version.parse(other.semantic_version)
 
     def __ge__(self, other):
-        return self.is_greater_or_equal_than(other)
+        return version.parse(self.semantic_version) >= version.parse(other.semantic_version)
 
-    def __eq__(self, target_version):
-        if target_version.major == self.major and target_version.middle == self.middle and \
-                target_version.minor == self.minor and target_version.build == self.build:
-            return True
-        return False
+    def __eq__(self, other):
+        return version.parse(self.semantic_version) == version.parse(other.semantic_version)
 
     def generate_str_from_numbers(self):
         return "{}.{}.{}-{}".format(self.major, self.middle, self.minor, self.build)
-
-
