@@ -29,19 +29,7 @@ def get_logger():
     return log
 
 
-def find_connector_or_die(obj):
-    connector = obj.__dict__.get('connector')
-    if connector is None:
-        owner = obj.__dict__.get('owner')
-        if owner is None:
-            raise Exception("Could not find a Connector object")
-        return find_connector_or_die(owner)
-
-    return connector
-
-
 class IDTranslationTable:
-    """docstring fo ID_TranslationTable."""
 
     def __init__(self):
         self.OldToNew = {}
