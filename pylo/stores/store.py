@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Dict, List
+from typing import Dict
 
 from pylo.Exception import PyloEx
 from pylo.policyobjects import PolicyObject
@@ -20,7 +20,7 @@ class Store(ABC):
             raise PyloEx('HREF "{}" not found in {}'.format(href, self.__class__.__name__))
         return self.items_by_href[href]
 
-    def find_by_name(self, name):
+    def find_by_name(self, name: str) -> PolicyObject:
         if name not in self.items_by_href:
             raise PyloEx('Name "{}" not found in {}'.format(name, self.__class__.__name__))
         return self.items_by_name[name]
