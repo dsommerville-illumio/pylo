@@ -51,7 +51,7 @@ class LabelStore(Store):
         return new_label
 
     def create_label(self, name: str, label_type: Union[str, LabelType], href='', label_class=Label) -> Label:
-        href = href or '**fake-label-href**/{}'.format(md5(str(random.random()).encode('utf8')))
+        href = href or '**fake-label-href**/{}'.format( md5(str(random.random()).encode('utf8')).digest() )
         label_type = label_type if type(label_type) is LabelType else LabelType[label_type.upper()]
 
         if href in self.items_by_href:
